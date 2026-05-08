@@ -1,0 +1,12 @@
+using System.Windows.Controls;
+
+namespace IJPSystem.Platform.HMI.Views
+{
+    public partial class DropWatcherView : UserControl
+    {
+        public DropWatcherView()
+        {
+            InitializeComponent();
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "VisionCameraList": [
+    {
+      "CameraId": "CAM_01",
+      "Name": "NJI Camera",
+      "IpAddress": "192.168.1.101",
+      "SerialNumber": "SN-NJI-001",
+      "PixelWidth": 1920,
+      "PixelHeight": 1080,
+      "DefaultExposureMs": 10.0,
+      "DefaultGain": 1.0,
+      "LightChannel": 0,
+      "VirtualFailRate": 0.05
+    },
+    {
+      "CameraId": "CAM_02",
+      "Name": "Glass Camera",
+      "IpAddress": "192.168.1.102",
+      "SerialNumber": "SN-GLASS-001",
+      "PixelWidth": 2448,
+      "PixelHeight": 2048,
+      "DefaultExposureMs": 15.0,
+      "DefaultGain": 1.0,
+      "LightChannel": 1,
+      "VirtualFailRate": 0.0
+    },
+    {
+      "CameraId": "CAM_DW",
+      "Name": "Drop Watcher Camera",
+      "IpAddress": "192.168.1.103",
+      "SerialNumber": "SN-DW-001",
+      "PixelWidth": 1280,
+      "PixelHeight": 512,
+      "DefaultExposureMs": 0.5,
+      "DefaultGain": 2.0,
+      "LightChannel": 2,
+      "VirtualFailRate": 0.1
+    }
+  ]
+}

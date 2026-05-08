@@ -1,0 +1,2288 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\IJP\\IJPSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\patternprintviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\patternprintviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\print\\patternprintview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\print\\patternprintview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\utilities\\dpiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\utilities\\dpiconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\autoprintsequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\autoprintsequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\logviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\logviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\sequenceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\sequenceviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\maindashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\maindashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\maintenance\\sequenceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\maintenance\\sequenceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\main\\maindashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\main\\maindashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\sequenceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\sequenceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\main\\maindashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\main\\maindashboardview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\interfaces\\imachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\interfaces\\imachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\alarmviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\alarmviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\resources\\languages\\en-us.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\resources\\languages\\en-us.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\resources\\languages\\ko-kr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\resources\\languages\\ko-kr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\log\\logwindowview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\log\\logwindowview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\loc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\loc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\axisviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\axisviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\utilities\\loggerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\utilities\\loggerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.io\\virtualiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|solutionrelative:ijpsystem.drivers.io\\virtualiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\interfaces\\iiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\interfaces\\iiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\purgesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\purgesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\maintenance\\pnidview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\maintenance\\pnidview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\canister.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\canister.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\alarm\\alarmhistoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\alarm\\alarmhistoryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.fluid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.fluid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\pnidviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\pnidviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\ijpsystem.platform.hmi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\ijpsystem.platform.hmi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0920DBCA-DF00-7400-1408-1F931739822B}|0.Config{0920DBCA-DF00-7400-1408-1F931739822B}|D:\\IJP\\IJPSystem\\Config\\AppConfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0920DBCA-DF00-7400-1408-1F931739822B}|0.Config{0920DBCA-DF00-7400-1408-1F931739822B}|solutionrelative:Config\\AppConfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\purgebath.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\purgebath.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\pmc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\pmc.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\motorteachingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\motorteachingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\print\\waveformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\print\\waveformview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\waveformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\waveformviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\inkjetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\inkjetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\inkjetmachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\inkjetmachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\blottingsequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\blottingsequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\utilities\\datetimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\utilities\\datetimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\enums\\loglevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\enums\\loglevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\constants\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\constants\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\pointnames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\pointnames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\reservoir.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\reservoir.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ee8ea4dc964dfc9d68ffbbe12bcb219e5aecdbe74daaead404de2cab67c7f724\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\printhead.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\printhead.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\slotdie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\slotdie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\instrumentbubble.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\instrumentbubble.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\drainbottle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\drainbottle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\recipeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\recipeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\dropwatcherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\dropwatcherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\initializeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\initializeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\njiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\njiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\services\\motionserviceadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\services\\motionserviceadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\models\\waveformsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\models\\waveformsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\models\\waveformpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\models\\waveformpulse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\models\\waveformfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\models\\waveformfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\waveformseries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\waveformseries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\waveformparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\waveformparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\stringtobooleanconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\stringtobooleanconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\signaltotextconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\signaltotextconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\signaltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\signaltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\sensortobgconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\sensortobgconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\progresstowidthconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\progresstowidthconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\logleveltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\logleveltocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\isselectedconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\isselectedconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\inttovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\inttovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\inttoinversevisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\inttoinversevisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\connectiontotextconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\connectiontotextconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\booleantovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\booleantovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\converters\\alarmtocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\converters\\alarmtocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\maintenance\\motor\\motorcontrolview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\maintenance\\motor\\motorcontrolview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\alarm\\alarmdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\alarm\\alarmdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\recipe\\recipeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\recipe\\recipeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\maintenance\\iomonitorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\maintenance\\iomonitorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\main\\initializeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\main\\initializeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\waveformchart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\waveformchart.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\valvecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\valvecontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\motorcontrolviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\motorcontrolviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\iomonitorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\iomonitorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\viewmodels\\glassviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\viewmodels\\glassviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\ijpsystem.machines.inkjet5g.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\ijpsystem.machines.inkjet5g.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\utilities\\pathutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\utilities\\pathutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\vision\\visionimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\vision\\visionimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\vision\\inspectionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\vision\\inspectionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\vision\\camerastatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\vision\\camerastatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\vision\\cameradeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\vision\\cameradeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\motion\\axisstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\motion\\axisstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\motion\\axisitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\motion\\axisitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\motion\\axisdeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\motion\\axisdeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\log\\logmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\log\\logmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\io\\ioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\io\\ioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\io\\iodeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\io\\iodeviceinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\io\\ioconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\io\\ioconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\config\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\config\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\alarm\\alarmmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\alarm\\alarmmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\models\\alarm\\alarmmastermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\models\\alarm\\alarmmastermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C64AD7B0-F69F-B66D-3F60-5D5958DF256E}|IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.motion\\virtualmotiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C64AD7B0-F69F-B66D-3F60-5D5958DF256E}|IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj|solutionrelative:ijpsystem.drivers.motion\\virtualmotiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\interfaces\\imotiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\interfaces\\imotiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\interfaces\\imotionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\interfaces\\imotionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\interfaces\\ivisiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\interfaces\\ivisiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\enums\\stepstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\enums\\stepstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\enums\\machinestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\enums\\machinestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\enums\\levelstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\enums\\levelstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\common\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\common\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\common\\bindablebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\common\\bindablebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.domain\\common\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7254ED9D-D144-EF65-1192-B4617F5988E4}|IJPSystem.Platform.Domain\\IJPSystem.Platform.Domain.csproj|solutionrelative:ijpsystem.platform.domain\\common\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.io\\ethercatiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|solutionrelative:ijpsystem.drivers.io\\ethercatiodriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD3A302B-0F95-3460-9DBF-0B67B61A0D70}|IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.vision\\virtualvisiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD3A302B-0F95-3460-9DBF-0B67B61A0D70}|IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj|solutionrelative:ijpsystem.drivers.vision\\virtualvisiondriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.infrastructure\\repositories\\alarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|solutionrelative:ijpsystem.platform.infrastructure\\repositories\\alarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.infrastructure\\config\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|solutionrelative:ijpsystem.platform.infrastructure\\config\\configloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.infrastructure\\ijpsystem.platform.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA89E170-3B32-0128-5D2F-CC8388240936}|IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj|solutionrelative:ijpsystem.platform.infrastructure\\ijpsystem.platform.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\sequencedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\sequencedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\njisequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\njisequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\maintenancesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\maintenancesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\initializesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\initializesequence.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\ijpsystem.platform.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\ijpsystem.platform.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\sensorindicator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\sensorindicator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\tankvisual.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\tankvisual.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.chuck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.chuck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\maintenance\\pnidview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\maintenance\\pnidview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.safety.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.safety.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|d:\\ijp\\ijpsystem\\ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.lamp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1F93973-30DD-08F9-E407-4DD89A95F132}|IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj|solutionrelative:ijpsystem.machines.inkjet5g\\partials\\inkjetmachine.lamp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\views\\login\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\views\\login\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\canister.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\canister.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\common\\controls\\sensorindicator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\common\\controls\\sensorindicator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.hmi\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2F6195B-85F1-8221-E43A-074F6696EBED}|IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj|solutionrelative:ijpsystem.platform.hmi\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD3A302B-0F95-3460-9DBF-0B67B61A0D70}|IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.vision\\ijpsystem.drivers.vision.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BD3A302B-0F95-3460-9DBF-0B67B61A0D70}|IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj|solutionrelative:ijpsystem.drivers.vision\\ijpsystem.drivers.vision.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.io\\ijpsystem.drivers.io.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DAC7037F-0670-4317-901B-90597EA683C3}|IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj|solutionrelative:ijpsystem.drivers.io\\ijpsystem.drivers.io.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C64AD7B0-F69F-B66D-3F60-5D5958DF256E}|IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj|d:\\ijp\\ijpsystem\\ijpsystem.drivers.motion\\ijpsystem.drivers.motion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C64AD7B0-F69F-B66D-3F60-5D5958DF256E}|IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj|solutionrelative:ijpsystem.drivers.motion\\ijpsystem.drivers.motion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.application\\sequences\\sequencestepdef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EAE688B-BCFA-4200-39C8-1BC9143202F8}|IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj|solutionrelative:ijpsystem.platform.application\\sequences\\sequencestepdef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|d:\\ijp\\ijpsystem\\ijpsystem.platform.common\\ijpsystem.platform.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3265B383-BF22-66B6-2A38-829A44C98594}|IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj|solutionrelative:ijpsystem.platform.common\\ijpsystem.platform.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\5379ee7fbe9dd796744a3812cb8cd4107fbf69f5bc7b33073e12cc254138767f\\ItemCollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ddf527f71c66bcf004d6d2a4393de0339a7ff8baec62a6258bdf7a1cc64ca74d\\Style.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\d1af1769b234626406ba4999490eb004ed59af4984d32a319132ada97bfb6c86\\PropertyPathWorker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\IJP\\IJPSystem\\Config\\TeachingPoints.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Config\\TeachingPoints.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 190,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\MainWindow.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvxgAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T02:10:11.251Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PatternPrintViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\PatternPrintViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\PatternPrintViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\PatternPrintViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\PatternPrintViewModel.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAwHUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T01:40:46.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PatternPrintView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Print\\PatternPrintView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Print\\PatternPrintView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Print\\PatternPrintView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Print\\PatternPrintView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-07T01:14:36.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DpiConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\DpiConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Utilities\\DpiConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\DpiConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Utilities\\DpiConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T23:57:36.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SequenceView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\SequenceView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Maintenance\\SequenceView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\SequenceView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Maintenance\\SequenceView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:42:21.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\MainWindow.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\MainWindow.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-08T02:10:37.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LogViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\LogViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\LogViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\LogViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\LogViewModel.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAIwIIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T05:43:35.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AlarmViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\AlarmViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\AlarmViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\AlarmViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\AlarmViewModel.cs",
+              "ViewState": "AgIAADcBAAAAAAAAAAAiwEcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T05:53:57.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAAkCAAAAAAAAAAAmwBQCAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T02:40:59.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SequenceViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\SequenceViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\SequenceViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\SequenceViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\SequenceViewModel.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAiwLkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T06:53:13.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AutoPrintSequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\AutoPrintSequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\AutoPrintSequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\AutoPrintSequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\AutoPrintSequence.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAkwBMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:45:59.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainDashboardViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MainDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\MainDashboardViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MainDashboardViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\MainDashboardViewModel.cs",
+              "ViewState": "AgIAAPoBAAAAAAAAAAAiwEICAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T12:46:55.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainDashboardView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:40:27.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IMachine.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMachine.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Interfaces\\IMachine.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMachine.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Interfaces\\IMachine.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA9wBQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:00:50.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SequenceRegistry.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceRegistry.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\SequenceRegistry.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceRegistry.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\SequenceRegistry.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAiwCMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T12:52:38.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MainDashboardView.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Main\\MainDashboardView.xaml.cs",
+              "ViewState": "AgIAAM4AAAAAAAAAAAArwNsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T04:33:15.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "InkjetMachine.Fluid.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Fluid.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Fluid.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Fluid.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Fluid.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAArwEcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T14:00:20.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "en-US.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\en-US.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\en-US.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\en-US.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\en-US.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-23T02:15:19.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\App.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\App.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\App.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\App.xaml.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAgwGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T23:39:37.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ko-KR.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\ko-KR.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\ko-KR.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\ko-KR.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Resources\\Languages\\ko-KR.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-05T23:35:09.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "InkjetMachine.Door.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Door.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Door.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Door.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Door.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T14:00:14.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LoggerService.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\LoggerService.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Utilities\\LoggerService.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\LoggerService.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Utilities\\LoggerService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:16:00.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LogWindowView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Log\\LogWindowView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Log\\LogWindowView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Log\\LogWindowView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Log\\LogWindowView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-04T05:41:35.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AxisViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\AxisViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\AxisViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\AxisViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\AxisViewModel.cs",
+              "ViewState": "AgIAAB4BAAAAAAAAAAApwDEBAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T11:59:37.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Loc.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Loc.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Loc.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Loc.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Loc.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T06:28:07.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PnidView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T05:59:26.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VirtualIODriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\VirtualIODriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.IO\\VirtualIODriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\VirtualIODriver.cs",
+              "RelativeToolTip": "IJPSystem.Drivers.IO\\VirtualIODriver.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAiwGoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T06:39:42.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PurgeSequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\PurgeSequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\PurgeSequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\PurgeSequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\PurgeSequence.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAB0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T12:51:25.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IIODriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IIODriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Interfaces\\IIODriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IIODriver.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Interfaces\\IIODriver.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAowDMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T23:44:45.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Canister.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T03:56:23.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "PurgeBath.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PurgeBath.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\PurgeBath.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PurgeBath.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\PurgeBath.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:17:45.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AlarmHistoryView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmHistoryView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmHistoryView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmHistoryView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmHistoryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:46:10.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "WaveformView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Print\\WaveformView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Print\\WaveformView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Print\\WaveformView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Print\\WaveformView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:41:15.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "IJPSystem.Platform.HMI.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\IJPSystem.Platform.HMI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-03T13:28:19.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PnidViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\PnidViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\PnidViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\PnidViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\PnidViewModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAArwBEAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:13:28.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AppConfig.json",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\Config\\AppConfig.json",
+              "RelativeDocumentMoniker": "Config\\AppConfig.json",
+              "ToolTip": "D:\\IJP\\IJPSystem\\Config\\AppConfig.json",
+              "RelativeToolTip": "Config\\AppConfig.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-18T07:45:06.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PMC.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PMC.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\PMC.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PMC.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\PMC.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:17:48.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\GlobalUsings.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\GlobalUsings.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T04:54:35.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "MotorTeachingViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MotorTeachingViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\MotorTeachingViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MotorTeachingViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\MotorTeachingViewModel.cs",
+              "ViewState": "AgIAAFQBAAAAAAAAAADwv2IBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T07:58:21.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "PointNames.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\PointNames.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\PointNames.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\PointNames.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\PointNames.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T01:46:51.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "InkjetController.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\InkjetController.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\InkjetController.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\InkjetController.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\InkjetController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T06:47:26.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "WaveformViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\WaveformViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\WaveformViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\WaveformViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\WaveformViewModel.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAApwJUAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T07:17:13.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "LogLevel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Enums\\LogLevel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Enums\\LogLevel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Enums\\LogLevel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Enums\\LogLevel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T04:18:17.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "BlottingSequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\BlottingSequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\BlottingSequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\BlottingSequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\BlottingSequence.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T09:13:58.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "AppConstants.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Constants\\AppConstants.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Constants\\AppConstants.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Constants\\AppConstants.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Constants\\AppConstants.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvx4AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T04:18:23.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "InkjetMachine.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\InkjetMachine.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\InkjetMachine.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\InkjetMachine.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\InkjetMachine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T23:49:38.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "PrintHead.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PrintHead.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\PrintHead.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\PrintHead.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\PrintHead.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:13:14.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "DateTimeUtils.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\DateTimeUtils.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Utilities\\DateTimeUtils.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\DateTimeUtils.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Utilities\\DateTimeUtils.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAzwBAAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T04:32:25.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "XamlReader.cs",
+              "DocumentMoniker": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ee8ea4dc964dfc9d68ffbbe12bcb219e5aecdbe74daaead404de2cab67c7f724\\XamlReader.cs",
+              "ToolTip": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ee8ea4dc964dfc9d68ffbbe12bcb219e5aecdbe74daaead404de2cab67c7f724\\XamlReader.cs",
+              "ViewState": "AgIAAPEBAAAAAAAAAAArwAICAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T00:53:25.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Reservoir.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Reservoir.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\Reservoir.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Reservoir.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\Reservoir.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:24:16.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "DrainBottle.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\DrainBottle.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\DrainBottle.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\DrainBottle.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\DrainBottle.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:24:11.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "SlotDie.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SlotDie.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\SlotDie.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SlotDie.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\SlotDie.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T00:07:00.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "InstrumentBubble.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\InstrumentBubble.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\InstrumentBubble.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\InstrumentBubble.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\InstrumentBubble.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:24:09.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "RecipeViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\RecipeViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\RecipeViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\RecipeViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\RecipeViewModel.cs",
+              "ViewState": "AgIAAN4CAAAAAAAAAADwv+wCAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T06:11:13.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "InitializeViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\InitializeViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\InitializeViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\InitializeViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\InitializeViewModel.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAAANEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T06:05:58.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "NJIViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\NJIViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\NJIViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\NJIViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\NJIViewModel.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAADwv+gAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T01:12:11.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "DropWatcherViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\DropWatcherViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\DropWatcherViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\DropWatcherViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\DropWatcherViewModel.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAADwv+AAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T07:10:47.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "MotionServiceAdapter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Services\\MotionServiceAdapter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Services\\MotionServiceAdapter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Services\\MotionServiceAdapter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Services\\MotionServiceAdapter.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T00:11:51.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "WaveformSegment.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformSegment.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Models\\WaveformSegment.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformSegment.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Models\\WaveformSegment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T23:03:33.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "WaveformPulse.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformPulse.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Models\\WaveformPulse.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformPulse.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Models\\WaveformPulse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T23:03:27.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "WaveformFile.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformFile.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Models\\WaveformFile.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Models\\WaveformFile.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Models\\WaveformFile.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T23:03:16.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "WaveformSeries.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\WaveformSeries.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\WaveformSeries.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\WaveformSeries.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\WaveformSeries.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T07:40:53.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "WaveformParser.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\WaveformParser.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\WaveformParser.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\WaveformParser.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\WaveformParser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T07:39:29.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "StringToBooleanConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\StringToBooleanConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\StringToBooleanConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\StringToBooleanConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\StringToBooleanConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T00:28:25.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "SignalToTextConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SignalToTextConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\SignalToTextConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SignalToTextConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\SignalToTextConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T01:00:38.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "SignalToColorConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SignalToColorConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\SignalToColorConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SignalToColorConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\SignalToColorConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T01:35:52.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "SensorToBgConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SensorToBgConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\SensorToBgConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\SensorToBgConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\SensorToBgConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T23:31:46.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "ProgressToWidthConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\ProgressToWidthConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\ProgressToWidthConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\ProgressToWidthConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\ProgressToWidthConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T08:09:40.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "LogLevelToColorConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\LogLevelToColorConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\LogLevelToColorConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\LogLevelToColorConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\LogLevelToColorConverter.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAiwAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T01:31:49.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "IsSelectedConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IsSelectedConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\IsSelectedConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IsSelectedConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\IsSelectedConverter.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:30:12.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "IntToVisibilityConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IntToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\IntToVisibilityConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IntToVisibilityConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\IntToVisibilityConverter.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T04:30:28.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "IntToInverseVisibilityConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IntToInverseVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\IntToInverseVisibilityConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\IntToInverseVisibilityConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\IntToInverseVisibilityConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T04:51:36.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "ConnectionToTextConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\ConnectionToTextConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\ConnectionToTextConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\ConnectionToTextConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\ConnectionToTextConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T01:18:40.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "BooleanToVisibilityConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\BooleanToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\BooleanToVisibilityConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\BooleanToVisibilityConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\BooleanToVisibilityConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T00:45:07.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "AlarmToColorConverter.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\AlarmToColorConverter.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Converters\\AlarmToColorConverter.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Converters\\AlarmToColorConverter.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Converters\\AlarmToColorConverter.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwBkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T08:16:35.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "MotorControlView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\Motor\\MotorControlView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Maintenance\\Motor\\MotorControlView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\Motor\\MotorControlView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Maintenance\\Motor\\MotorControlView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:47:41.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "IOMonitorView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\IOMonitorView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Maintenance\\IOMonitorView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\IOMonitorView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Maintenance\\IOMonitorView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T04:56:32.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "RecipeView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Recipe\\RecipeView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Recipe\\RecipeView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Recipe\\RecipeView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Recipe\\RecipeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:42:46.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "AlarmDialog.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmDialog.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmDialog.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmDialog.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Alarm\\AlarmDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-29T23:46:25.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "InitializeView.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\InitializeView.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Main\\InitializeView.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Main\\InitializeView.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Main\\InitializeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T05:02:09.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "WaveformChart.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\WaveformChart.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\WaveformChart.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\WaveformChart.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\WaveformChart.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T02:31:01.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "ValveControl.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\ValveControl.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\ValveControl.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\ValveControl.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\ValveControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T02:31:11.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "MotorControlViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MotorControlViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\MotorControlViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\MotorControlViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\MotorControlViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T00:01:15.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "IOMonitorViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\IOMonitorViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\IOMonitorViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\IOMonitorViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\IOMonitorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T04:52:50.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "GlassViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\GlassViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\ViewModels\\GlassViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\ViewModels\\GlassViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\ViewModels\\GlassViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T07:11:06.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\GlobalUsings.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\GlobalUsings.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:35:18.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "IJPSystem.Machines.Inkjet5G.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\IJPSystem.Machines.Inkjet5G.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-14T06:26:25.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "PathUtils.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\PathUtils.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\Utilities\\PathUtils.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\Utilities\\PathUtils.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\Utilities\\PathUtils.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:16:07.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "VisionImage.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\VisionImage.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Vision\\VisionImage.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\VisionImage.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Vision\\VisionImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:10:00.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "InspectionResult.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\InspectionResult.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Vision\\InspectionResult.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\InspectionResult.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Vision\\InspectionResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:10:00.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "CameraStatus.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\CameraStatus.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Vision\\CameraStatus.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\CameraStatus.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Vision\\CameraStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:09:34.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "AxisItem.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisItem.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisItem.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisItem.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T23:23:19.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "AxisDeviceInfo.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisDeviceInfo.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisDeviceInfo.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisDeviceInfo.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisDeviceInfo.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T13:54:23.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "LogModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Log\\LogModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Log\\LogModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Log\\LogModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Log\\LogModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:06:43.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "AxisStatus.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisStatus.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisStatus.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Motion\\AxisStatus.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Motion\\AxisStatus.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAwBcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T14:16:29.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "CameraDeviceInfo.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\CameraDeviceInfo.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Vision\\CameraDeviceInfo.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Vision\\CameraDeviceInfo.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Vision\\CameraDeviceInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T06:50:46.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "IODeviceInfo.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IODeviceInfo.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\IO\\IODeviceInfo.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IODeviceInfo.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\IO\\IODeviceInfo.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T00:02:25.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "IOConfig.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IOConfig.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\IO\\IOConfig.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IOConfig.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\IO\\IOConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T00:12:50.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Config\\AppSettings.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Config\\AppSettings.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Config\\AppSettings.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Config\\AppSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T02:34:21.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "AlarmModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T05:15:07.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "AlarmMasterModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmMasterModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmMasterModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmMasterModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\Alarm\\AlarmMasterModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T00:44:46.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "IOViewModel.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IOViewModel.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Models\\IO\\IOViewModel.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Models\\IO\\IOViewModel.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Models\\IO\\IOViewModel.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowGAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T00:02:22.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "VirtualMotionDriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Motion\\VirtualMotionDriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.Motion\\VirtualMotionDriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Motion\\VirtualMotionDriver.cs",
+              "RelativeToolTip": "IJPSystem.Drivers.Motion\\VirtualMotionDriver.cs",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAAwNQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T00:26:31.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "IMotionDriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMotionDriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Interfaces\\IMotionDriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMotionDriver.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Interfaces\\IMotionDriver.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T14:07:49.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "IMotionService.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMotionService.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Interfaces\\IMotionService.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IMotionService.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Interfaces\\IMotionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T05:07:30.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "IVisionDriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IVisionDriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Interfaces\\IVisionDriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Interfaces\\IVisionDriver.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Interfaces\\IVisionDriver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T06:01:26.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Enums\\UserRole.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T02:30:04.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "StepStatus.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\StepStatus.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Enums\\StepStatus.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\StepStatus.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Enums\\StepStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T05:59:44.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "LevelStatus.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\LevelStatus.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Enums\\LevelStatus.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\LevelStatus.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Enums\\LevelStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T05:59:05.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 110,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Common\\ViewModelBase.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\ViewModelBase.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Common\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T05:19:12.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 111,
+              "Title": "BindableBase.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\BindableBase.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Common\\BindableBase.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\BindableBase.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Common\\BindableBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T05:27:49.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 112,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Common\\RelayCommand.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Common\\RelayCommand.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Common\\RelayCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T04:33:01.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "MachineState.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\MachineState.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Domain\\Enums\\MachineState.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Domain\\Enums\\MachineState.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Domain\\Enums\\MachineState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T06:54:30.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 113,
+              "Title": "EtherCatIODriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\EtherCatIODriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.IO\\EtherCatIODriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\EtherCatIODriver.cs",
+              "RelativeToolTip": "IJPSystem.Drivers.IO\\EtherCatIODriver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T23:19:55.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 114,
+              "Title": "VirtualVisionDriver.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Vision\\VirtualVisionDriver.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.Vision\\VirtualVisionDriver.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Vision\\VirtualVisionDriver.cs",
+              "RelativeToolTip": "IJPSystem.Drivers.Vision\\VirtualVisionDriver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T01:40:00.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 115,
+              "Title": "AlarmRepository.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\Repositories\\AlarmRepository.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Infrastructure\\Repositories\\AlarmRepository.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\Repositories\\AlarmRepository.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Infrastructure\\Repositories\\AlarmRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T00:47:51.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 116,
+              "Title": "ConfigLoader.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\Config\\ConfigLoader.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Infrastructure\\Config\\ConfigLoader.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\Config\\ConfigLoader.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Infrastructure\\Config\\ConfigLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T07:17:43.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 117,
+              "Title": "IJPSystem.Platform.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj",
+              "RelativeToolTip": "IJPSystem.Platform.Infrastructure\\IJPSystem.Platform.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-03T06:23:11.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "SequenceDefinition.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceDefinition.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\SequenceDefinition.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceDefinition.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\SequenceDefinition.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T12:52:47.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 119,
+              "Title": "NJISequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\NJISequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\NJISequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\NJISequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\NJISequence.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:12:56.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 120,
+              "Title": "MaintenanceSequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\MaintenanceSequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\MaintenanceSequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\MaintenanceSequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\MaintenanceSequence.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwAUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T05:36:24.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 121,
+              "Title": "InitializeSequence.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\InitializeSequence.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\InitializeSequence.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\InitializeSequence.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\InitializeSequence.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T05:34:13.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 122,
+              "Title": "IJPSystem.Platform.Application.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\IJPSystem.Platform.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-03T06:22:45.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 123,
+              "Title": "SensorIndicator.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T02:31:19.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 124,
+              "Title": "TankVisual.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\TankVisual.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\TankVisual.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\TankVisual.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\TankVisual.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T02:31:13.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 126,
+              "Title": "PnidView.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Maintenance\\PnidView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T05:05:24.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 127,
+              "Title": "InkjetMachine.Safety.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Safety.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Safety.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Safety.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Safety.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T23:35:31.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 125,
+              "Title": "InkjetMachine.Chuck.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Chuck.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Chuck.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Chuck.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Chuck.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T14:00:07.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 128,
+              "Title": "InkjetMachine.Lamp.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Lamp.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Lamp.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Lamp.cs",
+              "RelativeToolTip": "IJPSystem.Machines.Inkjet5G\\Partials\\InkjetMachine.Lamp.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T14:00:28.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 129,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Login\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Views\\Login\\LoginWindow.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Views\\Login\\LoginWindow.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Views\\Login\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-28T05:01:55.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 130,
+              "Title": "Canister.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\Canister.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAADgvyQAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T03:56:31.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 131,
+              "Title": "SensorIndicator.xaml.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\Common\\Controls\\SensorIndicator.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T01:10:56.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 132,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\AssemblyInfo.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\AssemblyInfo.cs",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T13:46:41.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 143,
+              "Title": "TeachingPoints.json",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\Config\\TeachingPoints.json",
+              "RelativeDocumentMoniker": "Config\\TeachingPoints.json",
+              "ToolTip": "D:\\IJP\\IJPSystem\\Config\\TeachingPoints.json",
+              "RelativeToolTip": "Config\\TeachingPoints.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-27T01:46:06.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 133,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\App.xaml",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.HMI\\App.xaml",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.HMI\\App.xaml",
+              "RelativeToolTip": "IJPSystem.Platform.HMI\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-19T06:39:51.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 135,
+              "Title": "IJPSystem.Drivers.IO.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj",
+              "RelativeToolTip": "IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-03T06:20:21.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 134,
+              "Title": "IJPSystem.Drivers.Vision.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj",
+              "RelativeToolTip": "IJPSystem.Drivers.Vision\\IJPSystem.Drivers.Vision.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-21T06:48:59.348Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 136,
+              "Title": "IJPSystem.Drivers.Motion.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj",
+              "RelativeToolTip": "IJPSystem.Drivers.Motion\\IJPSystem.Drivers.Motion.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-03T06:23:19.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 137,
+              "Title": "SequenceStepDef.cs",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceStepDef.cs",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Application\\Sequences\\SequenceStepDef.cs",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Application\\Sequences\\SequenceStepDef.cs",
+              "RelativeToolTip": "IJPSystem.Platform.Application\\Sequences\\SequenceStepDef.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T12:52:32.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 138,
+              "Title": "IJPSystem.Platform.Common.csproj",
+              "DocumentMoniker": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj",
+              "RelativeDocumentMoniker": "IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj",
+              "ToolTip": "D:\\IJP\\IJPSystem\\IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj",
+              "RelativeToolTip": "IJPSystem.Platform.Common\\IJPSystem.Platform.Common.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-03T04:25:22.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 139,
+              "Title": "ItemCollection.cs",
+              "DocumentMoniker": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\5379ee7fbe9dd796744a3812cb8cd4107fbf69f5bc7b33073e12cc254138767f\\ItemCollection.cs",
+              "ToolTip": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\5379ee7fbe9dd796744a3812cb8cd4107fbf69f5bc7b33073e12cc254138767f\\ItemCollection.cs [\uC77D\uAE30 \uC804\uC6A9]",
+              "ViewState": "AgIAALMGAAAAAAAAAAAmwMAGAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T11:04:16.477Z",
+              "EditorCaption": " [\uC77D\uAE30 \uC804\uC6A9]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 140,
+              "Title": "Style.cs",
+              "DocumentMoniker": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ddf527f71c66bcf004d6d2a4393de0339a7ff8baec62a6258bdf7a1cc64ca74d\\Style.cs",
+              "ToolTip": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\ddf527f71c66bcf004d6d2a4393de0339a7ff8baec62a6258bdf7a1cc64ca74d\\Style.cs [\uC77D\uAE30 \uC804\uC6A9]",
+              "ViewState": "AgIAAOcBAAAAAAAAAAApwPUBAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T04:35:07.982Z",
+              "EditorCaption": " [\uC77D\uAE30 \uC804\uC6A9]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 141,
+              "Title": "PropertyPathWorker.cs",
+              "DocumentMoniker": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\d1af1769b234626406ba4999490eb004ed59af4984d32a319132ada97bfb6c86\\PropertyPathWorker.cs",
+              "ToolTip": "C:\\Users\\bluey\\AppData\\Local\\Temp\\.vsdbgsrc\\d1af1769b234626406ba4999490eb004ed59af4984d32a319132ada97bfb6c86\\PropertyPathWorker.cs",
+              "ViewState": "AgIAAJwEAAAAAAAAAAAAwKkEAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T04:56:21.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 142,
+              "Title": "Microsoft.NET.Sdk.DefaultItems.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAtwJoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-04-03T06:16:47.953Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

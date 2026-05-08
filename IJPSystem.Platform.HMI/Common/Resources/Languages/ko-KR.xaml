@@ -1,0 +1,226 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- 서브메뉴 --> 
+    <system:String x:Key="SubMenu_Title">서브 메뉴</system:String>
+    <system:String x:Key="SubMenu_IO">I/O 모니터</system:String>
+    <system:String x:Key="SubMenu_Motor">모터 제어</system:String>
+    <system:String x:Key="SubMenu_AxisControl">└ 축 제어</system:String>
+    <system:String x:Key="SubMenu_PositionTeach">└ 위치 티칭</system:String>
+    <system:String x:Key="SubMenu_PNID">P&amp;ID</system:String>
+    <system:String x:Key="SubMenu_VISION">비젼</system:String>
+    <system:String x:Key="SubMenu_NJI">└ NJI</system:String>
+    <system:String x:Key="SubMenu_GLASS_VIEW">└ 글라스 뷰</system:String>
+    <system:String x:Key="SubMenu_DROP_WATCHER">└ 드랍 와쳐</system:String>
+    <system:String x:Key="SubMenu_Sequence">시퀀스</system:String>
+    <system:String x:Key="SubMenu_MotorInfo">모터 정보</system:String>
+    <system:String x:Key="SubMenu_TeachingPoint">티칭 정보</system:String>
+    <system:String x:Key="SubMenu_OtherPoint">기타 정보</system:String>
+    <system:String x:Key="SubMenu_AutoPrint">자동 인쇄</system:String>
+    <system:String x:Key="SubMenu_Initialize">초기화</system:String>
+    <system:String x:Key="SubMenu_SystemExit">시스템 종료</system:String>
+    
+    <!-- 메인 메뉴 -->
+    <system:String x:Key="Menu_Main">메인화면</system:String>
+    <system:String x:Key="Menu_Print">프린트</system:String>
+    <system:String x:Key="SubMenu_Waveform">웨이브폼</system:String>
+    <system:String x:Key="SubMenu_PatternPrint">패턴 인쇄</system:String>
+    <system:String x:Key="Menu_Maintenance">유지보수</system:String>
+    <system:String x:Key="Menu_Recipe">레시피</system:String>
+
+    <system:String x:Key="Menu_AlarmHistory">알람 이력</system:String>
+    <system:String x:Key="Menu_LogView">로그 보기</system:String>
+
+    <!-- 상태바 -->
+    <system:String x:Key="Status_AutoRun">자동 운전</system:String>
+    <system:String x:Key="Status_SystemReady">시스템 준비 완료...</system:String>
+    <system:String x:Key="Status_Recipe">레시피 :</system:String>
+    <system:String x:Key="Status_SystemTime">시스템 시간</system:String>
+
+    <!-- 기타 -->
+    <system:String x:Key="Btn_Logout">로그아웃</system:String>
+    <system:String x:Key="Btn_ClearLog">지우기</system:String>
+    <system:String x:Key="Recipe_SaveApplyHint">* SAVE: 기록 저장 | APPLY: 설비 파라미터 즉시 반영</system:String>
+
+    <!-- 화면 타이틀 -->
+    <system:String x:Key="Title_AlarmHistory">알람 이력 관리</system:String>
+
+    <!-- Recipe 메시지 -->
+    <system:String x:Key="Msg_RecipeDirtyConfirm">[{0}]의 수정된 내용이 있습니다.&#x0a;변경 사항을 저장하시겠습니까?</system:String>
+    <system:String x:Key="Msg_RecipeDirtyTitle">변경 사항 저장</system:String>
+    <system:String x:Key="Msg_RecipeCancelConfirm">[{0}]의 수정 내용을 취소하고 저장된 값으로 되돌리시겠습니까?</system:String>
+    <system:String x:Key="Msg_RecipeCancelTitle">편집 취소</system:String>
+    <system:String x:Key="Msg_RecipeRenameActiveWarn">[{0}]은(는) 현재 적용 중인 레시피입니다.&#x0a;이름을 변경하면 활성 레시피 이름도 즉시 변경됩니다.&#x0a;계속하시겠습니까?</system:String>
+    <system:String x:Key="Msg_RecipeRenameActiveTitle">활성 레시피 이름 변경</system:String>
+
+    <!-- ══ MessageBox 메시지 ══════════════════════════════════════ -->
+    <!-- 알람 내보내기 -->
+    <system:String x:Key="Msg_AlarmNoData">저장할 알람 데이터가 리스트에 없습니다.</system:String>
+    <system:String x:Key="Msg_AlarmExportSuccess">성공적으로 저장되었습니다!&#x0a;&#x0a;경로: {0}</system:String>
+    <system:String x:Key="Msg_AlarmExportTitle">알람 저장 완료</system:String>
+
+    <!-- 알람 이력 삭제 -->
+    <system:String x:Key="Msg_AlarmDeleteConfirm">모든 알람 이력을 영구적으로 삭제하시겠습니까?</system:String>
+    <system:String x:Key="Msg_AlarmDeleteTitle">이력 삭제 확인</system:String>
+    <system:String x:Key="Msg_AlarmDeleteSuccess">모든 이력이 삭제되었습니다.</system:String>
+    <system:String x:Key="Msg_AlarmDeleteError">삭제 중 오류 발생: {0}</system:String>
+
+    <!-- 알람 전체 리셋 -->
+    <system:String x:Key="Msg_AlarmResetAllConfirm">모든 알람 이력을 리셋하시겠습니까?</system:String>
+    <system:String x:Key="Msg_AlarmResetAllTitle">리셋 확인</system:String>
+
+    <!-- 알람 행 단건 리셋 -->
+    <system:String x:Key="Msg_AlarmResetRowConfirm">[{0}] {1}&#x0a;&#x0a;해당 알람을 리셋하시겠습니까?</system:String>
+    <system:String x:Key="Msg_AlarmResetRowTitle">알람 리셋 확인</system:String>
+
+    <!-- 시스템 종료 -->
+    <system:String x:Key="Msg_ExitConfirm">시스템을 종료하시겠습니까?</system:String>
+    <system:String x:Key="Msg_ExitTitle">시스템 종료</system:String>
+
+    <!-- 출력 강제 제어 -->
+    <system:String x:Key="Msg_ForceOutputConfirm">{0}을(를) {1} 하시겠습니까?</system:String>
+    <system:String x:Key="Msg_ForceOutputTitle">출력 제어</system:String>
+    <system:String x:Key="Msg_ForceOutputOn">ON</system:String>
+    <system:String x:Key="Msg_ForceOutputOff">OFF</system:String>
+
+    <!-- 로그아웃 -->
+    <system:String x:Key="Msg_LogoutConfirm">Operator 모드로 변경하겠습니까?</system:String>
+    <system:String x:Key="Msg_LogoutTitle">사용자 변경</system:String>
+
+    <!-- ══ AddLog 메시지 ══════════════════════════════════════════ -->
+    <!-- 화면 이동 — [NAV] -->
+    <system:String x:Key="Log_MoveMain">[NAV] MAIN 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveIO">[NAV] I/O 모니터 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_Waveform">[NAV] 웨이브폼 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_PatternPrint">[NAV] 패턴 인쇄 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveMotor">[NAV] MOTOR CONTROL 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveAxisControl">[NAV] MOTOR AXIS CONTROL 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MovePositionTeach">[NAV] MOTOR POSITION TEACH 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveNJI">[NAV] VISION &gt; NJI 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveGlassView">[NAV] VISION &gt; GLASS VIEW 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveDropWatcher">[NAV] VISION &gt; DROP WATCHER 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MovePNID">[NAV] P&amp;ID 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_Sequence">[NAV] 시퀀스 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveRecipe">[NAV] 레시피 관리 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveMotorInfo">[NAV] MOTOR INFO 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveTeachPointInfo">[NAV] TEACH INFO 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_OtherInfo">[NAV] OTHER INFO 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveAutoPrint">[NAV] AUTO PRINT 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveInitialize">[NAV] INITIALIZE 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_MoveAlarm">[NAV] ALARM HISTORY 관리 화면으로 이동합니다.</system:String>
+    <system:String x:Key="Log_UnknownMenu">[NAV] 알 수 없는 메뉴 요청: {0}</system:String>
+    <system:String x:Key="Log_LogWindowOpened">[NAV] 상세 로그 뷰가 활성화되었습니다.</system:String>
+
+    <!-- 인증/권한 — [AUTH] -->
+    <system:String x:Key="Log_LoginSuccess">[AUTH] 사용자 인증 성공: {0}</system:String>
+    <system:String x:Key="Log_LoginRole">[AUTH] {0} 권한으로 로그인되었습니다.</system:String>
+    <system:String x:Key="Log_LogoutToOperator">[AUTH] Operator 권한으로 변경되었습니다.</system:String>
+    <system:String x:Key="Log_RoleChanged">[AUTH] 사용자 권한이 [{0}]로 변경되었습니다.</system:String>
+
+    <!-- 시스템 — [SYS] -->
+    <system:String x:Key="Log_SystemInit">[SYS] 시스템이 초기화되었습니다.</system:String>
+    <system:String x:Key="Log_ExitAttempt">[SYS] 시스템 종료를 시도합니다...</system:String>
+    <system:String x:Key="Log_LogCleared">[SYS] 로그가 초기화되었습니다.</system:String>
+
+    <!-- 장비 제어 — [IO] / [MOTION] -->
+    <system:String x:Key="Log_Start">[SYS] 장비 가동을 시작합니다. (START)</system:String>
+    <system:String x:Key="Log_Stop">[SYS] 장비 가동을 중지합니다. (STOP)</system:String>
+    <system:String x:Key="Log_ErrorReset">[ALARM] 에러가 해제되었습니다.</system:String>
+    <system:String x:Key="Log_DoorOpenBlocked">[IO] 가동 중 도어 열기 불가합니다.</system:String>
+    <system:String x:Key="Log_DoorOpen">[IO] 도어 열기 신호 출력.</system:String>
+    <system:String x:Key="Log_DoorClose">[IO] 도어 닫기 신호 출력.</system:String>
+    <system:String x:Key="Log_VacuumOn">[IO] Vacuum ON.</system:String>
+    <system:String x:Key="Log_VacuumOff">[IO] Vacuum OFF.</system:String>
+    <system:String x:Key="Log_ManualControl">[IO] {0} → {1}</system:String>
+
+    <!-- 안전 -->
+    <system:String x:Key="Log_SafetyBypass">[DEBUG] 안전 조건 검사를 건너뜁니다.</system:String>
+    <system:String x:Key="Log_EmoDetected">[Safety] EMO 비상정지 감지 — 가동 불가.</system:String>
+    <system:String x:Key="Log_DoorLockFail">[Safety] 도어 잠금 미확인 — 가동 불가.</system:String>
+    <system:String x:Key="Log_PressureFail">[Safety] Pressure Switch &lt;{0}&gt; 이상 — 가동 불가.</system:String>
+    <system:String x:Key="Log_EmoStopped">[Safety] EMO 감지 — 긴급 정지.</system:String>
+    <system:String x:Key="Log_AlarmCleared">[ALARM] 해제: 시스템이 대기(STANDBY) 상태입니다.</system:String>
+
+    <!-- 시퀀스 단계 표시명 (AutoPrintSequence / InitializeSequence 의 SequenceStepDef.Name 키) -->
+    <system:String x:Key="Step_AutoPrint_1">글래스 감지 대기 (V/C 척 진입)</system:String>
+    <system:String x:Key="Step_AutoPrint_2">V/C 척 진공 ON (글래스 고정)</system:String>
+    <system:String x:Key="Step_AutoPrint_3">V/C 척 진공 센서 확인 (압력 SW4 ON)</system:String>
+    <system:String x:Key="Step_AutoPrint_4">진공 안정화 대기 (1s)</system:String>
+    <system:String x:Key="Step_AutoPrint_5">인쇄 시작 위치(PRINT START) 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_6">인쇄 시작 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_7">인쇄 진행 — 종점(PRINT END)까지 토출</system:String>
+    <system:String x:Key="Step_AutoPrint_8">인쇄 완료 InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_9">V/C 척 진공 해제 (글래스 배출 준비)</system:String>
+    <system:String x:Key="Step_AutoPrint_10">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_11">READY 위치 InPosition 확인</system:String>
+
+    <system:String x:Key="Step_Init_1">서보 ON — 전체 축</system:String>
+    <system:String x:Key="Step_Init_2">원점복귀 — 전체 축</system:String>
+    <system:String x:Key="Step_Init_3">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Init_4">전체 축 InPosition 확인</system:String>
+    <system:String x:Key="Step_Init_5">GLASS 감지 센서 대기</system:String>
+    <system:String x:Key="Step_Init_6">LOAD 위치 이동</system:String>
+    <system:String x:Key="Step_Init_7">LOAD 위치 InPosition 확인</system:String>
+
+    <system:String x:Key="Step_Purge_1">진공 해제</system:String>
+    <system:String x:Key="Step_Purge_2">퍼지 위치(PURGE) 이동</system:String>
+    <system:String x:Key="Step_Purge_3">퍼지 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_4">잉크 토출 완료 대기</system:String>
+    <system:String x:Key="Step_Purge_5">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Purge_6">READY 위치 InPosition 확인</system:String>
+
+    <system:String x:Key="Step_Blotting_1">진공 해제</system:String>
+    <system:String x:Key="Step_Blotting_2">블로팅 위치(BLOTTING) 이동</system:String>
+    <system:String x:Key="Step_Blotting_3">블로팅 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Blotting_4">노즐 표면 흡수 대기 (3초)</system:String>
+    <system:String x:Key="Step_Blotting_5">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Blotting_6">READY 위치 InPosition 확인</system:String>
+
+    <system:String x:Key="Step_Maint_1">도어 잠금 해제 확인</system:String>
+    <system:String x:Key="Step_Maint_2">유지보수 위치(MT) 이동</system:String>
+    <system:String x:Key="Step_Maint_3">유지보수 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Maint_4">유지보수 완료 신호 대기 (도어 닫힘)</system:String>
+    <system:String x:Key="Step_Maint_5">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Maint_6">READY 위치 InPosition 확인</system:String>
+
+    <system:String x:Key="Step_NJI_1">NJI 위치 이동</system:String>
+    <system:String x:Key="Step_NJI_2">NJI 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_NJI_3">조명 ON</system:String>
+    <system:String x:Key="Step_NJI_4">노즐 비전 검사</system:String>
+    <system:String x:Key="Step_NJI_5">조명 OFF</system:String>
+    <system:String x:Key="Step_NJI_6">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_NJI_7">READY 위치 InPosition 확인</system:String>
+
+    <!-- 시퀀스 표시명 / 설명 (SequenceRegistry 의 Name/Description 키) -->
+    <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
+    <system:String x:Key="Seq_Init_Desc">전체 축 서보ON → 원점복귀 → 대기위치 이동 → GLASS 감지 대기</system:String>
+    <system:String x:Key="Seq_Purge_Name">PURGE</system:String>
+    <system:String x:Key="Seq_Purge_Desc">진공 해제 → 퍼지 위치 이동 → 잉크 토출 완료 대기 → 복귀</system:String>
+    <system:String x:Key="Seq_Blotting_Name">BLOTTING</system:String>
+    <system:String x:Key="Seq_Blotting_Desc">진공 해제 → 블로팅 위치 이동 → 노즐 표면 흡수 대기 → 복귀</system:String>
+    <system:String x:Key="Seq_Maintenance_Name">MAINTENANCE</system:String>
+    <system:String x:Key="Seq_Maintenance_Desc">유지보수 위치 이동 → 도어 닫힘 대기 → 복귀</system:String>
+    <system:String x:Key="Seq_NJI_Name">NJI</system:String>
+    <system:String x:Key="Seq_NJI_Desc">NJI 위치 이동 → 비전 검사 → NG시 알람 → 복귀</system:String>
+    <system:String x:Key="Seq_AutoPrint_Name">AUTO PRINT</system:String>
+    <system:String x:Key="Seq_AutoPrint_Desc">글래스 감지 → 진공 고정 → PRINT START 이동 → 인쇄 진행 → 진공 해제 → 복귀</system:String>
+
+    <!-- AUTO PRINT 시퀀스 -->
+    <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] 알람 발생 — 모션 정지 후 일시정지</system:String>
+    <system:String x:Key="Log_AutoPrintAlarmResume">[AUTO PRINT] 알람 해제 — 재개</system:String>
+    <system:String x:Key="Log_AutoPrintStopMotionError">[AUTO PRINT] 모션 정지 중 오류: {0}</system:String>
+    <system:String x:Key="Log_AutoPrintResume">[AUTO PRINT] 재개 — 다음 단계부터 이어서 진행</system:String>
+    <system:String x:Key="Log_AutoPrintStopPause">[AUTO PRINT] STOP — 현재 단계 완료 후 일시정지 (START로 재개)</system:String>
+    <system:String x:Key="Log_AutoPrintStepAborted">[AUTO PRINT] Step {0} 중단 — 재개 시 재실행</system:String>
+    <system:String x:Key="Log_AutoPrintCompleted">AUTO PRINT 완료 ({0}s)</system:String>
+    <system:String x:Key="Log_AutoPrintTimeoutMsg">AUTO PRINT 타임아웃: {0}</system:String>
+    <system:String x:Key="Log_AutoPrintFailureMsg">AUTO PRINT 실패: {0}</system:String>
+
+    <!-- 사전 조건 -->
+    <system:String x:Key="Log_AxisInfoMissing">축 정보 없음 — 모션 드라이버를 확인하세요</system:String>
+    <system:String x:Key="Log_PrereqNotHomed">INITIALIZE 시퀀스를 먼저 수행하세요.&#10;&#10;미원점 축: {0}</system:String>
+    <system:String x:Key="Log_PrereqNotServoOn">서보 OFF 상태입니다. INITIALIZE를 다시 수행하세요.&#10;&#10;서보ON 필요 축: {0}</system:String>
+    <system:String x:Key="Log_PrereqDialogTitle">사전 조건 미충족</system:String>
+
+</ResourceDictionary>

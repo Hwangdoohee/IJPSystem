@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "SSwbwJAhY3w=",
+  "success": true,
+  "projectFilePath": "D:\\IJP\\IJPSystem\\IJPSystem.Drivers.IO\\IJPSystem.Drivers.IO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bluey\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
+    "C:\\Users\\bluey\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.26\\microsoft.netcore.app.ref.8.0.26.nupkg.sha512",
+    "C:\\Users\\bluey\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.26\\microsoft.windowsdesktop.app.ref.8.0.26.nupkg.sha512",
+    "C:\\Users\\bluey\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.26\\microsoft.aspnetcore.app.ref.8.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,292 @@
+<Window x:Class="IJPSystem.Platform.HMI.Views.LogWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IJPSystem.Platform.HMI.Views"
+        mc:Ignorable="d"
+        Title="System Log Viewer"
+        Height="800" Width="1200"
+        MinWidth="900" MinHeight="600"
+        WindowStartupLocation="CenterOwner"
+        Background="#0F172A">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ── 헤더 + 필터 바 ───────────────────────────────────────── -->
+        <Grid Grid.Row="0" Margin="0,0,0,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="12"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Background="#3B82F6" Width="4" Height="24" CornerRadius="2" Margin="0,0,15,0"/>
+                    <TextBlock Text="SYSTEM LOG VIEWER" Foreground="White"
+                               FontSize="22" FontWeight="ExtraBold" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="Records:" Foreground="#94A3B8"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBlock Text="{Binding RecordCount}" Foreground="#3B82F6"
+                               FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.Row="2" Background="#1E293B" CornerRadius="10" Padding="14,10"
+                    BorderBrush="#334155" BorderThickness="1">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                    <TextBlock Text="FROM" Foreground="#94A3B8" FontSize="12" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <DatePicker SelectedDate="{Binding FilterStartDate, Mode=TwoWay}"
+                                Width="130" Height="32" FontSize="13" FontWeight="Bold"
+                                Background="#0F172A" Foreground="Black"
+                                BorderBrush="#475569" SelectedDateFormat="Short"
+                                VerticalContentAlignment="Center"/>
+
+                    <TextBlock Text="TO" Foreground="#94A3B8" FontSize="12" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="12,0,8,0"/>
+                    <DatePicker SelectedDate="{Binding FilterEndDate, Mode=TwoWay}"
+                                Width="130" Height="32" FontSize="13" FontWeight="Bold"
+                                Background="#0F172A" Foreground="Black"
+                                BorderBrush="#475569" SelectedDateFormat="Short"
+                                VerticalContentAlignment="Center"/>
+
+                    <TextBlock Text="LEVEL" Foreground="#94A3B8" FontSize="12" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="12,0,8,0"/>
+                    <ComboBox ItemsSource="{Binding LevelOptions}"
+                              SelectedItem="{Binding FilterLevel, Mode=TwoWay}"
+                              Width="100" Height="32" FontSize="13" FontWeight="Bold"
+                              Background="#0F172A" Foreground="Black"
+                              BorderBrush="#475569" VerticalContentAlignment="Center"/>
+
+                    <Border Background="#0F172A" BorderBrush="#475569" BorderThickness="1"
+                            CornerRadius="6" Height="32" Margin="16,0,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="🔍" Foreground="#64748B" FontSize="13"
+                                       VerticalAlignment="Center" Margin="8,0,4,0"/>
+                            <TextBox Text="{Binding FilterKeyword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     Background="Transparent" Foreground="White" FontSize="13"
+                                     BorderThickness="0" VerticalContentAlignment="Center"
+                                     Width="220" Padding="4,0" CaretBrush="White">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Return" Command="{Binding SearchCommand}"/>
+                                </TextBox.InputBindings>
+                            </TextBox>
+                        </StackPanel>
+                    </Border>
+
+                    <Button Content="SEARCH" Command="{Binding SearchCommand}"
+                            Width="90" Height="32" Margin="12,0,0,0"
+                            Style="{StaticResource ModernActionButton}"
+                            Background="#1D4ED8" BorderBrush="#3B82F6"/>
+                    <Button Content="RESET" Command="{Binding ResetFilterCommand}"
+                            Width="80" Height="32" Margin="8,0,0,0"
+                            Style="{StaticResource ModernActionButton}"
+                            Background="#334155" BorderBrush="#475569"/>
+                    <Button Content="REFRESH" Command="{Binding RefreshCommand}"
+                            Width="90" Height="32" Margin="8,0,0,0"
+                            Style="{StaticResource ModernActionButton}"
+                            Background="#0F766E" BorderBrush="#14B8A6"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- ── 데이터그리드 ───────────────────────────────────────────── -->
+        <Border Grid.Row="1" Background="#1E293B" CornerRadius="12" Padding="5"
+                BorderBrush="#334155" BorderThickness="1">
+            <DataGrid x:Name="LogDataGrid"
+                      ItemsSource="{Binding Logs}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      HorizontalGridLinesBrush="#334155"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      RowHeight="32"
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      VirtualizingPanel.IsVirtualizing="True"
+                      VirtualizingPanel.VirtualizationMode="Recycling"
+                      EnableRowVirtualization="True"
+                      ColumnHeaderStyle="{StaticResource CommonColumnHeaderStyle}"
+                      CellStyle="{StaticResource CommonCellStyle}">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="TIME"
+                            Binding="{Binding Time, StringFormat={}{0:yyyy-MM-dd HH:mm:ss.fff}}"
+                            Width="200">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="#CBD5E1"/>
+                                <Setter Property="FontFamily" Value="Consolas"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="LEVEL"
+                            Binding="{Binding Level}" Width="100">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="FontFamily" Value="Consolas"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Level}" Value="Fatal">
+                                        <Setter Property="Foreground" Value="#EF4444"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Level}" Value="Error">
+                                        <Setter Property="Foreground" Value="#F97316"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Level}" Value="Warning">
+                                        <Setter Property="Foreground" Value="#EAB308"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Level}" Value="Success">
+                                        <Setter Property="Foreground" Value="#22C55E"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Level}" Value="Info">
+                                        <Setter Property="Foreground" Value="#3B82F6"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="MESSAGE"
+                            Binding="{Binding Message}" Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="10,0"/>
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- ── 하단 액션 버튼 ─────────────────────────────────────────── -->
+        <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid.Resources>
+                <!-- 카테고리(Quick-Filter) 토글 버튼 — IsActive=True 면 진한 색으로 하이라이트 -->
+                <Style x:Key="CategoryToggleButton" TargetType="Button" BasedOn="{StaticResource ModernActionButton}">
+                    <Setter Property="Width" Value="120"/>
+                    <Setter Property="Height" Value="38"/>
+                    <Setter Property="Margin" Value="6,0,0,0"/>
+                    <Setter Property="Background"  Value="#1E293B"/>
+                    <Setter Property="BorderBrush" Value="#334155"/>
+                    <Setter Property="Foreground"  Value="#94A3B8"/>
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="EXPORT CSV" Command="{Binding ExportCsvCommand}"
+                        Width="130" Height="38"
+                        Style="{StaticResource ModernActionButton}"
+                        Background="#334155" BorderBrush="#475569"/>
+
+                <!-- 카테고리 필터 버튼들 — 활성 상태는 IsCat* 트리거로 표시 -->
+                <Button Content="ALL"
+                        Command="{Binding SetCategoryCommand}" CommandParameter="ALL">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CategoryToggleButton}">
+                            <Setter Property="Width" Value="80"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCatAll}" Value="True">
+                                    <Setter Property="Background"  Value="#0F766E"/>
+                                    <Setter Property="BorderBrush" Value="#14B8A6"/>
+                                    <Setter Property="Foreground"  Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="LOGIN/NAV"
+                        Command="{Binding SetCategoryCommand}" CommandParameter="LOGIN_NAV"
+                        ToolTip="로그인/권한/화면 전환 이력만 표시">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CategoryToggleButton}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCatLoginNav}" Value="True">
+                                    <Setter Property="Background"  Value="#1D4ED8"/>
+                                    <Setter Property="BorderBrush" Value="#3B82F6"/>
+                                    <Setter Property="Foreground"  Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="SEQUENCE"
+                        Command="{Binding SetCategoryCommand}" CommandParameter="SEQ"
+                        ToolTip="시퀀스(AutoPrint/Initialize) 실행 이력만 표시">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CategoryToggleButton}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCatSeq}" Value="True">
+                                    <Setter Property="Background"  Value="#7C3AED"/>
+                                    <Setter Property="BorderBrush" Value="#A78BFA"/>
+                                    <Setter Property="Foreground"  Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="MANUAL"
+                        Command="{Binding SetCategoryCommand}" CommandParameter="MANUAL"
+                        ToolTip="수동 조작 이력 — Waveform/Glass/DropWatcher/모터 수동 제어">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CategoryToggleButton}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCatManual}" Value="True">
+                                    <Setter Property="Background"  Value="#B45309"/>
+                                    <Setter Property="BorderBrush" Value="#F59E0B"/>
+                                    <Setter Property="Foreground"  Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Content="ERROR"
+                        Command="{Binding SetCategoryCommand}" CommandParameter="ERROR"
+                        ToolTip="Error / Fatal 레벨 이벤트만 표시 — 장애 빠른 진단">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CategoryToggleButton}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCatError}" Value="True">
+                                    <Setter Property="Background"  Value="#991B1B"/>
+                                    <Setter Property="BorderBrush" Value="#EF4444"/>
+                                    <Setter Property="Foreground"  Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="CLEAR ALL" Command="{Binding ClearAllCommand}"
+                        Width="120" Height="38"
+                        Style="{StaticResource ModernActionButton}"
+                        Background="#991B1B" BorderBrush="#EF4444"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

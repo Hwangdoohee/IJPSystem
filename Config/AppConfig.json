@@ -1,0 +1,7 @@
+{
+  "MachineType": "Inkjet5G",
+  "AdminPassword": "admin",
+  "EngineerPassword": "engineer",
+  "OperatorPassword": "operator",
+  "LogSaveDays": 30
+}

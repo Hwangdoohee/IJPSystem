@@ -1,0 +1,17 @@
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Drivers.Vision.deps.json
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Drivers.Vision.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Drivers.Vision.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Platform.Common.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Platform.Domain.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Platform.Common.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\bin\Debug\net8.0-windows\IJPSystem.Platform.Domain.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.csproj.AssemblyReference.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.GeneratedMSBuildEditorConfig.editorconfig
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.AssemblyInfoInputs.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.AssemblyInfo.cs
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.csproj.CoreCompileInputs.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSyste.089DEBA8.Up2Date
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\refint\IJPSystem.Drivers.Vision.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\IJPSystem.Drivers.Vision.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Vision\obj\Debug\net8.0-windows\ref\IJPSystem.Drivers.Vision.dll

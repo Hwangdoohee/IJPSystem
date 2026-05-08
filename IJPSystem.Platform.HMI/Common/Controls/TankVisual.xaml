@@ -1,0 +1,60 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Common.Controls.TankVisual"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="root"
+             MinHeight="120" MinWidth="100">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="TankBorder"  Color="#7FFFFFFF"/>
+        <SolidColorBrush x:Key="LiquidColor" Color="#4FC3F7"/>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="120" Height="160">
+            <!-- 탱크 외곽 -->
+            <Path Stroke="{StaticResource TankBorder}" StrokeThickness="2" Fill="#1A1A2E"
+                  Data="M 20,10 L 100,10 L 100,140 Q 100,150 90,150 L 30,150 Q 20,150 20,140 Z"/>
+
+            <!-- 약액 (LevelStatus에 따라 높이 변경) -->
+            <Rectangle Fill="{StaticResource LiquidColor}" Opacity="0.6"
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       Width="76" Margin="0,0,0,12">
+                <Rectangle.Height>
+                    <Binding ElementName="root" Path="LevelStatus"
+                             Converter="{StaticResource LevelStatusToHeight}"
+                             FallbackValue="40"/>
+                </Rectangle.Height>
+            </Rectangle>
+
+            <!-- 4점 센서 (HH / High / Set / Empty) -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Margin="2,15,0,0">
+                <Ellipse Width="8" Height="8"
+                         Fill="{Binding ElementName=root, Path=SensorHH,
+                                Converter={StaticResource BoolToSensorBrush}, ConverterParameter=Alarm}"/>
+                <TextBlock Text="HH" FontSize="9" Foreground="#9090B0" Margin="2,-2,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Margin="2,45,0,0">
+                <Ellipse Width="8" Height="8"
+                         Fill="{Binding ElementName=root, Path=SensorHigh,
+                                Converter={StaticResource BoolToSensorBrush}}"/>
+                <TextBlock Text="H" FontSize="9" Foreground="#9090B0" Margin="2,-2,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Margin="2,80,0,0">
+                <Ellipse Width="8" Height="8"
+                         Fill="{Binding ElementName=root, Path=SensorSet,
+                                Converter={StaticResource BoolToSensorBrush}}"/>
+                <TextBlock Text="S" FontSize="9" Foreground="#9090B0" Margin="2,-2,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom" Margin="2,0,0,20">
+                <Ellipse Width="8" Height="8"
+                         Fill="{Binding ElementName=root, Path=SensorEmpty,
+                                Converter={StaticResource BoolToSensorBrush}, ConverterParameter=Inverted}"/>
+                <TextBlock Text="E" FontSize="9" Foreground="#9090B0" Margin="2,-2,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</UserControl>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v \"^.*\\\\\\\\obj\\\\\\\\\")",
+      "Bash(dotnet build *)",
+      "Bash(xargs grep *)",
+      "PowerShell($path = \"d:\\\\IJP\\\\IJPSystem\"; Test-Path \"$path\\\\.git\"; Test-Path \"$path\\\\.gitignore\")"
+    ]
+  }
+}

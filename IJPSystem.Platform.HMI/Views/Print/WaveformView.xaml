@@ -1,0 +1,347 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Views.WaveformView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctrl="clr-namespace:IJPSystem.Platform.HMI.Common.Controls"
+             Background="#0B0F1A">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ══ 헤더: 타이틀 + 시리즈 토글 ══════════════════════════════════ -->
+        <Border Grid.Row="0" Background="#111827" CornerRadius="12,12,0,0"
+                BorderBrush="#334155" BorderThickness="1,1,1,0" Padding="18,10">
+            <Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Print Spit Waveform"
+                               Foreground="White" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding LoadedBaseName, StringFormat='File: {0}'}"
+                               Foreground="#64748B" FontSize="10" Margin="0,2,0,0"/>
+                </StackPanel>
+
+                <!-- 시리즈 가시성 토글 -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                    <!-- ComA -->
+                    <ToggleButton IsChecked="{Binding IsComAVisible}"
+                                  Margin="0,0,6,0" Padding="10,5" Cursor="Hand">
+                        <ToggleButton.Style>
+                            <Style TargetType="ToggleButton">
+                                <Setter Property="Background"   Value="#1E3A5F"/>
+                                <Setter Property="BorderBrush"  Value="#3B82F6"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Foreground"   Value="#93C5FD"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsChecked" Value="False">
+                                                    <Setter Property="Opacity" Value="0.4"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Opacity" Value="0.85"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ToggleButton.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Line X1="0" Y1="4" X2="16" Y2="4" Stroke="#3B82F6"
+                                  StrokeThickness="2" StrokeDashArray="4,2"
+                                  VerticalAlignment="Center" Margin="0,0,6,0"/>
+                            <TextBlock Text="ComA" FontSize="11" FontWeight="Bold"
+                                       Foreground="#93C5FD" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <!-- ComB -->
+                    <ToggleButton IsChecked="{Binding IsComBVisible}"
+                                  Margin="0,0,6,0" Padding="10,5" Cursor="Hand">
+                        <ToggleButton.Style>
+                            <Style TargetType="ToggleButton">
+                                <Setter Property="Background"   Value="#3B1218"/>
+                                <Setter Property="BorderBrush"  Value="#EF4444"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsChecked" Value="False">
+                                                    <Setter Property="Opacity" Value="0.4"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Opacity" Value="0.85"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ToggleButton.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Line X1="0" Y1="4" X2="16" Y2="4" Stroke="#EF4444"
+                                  StrokeThickness="2" StrokeDashArray="4,2"
+                                  VerticalAlignment="Center" Margin="0,0,6,0"/>
+                            <TextBlock Text="ComB" FontSize="11" FontWeight="Bold"
+                                       Foreground="#FCA5A5" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <!-- Vst -->
+                    <ToggleButton IsChecked="{Binding IsVstVisible}"
+                                  Padding="10,5" Cursor="Hand">
+                        <ToggleButton.Style>
+                            <Style TargetType="ToggleButton">
+                                <Setter Property="Background"   Value="#052E16"/>
+                                <Setter Property="BorderBrush"  Value="#22C55E"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="6" Padding="{TemplateBinding Padding}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsChecked" Value="False">
+                                                    <Setter Property="Opacity" Value="0.4"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Opacity" Value="0.85"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ToggleButton.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Line X1="0" Y1="4" X2="16" Y2="4" Stroke="#22C55E"
+                                  StrokeThickness="1.5" StrokeDashArray="2,3"
+                                  VerticalAlignment="Center" Margin="0,0,6,0"/>
+                            <TextBlock Text="Vst" FontSize="11" FontWeight="Bold"
+                                       Foreground="#86EFAC" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- ══ 차트 영역 ═════════════════════════════════════════════════ -->
+        <Border Grid.Row="1" BorderBrush="#334155" BorderThickness="1,0,1,0"
+                Background="#0D1117">
+            <Grid>
+                <ctrl:WaveformChart x:Name="WaveChart" Margin="8,8,8,4"/>
+            </Grid>
+        </Border>
+
+        <!-- ══ 컨트롤 패널 ═══════════════════════════════════════════════ -->
+        <Border Grid.Row="2" Background="#111827" CornerRadius="0,0,12,12"
+                BorderBrush="#334155" BorderThickness="1,1,1,1" Padding="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="190"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="160"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ① Load / Save -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center"
+                            Margin="16,14">
+                    <Button Command="{Binding LoadCommand}"
+                            Height="38" Margin="0,0,0,8"
+                            Style="{StaticResource MutedActionButtonStyle}"
+                            Background="#1E293B">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="□" FontSize="14" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Load" FontSize="13" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding SaveCommand}"
+                            Height="38"
+                            Style="{StaticResource MutedActionButtonStyle}"
+                            Background="#1E293B">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="■" FontSize="12" Margin="0,0,8,0" VerticalAlignment="Center" Foreground="#3B82F6"/>
+                            <TextBlock Text="Save" FontSize="13" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Rectangle Grid.Column="1" Fill="#334155"/>
+
+                <!-- ② 히터 섹션 -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="14,12">
+                    <!-- 온도 슬라이더 (10~45) -->
+                    <Grid Margin="0,0,0,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Slider Minimum="10" Maximum="45"
+                                Value="{Binding TargetTemp}"
+                                TickFrequency="5" TickPlacement="BottomRight"
+                                IsSnapToTickEnabled="True"
+                                Foreground="#3B82F6"
+                                Height="18"/>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <TextBlock Text="10" Foreground="#64748B" FontSize="9"/>
+                        <TextBlock Text="                    45" Foreground="#64748B" FontSize="9"/>
+                    </StackPanel>
+
+                    <!-- Current / Target Temp -->
+                    <Grid Margin="0,6,0,3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Current Temp" Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="6,3">
+                            <TextBlock Text="{Binding CurrentTemp, StringFormat={}{0:F1} °C}"
+                                       Foreground="#22C55E" FontSize="11" FontFamily="Consolas" FontWeight="Bold"/>
+                        </Border>
+                    </Grid>
+                    <Grid Margin="0,0,0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Target Temp" Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="4,2">
+                            <TextBox Text="{Binding TargetTemp, StringFormat={}{0:F1}, UpdateSourceTrigger=PropertyChanged}"
+                                     Width="60" FontSize="11" FontFamily="Consolas"
+                                     Background="Transparent" Foreground="White"
+                                     BorderThickness="0" TextAlignment="Right"/>
+                        </Border>
+                    </Grid>
+
+                    <Button Command="{Binding HeaterControlCommand}"
+                            Height="32" Style="{StaticResource MutedActionButtonStyle}"
+                            Background="#1E3A5F">
+                        <TextBlock Text="{Binding HeaterButtonText}" FontSize="11" FontWeight="Bold" Foreground="White"/>
+                    </Button>
+                </StackPanel>
+
+                <Rectangle Grid.Column="3" Fill="#334155"/>
+
+                <!-- ③ Voltage Offset + Jetting 파라미터 -->
+                <Grid Grid.Column="4" Margin="14,12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Voltage offset + Apply -->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Voltage offset"
+                                   Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="4,3">
+                            <TextBox Text="{Binding VoltageOffset, UpdateSourceTrigger=PropertyChanged}"
+                                     FontSize="11" FontFamily="Consolas"
+                                     Background="Transparent" Foreground="White"
+                                     BorderThickness="0" TextAlignment="Right"/>
+                        </Border>
+                        <TextBlock Grid.Column="2" Text="%" Foreground="#64748B"
+                                   FontSize="11" VerticalAlignment="Center" Margin="4,0,12,0"/>
+                        <Button Grid.Column="4" Command="{Binding ApplySpitCommand}"
+                                Height="34" Padding="14,0"
+                                Style="{StaticResource MutedActionButtonStyle}"
+                                Background="#1D4ED8">
+                            <TextBlock Text="Apply Spit Parameter" FontSize="11" FontWeight="Bold" Foreground="White"/>
+                        </Button>
+                    </Grid>
+
+                    <!-- Jetting 파라미터 -->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Jetting Frequency" Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="6,3">
+                            <TextBox Text="{Binding JettingFrequency, UpdateSourceTrigger=PropertyChanged}"
+                                     FontSize="11" FontFamily="Consolas"
+                                     Background="Transparent" Foreground="White"
+                                     BorderThickness="0" TextAlignment="Right"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Row="3" Margin="0,4,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Jetting Time" Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="6,3">
+                            <TextBlock Text="{Binding JettingTimeText}"
+                                       FontSize="11" FontFamily="Consolas" Foreground="#94A3B8" TextAlignment="Right"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Row="4" Margin="0,4,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="N of Jetting Drops" Foreground="#94A3B8" FontSize="11" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" Background="#0D1117" CornerRadius="4" Padding="6,3">
+                            <TextBox Text="{Binding JettingDropCount, UpdateSourceTrigger=PropertyChanged}"
+                                     FontSize="11" FontFamily="Consolas"
+                                     Background="Transparent" Foreground="White"
+                                     BorderThickness="0" TextAlignment="Right"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Rectangle Grid.Column="5" Fill="#334155"/>
+
+                <!-- ④ Start / Abort Spit -->
+                <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="14,14">
+                    <Button Command="{Binding StartSpitCommand}"
+                            Height="40" Margin="0,0,0,8"
+                            Style="{StaticResource MutedActionButtonStyle}"
+                            Background="#166534">
+                        <TextBlock Text="Start Spit" FontSize="13" FontWeight="Black" Foreground="White"/>
+                    </Button>
+                    <Button Command="{Binding AbortSpitCommand}"
+                            Height="40"
+                            Style="{StaticResource MutedActionButtonStyle}"
+                            Background="#7F1D1D">
+                        <TextBlock Text="Abort Spit" FontSize="13" FontWeight="Black" Foreground="White"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

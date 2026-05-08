@@ -1,0 +1,24 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Common.Controls.SensorIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="root">
+    <Grid Margin="0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- ConverterParameter는 DependencyProperty가 아니라 Binding 불가 — MultiBinding으로 우회 -->
+        <Ellipse Grid.Column="0" Width="10" Height="10" VerticalAlignment="Center">
+            <Ellipse.Fill>
+                <MultiBinding Converter="{StaticResource SensorBrushMulti}">
+                    <Binding ElementName="root" Path="IsActive"/>
+                    <Binding ElementName="root" Path="AlarmMode"/>
+                </MultiBinding>
+            </Ellipse.Fill>
+        </Ellipse>
+        <TextBlock Grid.Column="1"
+                   Text="{Binding ElementName=root, Path=Label}"
+                   FontSize="11" Foreground="#C0C0D0"
+                   VerticalAlignment="Center" Margin="6,0,0,0"/>
+    </Grid>
+</UserControl>

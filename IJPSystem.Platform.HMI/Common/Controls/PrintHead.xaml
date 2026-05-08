@@ -1,0 +1,31 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Common.Controls.PrintHead"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="root"
+             Width="24" Height="60">
+    <!-- 단일 인쇄 헤드:
+         (0,0) ┬ 매니폴드 분기선 (수직, 길이 20)
+               │
+         (0,20)─┐  헤드 박스 (24×42)
+                │  ┌── 라벨 (H1, H2, ...)
+                │  │
+         (0,62)─┘  슬릿 + 노즐 점 -->
+    <Canvas Margin="0,0,0,12">
+        <!-- 분기선 (매니폴드 → 박스) -->
+        <Line X1="12" Y1="0" X2="12" Y2="20"
+              Stroke="#3B82F6" StrokeThickness="1.5"/>
+
+        <!-- 헤드 박스 -->
+        <Rectangle Canvas.Left="0" Canvas.Top="20" Width="24" Height="30"
+                   Stroke="#3B82F6" StrokeThickness="1.5"
+                   Fill="#1E293B" RadiusX="1" RadiusY="2"/>
+        <!-- 노즐 슬릿 -->
+        <Rectangle Canvas.Left="4" Canvas.Top="50" Width="16" Height="4" Fill="#3B82F6" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        
+        <!-- 라벨 (박스 상단 안쪽) -->
+        <TextBlock Canvas.Left="6" Canvas.Top="25"
+                   Text="{Binding ElementName=root, Path=Label}"
+                   Foreground="#93C5FD" FontSize="9"
+                   FontFamily="Consolas" FontWeight="Bold"/>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,66 @@
+﻿using IJPSystem.Platform.Domain.Models.Config;
+using IJPSystem.Platform.Domain.Models.IO;
+using IJPSystem.Platform.Domain.Models.Motion;
+using IJPSystem.Platform.Domain.Models.Vision;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+
+namespace IJPSystem.Platform.Infrastructure.Config
+{
+    public class ConfigLoader
+    {
+        private readonly JsonSerializerOptions _options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true // 대소문자 구분 없이 매핑 (매우 중요)
+        };
+        public AppSettings LoadAppSettings(string path)
+        {
+            try
+            {
+                if (!File.Exists(path)) return new AppSettings();
+                string json = File.ReadAllText(path);
+                return JsonSerializer.Deserialize<AppSettings>(json) ?? new AppSettings();
+            }
+            catch
+            {
+                return new AppSettings(); // 에러 시 기본값 반환
+            }
+        }
+        // --- IO 설정 로드는 기존과 동일하게 유지 ---
+        public IOConfig LoadIOConfig(string filePath)
+        {
+            if (!File.Exists(filePath)) throw new FileNotFoundException(filePath);
+            string jsonContent = File.ReadAllText(filePath);
+            var config = JsonSerializer.Deserialize<IOConfig>(jsonContent, _options);
+            return config ?? new IOConfig();
+        }
+
+        /// <summary>
+        /// [수정됨] 계층형 MotorConfig.json 파일을 로드합니다.
+        /// </summary>
+        /// <returns>MotionAxisRoot 객체 (내부에 MotionAxisList 포함)</returns>
+        public VisionCameraRoot LoadVisionConfig(string filePath)
+        {
+            if (!File.Exists(filePath)) return new VisionCameraRoot();
+            string json = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<VisionCameraRoot>(json, _options) ?? new VisionCameraRoot();
+        }
+
+        public MotionAxisRoot LoadMotionConfig(string filePath)
+        {
+            // 1. 파일 존재 확인
+            if (!File.Exists(filePath)) throw new FileNotFoundException($"파일을 찾을 수 없습니다: {filePath}");
+
+            // 2. 파일 읽기
+            string jsonContent = File.ReadAllText(filePath);
+
+            // 3. 역직렬화 (중요: 반환 타입을 MotionAxisRoot로 변경)
+            // 우리가 만든 JSON의 최상위 부모는 MotionAxisRoot 클래스입니다.
+            var root = JsonSerializer.Deserialize<MotionAxisRoot>(jsonContent, _options);
+
+            // 4. 결과 반환
+            return root ?? new MotionAxisRoot();
+        }
+    }
+}

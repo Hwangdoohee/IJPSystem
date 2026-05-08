@@ -1,0 +1,17 @@
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Drivers.Motion.deps.json
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Drivers.Motion.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Drivers.Motion.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Platform.Common.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Platform.Domain.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Platform.Common.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\bin\Debug\net8.0-windows\IJPSystem.Platform.Domain.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.csproj.AssemblyReference.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.GeneratedMSBuildEditorConfig.editorconfig
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.AssemblyInfoInputs.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.AssemblyInfo.cs
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.csproj.CoreCompileInputs.cache
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSyste.563E4465.Up2Date
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\refint\IJPSystem.Drivers.Motion.dll
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\IJPSystem.Drivers.Motion.pdb
+D:\IJP\IJPSystem\IJPSystem.Drivers.Motion\obj\Debug\net8.0-windows\ref\IJPSystem.Drivers.Motion.dll

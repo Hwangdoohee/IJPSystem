@@ -1,0 +1,980 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Views.PnidView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctl="clr-namespace:IJPSystem.Platform.HMI.Common.Controls"
+             Background="#0F172A">
+
+    <UserControl.Resources>
+        <!-- ── Pipe / Component 색상 규약 ── -->
+        <SolidColorBrush x:Key="ChemPipe"  Color="#3B82F6"/>
+        <!-- 잉크 공급/순환 -->
+        <SolidColorBrush x:Key="DrainPipe" Color="#EAB308"/>
+        <!-- 드레인 -->
+        <SolidColorBrush x:Key="PresPipe"  Color="#F97316"/>
+        <!-- 양압 (+) -->
+        <SolidColorBrush x:Key="VacPipe"   Color="#A855F7"/>
+        <!-- 음압 (-) -->
+        <SolidColorBrush x:Key="InstrLine" Color="#64748B"/>
+        <!-- 계장 신호선 -->
+
+        <SolidColorBrush x:Key="EquipFill" Color="#1E293B"/>
+        <SolidColorBrush x:Key="EquipEdge" Color="#475569"/>
+        <SolidColorBrush x:Key="TextDim"   Color="#94A3B8"/>
+        <SolidColorBrush x:Key="TextWeak"  Color="#475569"/>
+        <Style x:Key="PnidValveToggle" TargetType="ToggleButton">
+            <Setter Property="Width"      Value="26"/>
+            <Setter Property="Height"     Value="24"/>
+            <Setter Property="Background" Value="#0F172A"/>
+            <Setter Property="Cursor"     Value="Hand"/>
+            <Setter Property="Padding"    Value="0"/>
+            <Setter Property="Focusable"  Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Background="Transparent">
+                            <Polygon x:Name="Bow"
+                          Points="0,0 26,0 13,12 26,24 0,24 13,12"
+                          Stroke="{TemplateBinding BorderBrush}"
+                          StrokeThickness="1.8"
+                          Fill="{TemplateBinding Background}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Bow" Property="Fill"   Value="#22C55E"/>
+                                <Setter TargetName="Bow" Property="Stroke" Value="#22C55E"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bow" Property="StrokeThickness" Value="2.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ── 배관 flow 애니메이션 (대시 오프셋 회전) ── -->
+        <Style x:Key="DashFlow" TargetType="Shape">
+            <Setter Property="StrokeDashArray" Value="6 3"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset"
+                                  From="9" To="0" Duration="0:0:1.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <!-- ── 인터랙티브 Print Head (ToggleButton) — 클릭 시 사용/미사용 토글 ──
+          IsChecked=True(사용) → 청색 stroke / 정상 표시
+          IsChecked=False(미사용) → 회색 stroke / 반투명 -->
+        <Style x:Key="PrintHeadToggle" TargetType="ToggleButton">
+            <Setter Property="Width"  Value="50"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment"   Value="Top"/>
+            <Setter Property="Padding" Value="6,3,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Background="Transparent">
+                            <Rectangle x:Name="Body"
+                                    Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"
+                                    Fill="{StaticResource EquipFill}"
+                                    RadiusX="2" RadiusY="2"/>
+                            <ContentPresenter x:Name="Label"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           Margin="{TemplateBinding Padding}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="Body"  Property="Stroke"  Value="#475569"/>
+                                <Setter TargetName="Body"  Property="Opacity" Value="0.35"/>
+                                <Setter TargetName="Label" Property="Opacity" Value="0.35"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Body" Property="StrokeThickness" Value="2.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ── 조건부 배관 flow 애니메이션 ──
+          각 Shape 의 Tag 에 활성 조건(예: IsPositivePressureEnabled, IsVacuumEnabled, Sv101Open) 바인딩
+          → True 일 때만 점선 flow, False 시 실선 -->
+        <Style x:Key="PmcPipeFlow" TargetType="Shape">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                    <Setter Property="StrokeDashArray" Value="6 3"/>
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="PmcPipeFlowSb">
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset"
+                                              From="9" To="0" Duration="0:0:1.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="PmcPipeFlowSb"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ── BATH → DB-101 드레인 flow 애니메이션 ──
+          AnyHeadPurging=True (퍼지 ON 이고 8헤드 중 1개 이상 밸브 열림) 일 때만 점선이 흐르는 효과 -->
+        <Style x:Key="PurgeDrainFlow" TargetType="Path">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AnyHeadPurging}" Value="True">
+                    <Setter Property="StrokeDashArray" Value="4 2"/>
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="PurgeDrainFlowSb">
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset"
+                                              From="6" To="0" Duration="0:0:0.4"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="PurgeDrainFlowSb"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ── 노즐 퍼지 애니메이션 ──
+          각 요소의 Tag 에 헤드별 HeadXPurging 바인딩 → IsPurging 이고 해당 head 의 밸브가 열린 경우에만 동작 -->
+        <Style x:Key="NozzlePulse" TargetType="Rectangle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="NozzlePulseSb">
+                            <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                              From="1.0" To="0.35" Duration="0:0:0.18"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="NozzlePulseSb"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="NozzleDrop" TargetType="Ellipse">
+            <Setter Property="Width"   Value="4"/>
+            <Setter Property="Height"  Value="6"/>
+            <Setter Property="Fill"    Value="#3B82F6"/>
+            <Setter Property="Opacity" Value="0"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform Y="0"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="NozzleDropSb">
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                                              From="0" To="32" Duration="0:0:0.28"/>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:0.28">
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.00" Value="0"/>
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.05" Value="1"/>
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.22" Value="1"/>
+                                    <LinearDoubleKeyFrame KeyTime="0:0:0.28" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="NozzleDropSb"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ── 노즐 SPIT 스트림 애니메이션 ──
+             퍼지의 한 방울 낙하와 달리, spit은 작은 방울이 연속으로 흐르는 가는 점선처럼 동작
+             StrokeDashOffset을 빠르게 순환시켜 점들이 아래로 흘러내리는 느낌을 줌 -->
+        <Style x:Key="NozzleSpitStream" TargetType="Line">
+            <Setter Property="Stroke"          Value="#3B82F6"/>
+            <Setter Property="StrokeThickness" Value="1.4"/>
+            <Setter Property="StrokeDashArray" Value="1 1.5"/>
+            <Setter Property="StrokeDashCap"   Value="Round"/>
+            <Setter Property="X1" Value="0"/>
+            <Setter Property="Y1" Value="0"/>
+            <Setter Property="X2" Value="0"/>
+            <Setter Property="Y2" Value="30"/>
+            <Setter Property="Opacity" Value="0"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="NozzleSpitStreamSb">
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetProperty="StrokeDashOffset"
+                                              From="2.5" To="0" Duration="0:0:0.14"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="NozzleSpitStreamSb"/>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ── 영역 그룹 배경 패널 ── -->
+        <Style x:Key="GroupPanel" TargetType="Rectangle">
+            <Setter Property="Fill"            Value="#13213A"/>
+            <Setter Property="Stroke"          Value="#1E2D45"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="StrokeDashArray" Value="3 3"/>
+            <Setter Property="RadiusX"         Value="6"/>
+            <Setter Property="RadiusY"         Value="6"/>
+            <Setter Property="Opacity"         Value="0.55"/>
+        </Style>
+        <Style x:Key="GroupLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#64748B"/>
+            <Setter Property="FontSize"   Value="10"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+
+        <!-- 태그 박스 -->
+        <Style x:Key="TagBox" TargetType="Border">
+            <Setter Property="Background"      Value="#1E293B"/>
+            <Setter Property="BorderBrush"     Value="#334155"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius"    Value="2"/>
+            <Setter Property="Padding"         Value="4,1"/>
+        </Style>
+
+
+        <!-- 시퀀스 단계 스타일 -->
+        <Style x:Key="StepNumBadge" TargetType="Border">
+            <Setter Property="Width"  Value="22"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="CornerRadius" Value="11"/>
+            <Setter Property="Background" Value="#334155"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="StepNumText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#CBD5E1"/>
+            <Setter Property="FontSize"   Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment"   Value="Center"/>
+        </Style>
+        <Style x:Key="StepTitle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#E2E8F0"/>
+            <Setter Property="FontSize"   Value="11"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style x:Key="StepDesc" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#64748B"/>
+            <Setter Property="FontSize"   Value="9"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+
+    </UserControl.Resources>
+
+    <Grid>
+        <!-- ── Main Layout: Canvas | Sequence Panel ── -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="340"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ════════════════════════════════════════
+                 좌측: P&ID Canvas
+            ════════════════════════════════════════ -->
+            <ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <Canvas Width="940" Height="721" Background="#0F172A">
+
+                    <!-- ════════════════════════════════
+                         영역 그룹 배경 패널 (시각적 그룹핑)
+                         Canvas 최상단에 배치 → 모든 장비/배관이 위에 그려짐
+                    ════════════════════════════════ -->
+                    <Rectangle Style="{StaticResource GroupPanel}"
+                               Canvas.Left="10" Canvas.Top="0" Width="920" Height="110"/>
+                    <TextBlock Style="{StaticResource GroupLabel}"
+                               Canvas.Left="800" Canvas.Top="6" Text="◆ PRESSURE CONTROL"/>
+
+                    <Rectangle Style="{StaticResource GroupPanel}"
+                               Canvas.Left="10" Canvas.Top="115" Width="920" Height="408"/>
+                    <TextBlock Style="{StaticResource GroupLabel}"
+                               Canvas.Left="22" Canvas.Top="121" Text="◆ INK FLOW PATH (Canister → Reservoir → 8 Heads)"/>
+
+                    <Rectangle Style="{StaticResource GroupPanel}"
+                               Canvas.Left="10" Canvas.Top="528" Width="920" Height="203" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock Style="{StaticResource GroupLabel}"
+                               Canvas.Left="22" Canvas.Top="534" Text="◆ PURGE / DRAIN"/>
+
+                    <!-- ════════════════════════════════
+                         PMC (좌상단)
+                    ════════════════════════════════ -->
+                    <ctl:PMC Canvas.Left="40" Canvas.Top="2"
+                             PressurePV="{Binding PressurePV}"
+                             PressureSV="{Binding PressureSV, Mode=TwoWay}"
+                             VacuumPV="{Binding VacuumPV}"
+                             VacuumSV="{Binding VacuumSV, Mode=TwoWay}"
+                             SetPressureCommand="{Binding SetPressureCommand}"
+                             SetVacuumCommand="{Binding SetVacuumCommand}"/>
+
+                    <!-- PMC → CANISTER (양압) — 배선이므로 화살표 없음, IsPositivePressureEnabled=True 시 flow -->
+                    <Path Style="{StaticResource PmcPipeFlow}"
+                          Tag="{Binding IsPositivePressureEnabled}"
+                          Stroke="{StaticResource PresPipe}" StrokeThickness="2"
+                          Data="M 320,47 L 365,47 L 365,170 L 105,170 L 105,191"/>
+
+                    <!-- PMC → RESERVOIR (양압) — 배선이므로 화살표 없음 -->
+                    <Path Style="{StaticResource PmcPipeFlow}"
+                          Tag="{Binding IsPositivePressureEnabled}"
+                          Stroke="{StaticResource PresPipe}" StrokeThickness="2"
+                          Data="M 320,62 L 480,62 L 480,180"/>
+
+                    <!-- PMC → RESERVOIR (음압) — 배선이므로 화살표 없음 -->
+                    <Path Style="{StaticResource PmcPipeFlow}"
+                          Tag="{Binding IsVacuumEnabled}"
+                          Stroke="{StaticResource VacPipe}" StrokeThickness="2"
+                          Data="M 320,80 L 510,80 L 510,180"/>
+
+                    <!-- ════════════════════════════════
+                         CANISTER (좌중앙)
+                    ════════════════════════════════ -->
+                    <ctl:Canister Canvas.Left="60" Canvas.Top="200"
+                                  TagId="CN-101" Caption="잉크 공급 (Bottle 1)"
+                                  LevelStatus="Set"
+                                  SensorDetect="{Binding Bottle1Detect}"
+                                  SensorLeak="{Binding Bottle1Leak}"
+                                  SensorHigh="{Binding Bottle1High}"/>
+                    <!-- CN → SV-101 출구 배관 (Sv101Open=True 시 flow) -->
+                    <Line X1="150" Y1="240" X2="240" Y2="240"
+                          Style="{StaticResource PmcPipeFlow}"
+                          Tag="{Binding Sv101Open}"
+                          Stroke="{StaticResource ChemPipe}" StrokeThickness="3"/>
+
+                    <!-- ════════════════════════════════
+                         CN → RV 공급 밸브 SV-101 (클릭 토글)
+                    ════════════════════════════════ -->
+                    <ToggleButton Canvas.Left="240" Canvas.Top="228"
+                                  Style="{StaticResource PnidValveToggle}"
+                                  BorderBrush="{StaticResource ChemPipe}"
+                                  IsChecked="{Binding Sv101Open, Mode=TwoWay}"
+                                  ToolTip="SV-101 (CN → RV) — 클릭하여 OPEN/CLOSE"/>
+                    <Ellipse Canvas.Left="244" Canvas.Top="210" Width="18" Height="18"
+                             Stroke="#64748B" StrokeThickness="1.5" Fill="#1E3A5F" IsHitTestVisible="False"/>
+                    <TextBlock Canvas.Left="248" Canvas.Top="214" Text="SV" Foreground="#93C5FD" FontSize="7" FontWeight="Bold" IsHitTestVisible="False"/>
+                    <Border Canvas.Left="237" Canvas.Top="258" Style="{StaticResource TagBox}">
+                        <TextBlock Text="SV-101" Foreground="#60A5FA" FontSize="9" FontFamily="Consolas"/>
+                    </Border>
+                    <!-- SV-101 → RV 공급 배관 (Sv101Open=True 시 flow) -->
+                    <Line X1="266" Y1="240" X2="300" Y2="240"
+                          Style="{StaticResource PmcPipeFlow}"
+                          Tag="{Binding Sv101Open}"
+                          Stroke="{StaticResource ChemPipe}" StrokeThickness="3"/>
+                    <!-- 레저버 쪽 화살표 — 라인 끝(420,240) 에 우측 방향 삼각형, 중앙 y=240 -->
+                    <Polygon Canvas.Left="293" Canvas.Top="233" Points="0,0 0,14 8,7" Fill="{StaticResource ChemPipe}"/>
+
+                    <!-- ════════════════════════════════════════════════════════════════
+                         ▶ 우측 시프트 영역 (Canvas.Left=100)
+                         Reservoir + Manifold + 8 Heads + Valves + PurgeBath + DrainBottles + SlotDie
+                         이 wrapper canvas 내부 좌표는 원본 유지, +100 px 우측으로 보임
+                    ════════════════════════════════════════════════════════════════ -->
+                    <Canvas Canvas.Left="100" Canvas.Top="0">
+
+                    <!-- ════════════════════════════════
+                         RESERVOIR (가로 직사각형) + PT-101
+                    ════════════════════════════════ -->
+                    <ctl:Reservoir Canvas.Left="200" Canvas.Top="180"
+                                   TagId="RV-101" 
+                                   LevelStatus="{Binding ReservoirLevel}"
+                                   SensorHH="{Binding ReservoirOverflow}"
+                                   SensorHigh="{Binding ReservoirHigh}"
+                                   SensorSet="{Binding ReservoirSet}"
+                                   SensorEmpty="{Binding ReservoirEmpty}"/>
+
+                    <!-- PT-101 (압력 트랜스미터) — 신호선 + 버블 -->
+                    <Line X1="500" Y1="155" X2="500" Y2="180"
+                          Stroke="{StaticResource InstrLine}" StrokeThickness="1" StrokeDashArray="2,2"/>
+                    <ctl:InstrumentBubble Canvas.Left="487" Canvas.Top="116" Type="PT" TagId="PT-101"/>
+
+                    <!-- ════════════════════════════════
+                         RESERVOIR 하단 16-WAY 분배 매니폴드 (공통 HEADER)
+                         16개 inlet 배관이 이 헤더에서 분기되어 각 헤드로 공급
+                    ════════════════════════════════ -->
+                    <!-- 헤더 본체 -->
+                    <Rectangle Canvas.Left="195" Canvas.Top="298" Width="530" Height="18"
+                               Fill="{StaticResource EquipFill}"
+                               Stroke="{StaticResource ChemPipe}" StrokeThickness="2"
+                               RadiusX="3" RadiusY="3"/>
+                    <!-- 내부 하이라이트 (입체감) -->
+                    <Line X1="200" Y1="304" X2="720" Y2="304"
+                          Stroke="#3B82F6" StrokeThickness="1" Opacity="0.5"/>
+                    <!-- 헤더 태그 -->
+                    <Border Canvas.Left="730" Canvas.Top="300" Style="{StaticResource TagBox}">
+                        <TextBlock Text="HDR-101" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ════════════════════════════════
+                         RV → 8 HEADS 직접 공급 (각 헤드당 2개 배관)
+                         pipe 상단은 매니폴드를 통과 (y=300~316 매니폴드 내부) → 매니폴드에서 분기되는 형상
+                    ════════════════════════════════ -->
+
+                    <!-- ════════════════════════════════
+                         8 PRINT HEADS (균등 60px 간격, 박스 width 40)
+                         centers: 250, 310, 370, 430, 490, 550, 610, 670 (reservoir 200-720 안에 균등)
+                         pipes at box left/right edges → 16 inlet pipes from y=300 to y=465
+                         valves staggered: left=upper(y=370), right=lower(y=410)
+                    ════════════════════════════════ -->
+
+                    <!-- ─── H1 ─── -->
+                    <Line X1="230" Y1="300" X2="230" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="270" Y1="300" X2="270" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="225" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head1Enabled, Mode=TwoWay}"
+                                  ToolTip="H1 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H1" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="238" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head1Active}"/>
+                    <Ellipse Canvas.Left="248" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="248" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head1Purging}"/>
+                    <Line Canvas.Left="240" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head1Spitting}"/>
+                    <Line Canvas.Left="245" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head1Spitting}"/>
+                    <Line Canvas.Left="250" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head1Spitting}"/>
+                    <Line Canvas.Left="255" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head1Spitting}"/>
+                    <Line Canvas.Left="260" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head1Spitting}"/>
+                    <ToggleButton Canvas.Left="217" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H1In, Mode=TwoWay}" ToolTip="Y700 (H1 Inlet 1)"/>
+                    <Border Canvas.Left="217" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H1-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="257" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H1Out, Mode=TwoWay}" ToolTip="Y701 (H1 Inlet 2)"/>
+                    <Border Canvas.Left="257" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H1-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H2 ─── -->
+                    <Line X1="290" Y1="300" X2="290" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="330" Y1="300" X2="330" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="285" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head2Enabled, Mode=TwoWay}"
+                                  ToolTip="H2 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H2" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="298" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head2Active}"/>
+                    <Ellipse Canvas.Left="308" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="308" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head2Purging}"/>
+                    <Line Canvas.Left="300" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head2Spitting}"/>
+                    <Line Canvas.Left="305" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head2Spitting}"/>
+                    <Line Canvas.Left="310" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head2Spitting}"/>
+                    <Line Canvas.Left="315" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head2Spitting}"/>
+                    <Line Canvas.Left="320" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head2Spitting}"/>
+                    <ToggleButton Canvas.Left="277" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H2In, Mode=TwoWay}" ToolTip="Y702 (H2 Inlet 1)"/>
+                    <Border Canvas.Left="277" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H2-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="317" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H2Out, Mode=TwoWay}" ToolTip="Y703 (H2 Inlet 2)"/>
+                    <Border Canvas.Left="317" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H2-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H3 ─── -->
+                    <Line X1="350" Y1="300" X2="350" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="390" Y1="300" X2="390" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="345" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head3Enabled, Mode=TwoWay}"
+                                  ToolTip="H3 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H3" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="358" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head3Active}"/>
+                    <Ellipse Canvas.Left="368" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="368" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head3Purging}"/>
+                    <Line Canvas.Left="360" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head3Spitting}"/>
+                    <Line Canvas.Left="365" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head3Spitting}"/>
+                    <Line Canvas.Left="370" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head3Spitting}"/>
+                    <Line Canvas.Left="375" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head3Spitting}"/>
+                    <Line Canvas.Left="380" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head3Spitting}"/>
+                    <ToggleButton Canvas.Left="337" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H3In, Mode=TwoWay}" ToolTip="Y704 (H3 Inlet 1)"/>
+                    <Border Canvas.Left="337" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H3-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="377" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H3Out, Mode=TwoWay}" ToolTip="Y705 (H3 Inlet 2)"/>
+                    <Border Canvas.Left="377" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H3-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H4 ─── -->
+                    <Line X1="410" Y1="300" X2="410" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="450" Y1="300" X2="450" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="405" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head4Enabled, Mode=TwoWay}"
+                                  ToolTip="H4 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H4" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="418" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head4Active}"/>
+                    <Ellipse Canvas.Left="428" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="428" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head4Purging}"/>
+                    <Line Canvas.Left="420" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head4Spitting}"/>
+                    <Line Canvas.Left="425" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head4Spitting}"/>
+                    <Line Canvas.Left="430" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head4Spitting}"/>
+                    <Line Canvas.Left="435" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head4Spitting}"/>
+                    <Line Canvas.Left="440" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head4Spitting}"/>
+                    <ToggleButton Canvas.Left="397" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H4In, Mode=TwoWay}" ToolTip="Y706 (H4 Inlet 1)"/>
+                    <Border Canvas.Left="397" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H4-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="437" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H4Out, Mode=TwoWay}" ToolTip="Y707 (H4 Inlet 2)"/>
+                    <Border Canvas.Left="437" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H4-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H5 ─── -->
+                    <Line X1="470" Y1="300" X2="470" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="510" Y1="300" X2="510" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="465" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head5Enabled, Mode=TwoWay}"
+                                  ToolTip="H5 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H5" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="478" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head5Active}"/>
+                    <Ellipse Canvas.Left="488" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="488" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head5Purging}"/>
+                    <Line Canvas.Left="480" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head5Spitting}"/>
+                    <Line Canvas.Left="485" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head5Spitting}"/>
+                    <Line Canvas.Left="490" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head5Spitting}"/>
+                    <Line Canvas.Left="495" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head5Spitting}"/>
+                    <Line Canvas.Left="500" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head5Spitting}"/>
+                    <ToggleButton Canvas.Left="457" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H5In, Mode=TwoWay}" ToolTip="Y708 (H5 Inlet 1)"/>
+                    <Border Canvas.Left="457" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H5-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="497" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H5Out, Mode=TwoWay}" ToolTip="Y709 (H5 Inlet 2)"/>
+                    <Border Canvas.Left="497" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H5-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H6 ─── -->
+                    <Line X1="530" Y1="300" X2="530" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="570" Y1="300" X2="570" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="525" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head6Enabled, Mode=TwoWay}"
+                                  ToolTip="H6 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H6" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="538" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head6Active}"/>
+                    <Ellipse Canvas.Left="548" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="548" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head6Purging}"/>
+                    <Line Canvas.Left="540" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head6Spitting}"/>
+                    <Line Canvas.Left="545" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head6Spitting}"/>
+                    <Line Canvas.Left="550" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head6Spitting}"/>
+                    <Line Canvas.Left="555" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head6Spitting}"/>
+                    <Line Canvas.Left="560" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head6Spitting}"/>
+                    <ToggleButton Canvas.Left="517" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H6In, Mode=TwoWay}" ToolTip="Y710 (H6 Inlet 1)"/>
+                    <Border Canvas.Left="517" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H6-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="557" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H6Out, Mode=TwoWay}" ToolTip="Y711 (H6 Inlet 2)"/>
+                    <Border Canvas.Left="557" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H6-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H7 ─── -->
+                    <Line X1="590" Y1="300" X2="590" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="630" Y1="300" X2="630" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="585" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head7Enabled, Mode=TwoWay}"
+                                  ToolTip="H7 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H7" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="598" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head7Active}"/>
+                    <Ellipse Canvas.Left="608" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="608" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head7Purging}"/>
+                    <Line Canvas.Left="600" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head7Spitting}"/>
+                    <Line Canvas.Left="605" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head7Spitting}"/>
+                    <Line Canvas.Left="610" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head7Spitting}"/>
+                    <Line Canvas.Left="615" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head7Spitting}"/>
+                    <Line Canvas.Left="620" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head7Spitting}"/>
+                    <ToggleButton Canvas.Left="577" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H7In, Mode=TwoWay}" ToolTip="Y712 (H7 Inlet 1)"/>
+                    <Border Canvas.Left="577" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H7-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="617" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H7Out, Mode=TwoWay}" ToolTip="Y713 (H7 Inlet 2)"/>
+                    <Border Canvas.Left="617" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H7-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- ─── H8 ─── -->
+                    <Line X1="650" Y1="300" X2="650" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <Line X1="690" Y1="300" X2="690" Y2="465" Stroke="{StaticResource ChemPipe}" StrokeThickness="1.5"/>
+                    <ToggleButton Canvas.Left="645" Canvas.Top="465"
+                                  Style="{StaticResource PrintHeadToggle}"
+                                  IsChecked="{Binding Head8Enabled, Mode=TwoWay}"
+                                  ToolTip="H8 — 클릭하여 사용/미사용 전환">
+                        <TextBlock Text="H8" Foreground="#93C5FD" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </ToggleButton>
+                    <Rectangle Canvas.Left="658" Canvas.Top="495" Width="24" Height="4" Fill="#3B82F6" Style="{StaticResource NozzlePulse}" Tag="{Binding Head8Active}"/>
+                    <Ellipse Canvas.Left="668" Canvas.Top="499" Width="4" Height="6" Fill="#3B82F6"/>
+                    <Ellipse Canvas.Left="668" Canvas.Top="505" Style="{StaticResource NozzleDrop}" Tag="{Binding Head8Purging}"/>
+                    <Line Canvas.Left="660" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head8Spitting}"/>
+                    <Line Canvas.Left="665" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head8Spitting}"/>
+                    <Line Canvas.Left="670" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head8Spitting}"/>
+                    <Line Canvas.Left="675" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head8Spitting}"/>
+                    <Line Canvas.Left="680" Canvas.Top="506" Style="{StaticResource NozzleSpitStream}" Tag="{Binding Head8Spitting}"/>
+                    <ToggleButton Canvas.Left="637" Canvas.Top="358" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H8In, Mode=TwoWay}" ToolTip="Y714 (H8 Inlet 1)"/>
+                    <Border Canvas.Left="637" Canvas.Top="384" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H8-1" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+                    <ToggleButton Canvas.Left="677" Canvas.Top="398" Style="{StaticResource PnidValveToggle}" BorderBrush="{StaticResource ChemPipe}" IsChecked="{Binding Pack1H8Out, Mode=TwoWay}" ToolTip="Y715 (H8 Inlet 2)"/>
+                    <Border Canvas.Left="677" Canvas.Top="424" Style="{StaticResource TagBox}">
+                        <TextBlock Text="H8-2" Foreground="#60A5FA" FontSize="8" FontFamily="Consolas"/>
+                    </Border>
+
+                    <!-- 헤드 그룹 라벨 (H1 좌측) -->
+                    <Border Canvas.Left="180" Canvas.Top="475" Style="{StaticResource TagBox}">
+                        <TextBlock Text="HD-1~8" Foreground="#60A5FA" FontSize="9" FontFamily="Consolas" FontWeight="Bold"/>
+                    </Border>
+
+                    <!-- 8헤드 → BATH 토출 (대표 점선, 헤드 클러스터 중앙 x=460) -->
+
+                    <!-- ════════════════════════════════
+                         PURGE BATH (8헤드 전체 폭) — width 520
+                    ════════════════════════════════ -->
+                    <ctl:PurgeBath Canvas.Left="200" Canvas.Top="540"
+                                   TagId="BATH-101" Caption="PURGE BATH"
+                                   LevelStatus="Low"/>
+
+                    <!-- ════════════════════════════════
+                         SLOT DIE (상단 — 레저버 위쪽 배치) → DB-102 (Bottle 4)
+                         body 240×50, drain port at (120, 60) (UserControl 내부)
+                         배치: wrapper (390, 65) → drain port at wrapper (510, 122)
+                    ════════════════════════════════ -->
+                    <ctl:SlotDie Canvas.Left="390" Canvas.Top="50"
+                                 TagId="SD-101" Caption="SLOT DIE"/>
+
+                    <!-- SLOT DIE → DB-102 드레인 파이프
+                         drain port 원 바닥 (510, 125)에서 출발 → 아래 잠깐 (145)
+                         → 우측으로 우회 (760, 145) — manifold(x≤725) / bath(x≤720) 우측 통과
+                         → 아래로 bath 아래까지 (760, 605)
+                         → 좌측으로 보틀 inlet 정렬 (700, 605)
+                         → 아래 보틀 입구 (700, 612) -->
+                    <Path Stroke="{StaticResource DrainPipe}" StrokeThickness="3" Fill="{x:Null}"
+                          Data="M 610,110 L 610,145 L 760,145 L 760,605 L 700,605 L 700,612"/>
+                    <Polygon Canvas.Left="693" Canvas.Top="612" Points="0,0 14,0 7,8" Fill="{StaticResource DrainPipe}"/>
+
+                    <!-- ════════════════════════════════
+                         BATH → DB-101 수직 드레인 파이프 (bath 중앙)
+                         IsPurging=True 시 점선 flow 애니메이션 (PurgeDrainFlow 스타일)
+                    ════════════════════════════════ -->
+                    <Path Style="{StaticResource PurgeDrainFlow}"
+                          Stroke="{StaticResource DrainPipe}" StrokeThickness="3" Fill="{x:Null}"
+                          Data="M 460,590 L 460,612"/>
+                    <Polygon Canvas.Left="453" Canvas.Top="612" Points="0,0 14,0 7,8" Fill="{StaticResource DrainPipe}"/>
+
+                    <!-- ════════════════════════════════
+                         DRAIN BOTTLE 1 (BATH 드레인) — PurgeBath 중앙 직하
+                    ════════════════════════════════ -->
+                    <ctl:DrainBottle Canvas.Left="405" Canvas.Top="620"
+                                     TagId="DB-101" Caption="BATH DRAIN (Bottle 3)"
+                                     LevelStatus="Low"
+                                     SensorDetect="{Binding Bottle3Detect}"
+                                     SensorLeak="{Binding Bottle3Leak}"
+                                     SensorHigh="{Binding Bottle3High}"/>
+
+                    <!-- ════════════════════════════════
+                         DRAIN BOTTLE 2 (SLOT DIE 드레인) — bath 우측, 센서가 캔버스 안에 들어오도록 좌측 이동
+                    ════════════════════════════════ -->
+                    <ctl:DrainBottle Canvas.Left="645" Canvas.Top="620"
+                                     TagId="DB-102" Caption="SLOT DIE DRAIN (Bottle 4)"
+                                     LevelStatus="Empty"
+                                     SensorDetect="{Binding Bottle4Detect}"
+                                     SensorLeak="{Binding Bottle4Leak}"
+                                     SensorHigh="{Binding Bottle4High}"/>
+
+                    </Canvas>
+                    
+                    <Line X1="40" Y1="160" X2="900" Y2="160" Stroke="#1E3A5F" StrokeThickness="1" StrokeDashArray="8,5"/>
+                    
+                </Canvas>
+            </ScrollViewer>
+
+            <!-- ════════════════════════════════════════
+                 우측: 동작 시퀀스 패널
+            ════════════════════════════════════════ -->
+            <Border Grid.Column="1" Background="#0F172A"
+                    BorderBrush="#334155" BorderThickness="1,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Continuous Operation Header -->
+                    <Border Grid.Row="0" Background="#1E293B" BorderBrush="#334155" BorderThickness="0,0,0,1"
+                            Padding="14,10">
+                        <StackPanel>
+                            <TextBlock Text="연 속 동 작" Foreground="#E2E8F0"
+                                       FontSize="13" FontWeight="Bold" FontFamily="Consolas"/>
+                            <TextBlock Text="CONTINUOUS OPERATION" Foreground="#64748B"
+                                       FontSize="9" FontFamily="Consolas" Margin="0,2,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Action Buttons -->
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="14,12">
+                        <StackPanel>
+
+                            <!-- 자동 시퀀스 (Auto 퍼지 / Auto Blotting) -->
+                            <TextBlock Text="AUTO SEQUENCE" Foreground="#3B82F6"
+                                       FontSize="10" FontWeight="Bold" Margin="0,0,0,8"/>
+                            <Button Height="58" Margin="0,0,0,6"
+                                    Style="{StaticResource MutedActionButtonStyle}" Background="#166534"
+                                    Command="{Binding AutoPurgeCommand}"
+                                    ToolTip="자동 퍼지 시퀀스 시작">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="▶" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="자동 퍼지"  FontSize="14" FontWeight="Black" Foreground="White"/>
+                                        <TextBlock Text="AUTO PURGE" FontSize="9"  Foreground="#86EFAC"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button>
+                            <Button Height="58" Margin="0,0,0,12"
+                                    Style="{StaticResource MutedActionButtonStyle}" Background="#0E7490"
+                                    Command="{Binding AutoBlottingCommand}"
+                                    ToolTip="자동 블로팅 시퀀스 시작">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="☆" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="자동 블로팅"   FontSize="14" FontWeight="Black" Foreground="White"/>
+                                        <TextBlock Text="AUTO BLOTTING"   FontSize="9"  Foreground="#67E8F9"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button>
+
+                            <Rectangle Height="1" Fill="#1E293B" Margin="0,4,0,8"/>
+
+                            <!-- 단위 동작 (2x4 그리드) -->
+                            <TextBlock Text="MANUAL OPERATIONS" Foreground="#FBBF24"
+                                       FontSize="10" FontWeight="Bold" Margin="0,0,0,8"/>
+                            <Grid Margin="0,0,0,4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="6"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="44"/>
+                                    <RowDefinition Height="6"/>
+                                    <RowDefinition Height="44"/>
+                                    <RowDefinition Height="6"/>
+                                    <RowDefinition Height="44"/>
+                                    <RowDefinition Height="6"/>
+                                    <RowDefinition Height="44"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Row 1: REFILL / PURGE -->
+                                <Button Grid.Row="0" Grid.Column="0"
+                                        Style="{StaticResource MutedActionButtonStyle}" Background="#1E40AF">
+                                    <StackPanel>
+                                        <TextBlock Text="잉크 충전" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="REFILL"   FontSize="9"  Foreground="#93C5FD" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Row="0" Grid.Column="2"
+                                        Command="{Binding TogglePurgeCommand}"
+                                        ToolTip="P&amp;ID 헤드 노즐 퍼지 애니메이션 ON/OFF">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MutedActionButtonStyle}">
+                                            <Setter Property="Background" Value="#A16207"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsPurging}" Value="True">
+                                                    <Setter Property="Background" Value="#CA8A04"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel>
+                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="퍼지"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsPurging}" Value="True">
+                                                            <Setter Property="Text" Value="퍼지 중지"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock FontSize="9" Foreground="#FDE68A" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="PURGE"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsPurging}" Value="True">
+                                                            <Setter Property="Text" Value="PURGE STOP"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+
+                                <!-- Row 2: SPITTING / DRAIN -->
+                                <Button Grid.Row="2" Grid.Column="0"
+                                        Command="{Binding ToggleSpittingCommand}"
+                                        ToolTip="P&amp;ID 헤드 노즐 spit 애니메이션 ON/OFF">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MutedActionButtonStyle}">
+                                            <Setter Property="Background" Value="#1E40AF"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsSpitting}" Value="True">
+                                                    <Setter Property="Background" Value="#3B82F6"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel>
+                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="스피팅"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsSpitting}" Value="True">
+                                                            <Setter Property="Text" Value="스피팅 중지"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock FontSize="9" Foreground="#93C5FD" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="SPITTING"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsSpitting}" Value="True">
+                                                            <Setter Property="Text" Value="SPITTING STOP"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Row="2" Grid.Column="2"
+                                        Style="{StaticResource MutedActionButtonStyle}" Background="#A16207">
+                                    <StackPanel>
+                                        <TextBlock Text="드레인"   FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="DRAIN"    FontSize="9"  Foreground="#FDE68A" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <!-- Row 3: P+ ON / P- ON (활성화 시 PMC 양압/음압 배관 flow 애니메이션) -->
+                                <Button Grid.Row="4" Grid.Column="0"
+                                        Command="{Binding TogglePositivePressureCommand}"
+                                        ToolTip="PMC 양압(P+) 배관 flow ON/OFF">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MutedActionButtonStyle}">
+                                            <Setter Property="Background" Value="#9A3412"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsPositivePressureEnabled}" Value="True">
+                                                    <Setter Property="Background" Value="#EA580C"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel>
+                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="양압 ON"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsPositivePressureEnabled}" Value="True">
+                                                            <Setter Property="Text" Value="양압 OFF"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="P+ ENABLE" FontSize="9"  Foreground="#FDBA74" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Row="4" Grid.Column="2"
+                                        Command="{Binding ToggleVacuumCommand}"
+                                        ToolTip="PMC 음압(P-) 배관 flow ON/OFF">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MutedActionButtonStyle}">
+                                            <Setter Property="Background" Value="#6B21A8"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsVacuumEnabled}" Value="True">
+                                                    <Setter Property="Background" Value="#9333EA"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <StackPanel>
+                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="음압 ON"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsVacuumEnabled}" Value="True">
+                                                            <Setter Property="Text" Value="음압 OFF"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="P- ENABLE" FontSize="9"  Foreground="#D8B4FE" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <!-- Row 4: VALVE OPEN ALL / CLOSE ALL — H1-1~H8-2 (Y700~Y715) 일괄 -->
+                                <Button Grid.Row="6" Grid.Column="0"
+                                        Style="{StaticResource MutedActionButtonStyle}" Background="#15803D"
+                                        Command="{Binding OpenAllHeadValvesCommand}"
+                                        ToolTip="H1-1 ~ H8-2 (Y700~Y715) 16개 밸브 일괄 OPEN">
+                                    <StackPanel>
+                                        <TextBlock Text="전체 OPEN"  FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="ALL VALVES" FontSize="9"  Foreground="#86EFAC" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Grid.Row="6" Grid.Column="2"
+                                        Style="{StaticResource MutedActionButtonStyle}" Background="#475569"
+                                        Command="{Binding CloseAllHeadValvesCommand}"
+                                        ToolTip="H1-1 ~ H8-2 (Y700~Y715) 16개 밸브 일괄 CLOSE">
+                                    <StackPanel>
+                                        <TextBlock Text="전체 CLOSE" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="ALL VALVES" FontSize="9"  Foreground="#94A3B8" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

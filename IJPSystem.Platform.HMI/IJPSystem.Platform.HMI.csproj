@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <BaseOutputPath></BaseOutputPath>
+	  <DisableShadowCopy>true</DisableShadowCopy>
+	  <DesignerDisableShadowCopy>true</DesignerDisableShadowCopy>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.72" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IJPSystem.Drivers.IO\IJPSystem.Drivers.IO.csproj" />
+    <ProjectReference Include="..\IJPSystem.Drivers.Vision\IJPSystem.Drivers.Vision.csproj" />
+    <ProjectReference Include="..\IJPSystem.Machines.Inkjet5G\IJPSystem.Machines.Inkjet5G.csproj" />
+    <ProjectReference Include="..\IJPSystem.Platform.Application\IJPSystem.Platform.Application.csproj" />
+    <ProjectReference Include="..\IJPSystem.Platform.Infrastructure\IJPSystem.Platform.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+
+
+</Project>

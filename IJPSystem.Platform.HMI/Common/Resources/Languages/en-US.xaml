@@ -1,0 +1,226 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- 서브메뉴 -->
+    <system:String x:Key="SubMenu_Title">SUB MENU</system:String>
+    <system:String x:Key="SubMenu_IO">I/O MONITOR</system:String>
+    <system:String x:Key="SubMenu_Motor">MOTOR CONTROL</system:String>
+    <system:String x:Key="SubMenu_AxisControl">└ AXIS CONTROL</system:String>
+    <system:String x:Key="SubMenu_PositionTeach">└ POSITION TEACH</system:String>
+    <system:String x:Key="SubMenu_PNID">P&amp;ID</system:String>
+    <system:String x:Key="SubMenu_VISION">VISION</system:String>
+    <system:String x:Key="SubMenu_NJI">└ NJI</system:String>
+    <system:String x:Key="SubMenu_GLASS_VIEW">└ GLASS VIEW</system:String>
+    <system:String x:Key="SubMenu_DROP_WATCHER">└ DROP WATCHER</system:String>
+    <system:String x:Key="SubMenu_Sequence">SEQUENCE</system:String>
+    <system:String x:Key="SubMenu_MotorInfo">MOTOR INFO</system:String>
+    <system:String x:Key="SubMenu_TeachingPoint">TEACH INFO</system:String>
+    <system:String x:Key="SubMenu_OtherPoint">OTHER INFO</system:String>
+    <system:String x:Key="SubMenu_AutoPrint">AUTO PRINT</system:String>
+    <system:String x:Key="SubMenu_Initialize">INITIALIZE</system:String>
+    <system:String x:Key="SubMenu_SystemExit">SYSTEM EXIT</system:String>
+    
+    <!-- 메인 메뉴 -->
+    <system:String x:Key="Menu_Main">MAIN</system:String>
+    <system:String x:Key="Menu_Print">PRINT</system:String>
+    <system:String x:Key="SubMenu_Waveform">WAVEFORM</system:String>
+    <system:String x:Key="SubMenu_PatternPrint">PATTERN PRINT</system:String>
+    <system:String x:Key="Menu_Maintenance">MAINTENANCE</system:String>
+    <system:String x:Key="Menu_Recipe">RECIPE</system:String>
+
+    <system:String x:Key="Menu_AlarmHistory">ALARM HISTORY</system:String>
+    <system:String x:Key="Menu_LogView">LOG VIEW</system:String>
+
+    <!-- 상태바 -->
+    <system:String x:Key="Status_AutoRun">AUTO RUN</system:String>
+    <system:String x:Key="Status_SystemReady">System Ready...</system:String>
+    <system:String x:Key="Status_Recipe">RECIPE :</system:String>
+    <system:String x:Key="Status_SystemTime">SYSTEM TIME</system:String>
+
+    <!-- 기타 -->
+    <system:String x:Key="Btn_Logout">LOGOUT</system:String>
+    <system:String x:Key="Btn_ClearLog">CLEAR</system:String>
+    <system:String x:Key="Recipe_SaveApplyHint">* SAVE: Save record | APPLY: Apply parameters immediately</system:String>
+
+    <!-- 화면 타이틀 -->
+    <system:String x:Key="Title_AlarmHistory">ALARM HISTORY MANAGEMENT</system:String>
+
+    <!-- Recipe 메시지 -->
+    <system:String x:Key="Msg_RecipeDirtyConfirm">[{0}] has unsaved changes.&#x0a;Save changes?</system:String>
+    <system:String x:Key="Msg_RecipeDirtyTitle">Unsaved Changes</system:String>
+    <system:String x:Key="Msg_RecipeCancelConfirm">Discard changes to [{0}] and revert to saved values?</system:String>
+    <system:String x:Key="Msg_RecipeCancelTitle">Discard Changes</system:String>
+    <system:String x:Key="Msg_RecipeRenameActiveWarn">[{0}] is currently active.&#x0a;Renaming it will update the active recipe name immediately.&#x0a;Continue?</system:String>
+    <system:String x:Key="Msg_RecipeRenameActiveTitle">Rename Active Recipe</system:String>
+
+    <!-- ══ MessageBox Messages ════════════════════════════════════ -->
+    <!-- Alarm Export -->
+    <system:String x:Key="Msg_AlarmNoData">No alarm data to export.</system:String>
+    <system:String x:Key="Msg_AlarmExportSuccess">Exported successfully!&#x0a;&#x0a;Path: {0}</system:String>
+    <system:String x:Key="Msg_AlarmExportTitle">Export Complete</system:String>
+
+    <!-- Alarm History Delete -->
+    <system:String x:Key="Msg_AlarmDeleteConfirm">Permanently delete all alarm history?</system:String>
+    <system:String x:Key="Msg_AlarmDeleteTitle">Delete Confirmation</system:String>
+    <system:String x:Key="Msg_AlarmDeleteSuccess">All history has been deleted.</system:String>
+    <system:String x:Key="Msg_AlarmDeleteError">Delete error: {0}</system:String>
+
+    <!-- Alarm Reset All -->
+    <system:String x:Key="Msg_AlarmResetAllConfirm">Reset all alarm history?</system:String>
+    <system:String x:Key="Msg_AlarmResetAllTitle">Reset Confirmation</system:String>
+
+    <!-- Alarm Row Reset -->
+    <system:String x:Key="Msg_AlarmResetRowConfirm">[{0}] {1}&#x0a;&#x0a;Reset this alarm?</system:String>
+    <system:String x:Key="Msg_AlarmResetRowTitle">Alarm Reset</system:String>
+
+    <!-- System Exit -->
+    <system:String x:Key="Msg_ExitConfirm">Exit the system?</system:String>
+    <system:String x:Key="Msg_ExitTitle">System Exit</system:String>
+
+    <!-- Force Output -->
+    <system:String x:Key="Msg_ForceOutputConfirm">Set {0} to {1}?</system:String>
+    <system:String x:Key="Msg_ForceOutputTitle">Output Control</system:String>
+    <system:String x:Key="Msg_ForceOutputOn">ON</system:String>
+    <system:String x:Key="Msg_ForceOutputOff">OFF</system:String>
+
+    <!-- Logout -->
+    <system:String x:Key="Msg_LogoutConfirm">Switch to Operator mode?</system:String>
+    <system:String x:Key="Msg_LogoutTitle">Change User</system:String>
+
+    <!-- ══ AddLog Messages ════════════════════════════════════════ -->
+    <!-- Navigation — [NAV] -->
+    <system:String x:Key="Log_MoveMain">[NAV] Navigating to MAIN screen.</system:String>
+    <system:String x:Key="Log_MoveIO">[NAV] Navigating to I/O Monitor.</system:String>
+    <system:String x:Key="Log_Waveform">[NAV] Navigating to Waveform.</system:String>
+    <system:String x:Key="Log_PatternPrint">[NAV] Navigating to Pattern Print.</system:String>
+    <system:String x:Key="Log_MoveMotor">[NAV] Navigating to Motor Control.</system:String>
+    <system:String x:Key="Log_MoveAxisControl">[NAV] Navigating to Axis Control.</system:String>
+    <system:String x:Key="Log_MovePositionTeach">[NAV] Navigating to Position Teach.</system:String>
+    <system:String x:Key="Log_MoveNJI">[NAV] Navigating to Vision &gt; NJI.</system:String>
+    <system:String x:Key="Log_MoveGlassView">[NAV] Navigating to Vision &gt; Glass View.</system:String>
+    <system:String x:Key="Log_MoveDropWatcher">[NAV] Navigating to Vision &gt; Drop Watcher.</system:String>
+    <system:String x:Key="Log_MovePNID">[NAV] Navigating to P&amp;ID.</system:String>
+    <system:String x:Key="Log_Sequence">[NAV] Navigating to Sequence.</system:String>
+    <system:String x:Key="Log_MoveRecipe">[NAV] Navigating to Recipe Management.</system:String>
+    <system:String x:Key="Log_MoveMotorInfo">[NAV] Navigating to Motor Info.</system:String>
+    <system:String x:Key="Log_MoveTeachPointInfo">[NAV] Navigating to Teach Info.</system:String>
+    <system:String x:Key="Log_OtherInfo">[NAV] Navigating to Other Info.</system:String>
+    <system:String x:Key="Log_MoveAutoPrint">[NAV] Navigating to Auto Print.</system:String>
+    <system:String x:Key="Log_MoveInitialize">[NAV] Navigating to Initialize.</system:String>
+    <system:String x:Key="Log_MoveAlarm">[NAV] Navigating to Alarm History.</system:String>
+    <system:String x:Key="Log_UnknownMenu">[NAV] Unknown menu request: {0}</system:String>
+    <system:String x:Key="Log_LogWindowOpened">[NAV] Log window opened.</system:String>
+
+    <!-- Auth — [AUTH] -->
+    <system:String x:Key="Log_LoginSuccess">[AUTH] Authentication successful: {0}</system:String>
+    <system:String x:Key="Log_LoginRole">[AUTH] Logged in with {0} role.</system:String>
+    <system:String x:Key="Log_LogoutToOperator">[AUTH] Switched to Operator role.</system:String>
+    <system:String x:Key="Log_RoleChanged">[AUTH] User role changed to [{0}].</system:String>
+
+    <!-- System — [SYS] -->
+    <system:String x:Key="Log_SystemInit">[SYS] System initialized.</system:String>
+    <system:String x:Key="Log_ExitAttempt">[SYS] Attempting system shutdown...</system:String>
+    <system:String x:Key="Log_LogCleared">[SYS] Log cleared.</system:String>
+
+    <!-- Equipment Control — [SYS] / [IO] -->
+    <system:String x:Key="Log_Start">[SYS] Equipment started. (START)</system:String>
+    <system:String x:Key="Log_Stop">[SYS] Equipment stopped. (STOP)</system:String>
+    <system:String x:Key="Log_ErrorReset">[ALARM] Error has been cleared.</system:String>
+    <system:String x:Key="Log_DoorOpenBlocked">[IO] Cannot open door while running.</system:String>
+    <system:String x:Key="Log_DoorOpen">[IO] Door open signal sent.</system:String>
+    <system:String x:Key="Log_DoorClose">[IO] Door close signal sent.</system:String>
+    <system:String x:Key="Log_VacuumOn">[IO] Vacuum ON.</system:String>
+    <system:String x:Key="Log_VacuumOff">[IO] Vacuum OFF.</system:String>
+    <system:String x:Key="Log_ManualControl">[IO] {0} → {1}</system:String>
+
+    <!-- Safety -->
+    <system:String x:Key="Log_SafetyBypass">[DEBUG] Safety check bypassed.</system:String>
+    <system:String x:Key="Log_EmoDetected">[Safety] EMO detected — cannot start.</system:String>
+    <system:String x:Key="Log_DoorLockFail">[Safety] Door not locked — cannot start.</system:String>
+    <system:String x:Key="Log_PressureFail">[Safety] Pressure Switch &lt;{0}&gt; error — cannot start.</system:String>
+    <system:String x:Key="Log_EmoStopped">[Safety] EMO detected — emergency stop.</system:String>
+    <system:String x:Key="Log_AlarmCleared">[ALARM] Cleared — system in STANDBY.</system:String>
+
+    <!-- Sequence step display names (matching SequenceStepDef.Name keys) -->
+    <system:String x:Key="Step_AutoPrint_1">Wait for glass detection (V/C chuck entry)</system:String>
+    <system:String x:Key="Step_AutoPrint_2">V/C chuck Vacuum ON (clamp glass)</system:String>
+    <system:String x:Key="Step_AutoPrint_3">Confirm vacuum sensor (Pressure SW4 ON)</system:String>
+    <system:String x:Key="Step_AutoPrint_4">Vacuum stabilization wait (1s)</system:String>
+    <system:String x:Key="Step_AutoPrint_5">Move to PRINT START position</system:String>
+    <system:String x:Key="Step_AutoPrint_6">Confirm InPosition at PRINT START</system:String>
+    <system:String x:Key="Step_AutoPrint_7">Printing — jet to PRINT END</system:String>
+    <system:String x:Key="Step_AutoPrint_8">Confirm InPosition after printing</system:String>
+    <system:String x:Key="Step_AutoPrint_9">V/C chuck Vacuum OFF (prepare unload)</system:String>
+    <system:String x:Key="Step_AutoPrint_10">Move to READY position</system:String>
+    <system:String x:Key="Step_AutoPrint_11">Confirm InPosition at READY</system:String>
+
+    <system:String x:Key="Step_Init_1">Servo ON — all axes</system:String>
+    <system:String x:Key="Step_Init_2">Home — all axes</system:String>
+    <system:String x:Key="Step_Init_3">Move to READY position</system:String>
+    <system:String x:Key="Step_Init_4">Confirm InPosition (all axes)</system:String>
+    <system:String x:Key="Step_Init_5">Wait for glass detection sensor</system:String>
+    <system:String x:Key="Step_Init_6">Move to LOAD position</system:String>
+    <system:String x:Key="Step_Init_7">Confirm InPosition at LOAD</system:String>
+
+    <system:String x:Key="Step_Purge_1">Vacuum OFF</system:String>
+    <system:String x:Key="Step_Purge_2">Move to PURGE position</system:String>
+    <system:String x:Key="Step_Purge_3">Confirm InPosition at PURGE</system:String>
+    <system:String x:Key="Step_Purge_4">Wait for ink purge completion</system:String>
+    <system:String x:Key="Step_Purge_5">Move to READY position</system:String>
+    <system:String x:Key="Step_Purge_6">Confirm InPosition at READY</system:String>
+
+    <system:String x:Key="Step_Blotting_1">Vacuum OFF</system:String>
+    <system:String x:Key="Step_Blotting_2">Move to BLOTTING position</system:String>
+    <system:String x:Key="Step_Blotting_3">Confirm InPosition at BLOTTING</system:String>
+    <system:String x:Key="Step_Blotting_4">Nozzle surface absorption wait (3s)</system:String>
+    <system:String x:Key="Step_Blotting_5">Move to READY position</system:String>
+    <system:String x:Key="Step_Blotting_6">Confirm InPosition at READY</system:String>
+
+    <system:String x:Key="Step_Maint_1">Confirm door unlock</system:String>
+    <system:String x:Key="Step_Maint_2">Move to MAINTENANCE position</system:String>
+    <system:String x:Key="Step_Maint_3">Confirm InPosition at MAINTENANCE</system:String>
+    <system:String x:Key="Step_Maint_4">Wait for maintenance complete (door close)</system:String>
+    <system:String x:Key="Step_Maint_5">Move to READY position</system:String>
+    <system:String x:Key="Step_Maint_6">Confirm InPosition at READY</system:String>
+
+    <system:String x:Key="Step_NJI_1">Move to NJI position</system:String>
+    <system:String x:Key="Step_NJI_2">Confirm InPosition at NJI</system:String>
+    <system:String x:Key="Step_NJI_3">Light ON</system:String>
+    <system:String x:Key="Step_NJI_4">Nozzle vision inspection</system:String>
+    <system:String x:Key="Step_NJI_5">Light OFF</system:String>
+    <system:String x:Key="Step_NJI_6">Move to READY position</system:String>
+    <system:String x:Key="Step_NJI_7">Confirm InPosition at READY</system:String>
+
+    <!-- Sequence display names / descriptions (matching SequenceRegistry keys) -->
+    <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
+    <system:String x:Key="Seq_Init_Desc">Servo ON → Home → Move to READY → wait for glass detection</system:String>
+    <system:String x:Key="Seq_Purge_Name">PURGE</system:String>
+    <system:String x:Key="Seq_Purge_Desc">Vacuum OFF → Move to PURGE → wait for purge done → return</system:String>
+    <system:String x:Key="Seq_Blotting_Name">BLOTTING</system:String>
+    <system:String x:Key="Seq_Blotting_Desc">Vacuum OFF → Move to BLOTTING → nozzle surface absorption → return</system:String>
+    <system:String x:Key="Seq_Maintenance_Name">MAINTENANCE</system:String>
+    <system:String x:Key="Seq_Maintenance_Desc">Move to maintenance → wait for door close → return</system:String>
+    <system:String x:Key="Seq_NJI_Name">NJI</system:String>
+    <system:String x:Key="Seq_NJI_Desc">Move to NJI → vision inspection → alarm on NG → return</system:String>
+    <system:String x:Key="Seq_AutoPrint_Name">AUTO PRINT</system:String>
+    <system:String x:Key="Seq_AutoPrint_Desc">Glass detection → vacuum clamp → Move to PRINT START → printing → vacuum release → return</system:String>
+
+    <!-- AUTO PRINT Sequence -->
+    <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] Alarm raised — motion stopped, sequence paused</system:String>
+    <system:String x:Key="Log_AutoPrintAlarmResume">[AUTO PRINT] Alarm cleared — resuming</system:String>
+    <system:String x:Key="Log_AutoPrintStopMotionError">[AUTO PRINT] Motion stop error: {0}</system:String>
+    <system:String x:Key="Log_AutoPrintResume">[AUTO PRINT] Resumed — continuing from next step</system:String>
+    <system:String x:Key="Log_AutoPrintStopPause">[AUTO PRINT] STOP — pausing after current step completes (press START to resume)</system:String>
+    <system:String x:Key="Log_AutoPrintStepAborted">[AUTO PRINT] Step {0} aborted — will retry on resume</system:String>
+    <system:String x:Key="Log_AutoPrintCompleted">AUTO PRINT completed ({0}s)</system:String>
+    <system:String x:Key="Log_AutoPrintTimeoutMsg">AUTO PRINT timeout: {0}</system:String>
+    <system:String x:Key="Log_AutoPrintFailureMsg">AUTO PRINT failure: {0}</system:String>
+
+    <!-- Prerequisites -->
+    <system:String x:Key="Log_AxisInfoMissing">No axis information — check the motion driver</system:String>
+    <system:String x:Key="Log_PrereqNotHomed">Run the INITIALIZE sequence first.&#10;&#10;Axes not homed: {0}</system:String>
+    <system:String x:Key="Log_PrereqNotServoOn">Servo is OFF. Re-run INITIALIZE.&#10;&#10;Axes needing Servo ON: {0}</system:String>
+    <system:String x:Key="Log_PrereqDialogTitle">Prerequisites not met</system:String>
+
+</ResourceDictionary>

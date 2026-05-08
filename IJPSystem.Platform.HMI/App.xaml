@@ -1,0 +1,48 @@
+﻿<Application x:Class="IJPSystem.Platform.HMI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:IJPSystem.Platform.HMI.ViewModels"
+             xmlns:views="clr-namespace:IJPSystem.Platform.HMI.Views">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/Resources/Languages/ko-KR.xaml"/>
+                <ResourceDictionary Source="Common/Resources/Languages/en-US.xaml"/>
+                <ResourceDictionary Source="Common/Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:RecipeViewModel}">
+                <views:RecipeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:MotorControlViewModel}">
+                <views:MotorControlView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:MotorTeachingViewModel}">
+                <views:MotorTeachingView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:NJIViewModel}">
+                <views:NJIView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:GlassViewModel}">
+                <views:GlassView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DropWatcherViewModel}">
+                <views:DropWatcherView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:WaveformViewModel}">
+                <views:WaveformView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:PatternPrintViewModel}">
+                <views:PatternPrintView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

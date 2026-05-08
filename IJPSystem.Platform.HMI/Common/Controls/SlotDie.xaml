@@ -1,0 +1,42 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Common.Controls.SlotDie"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="root">
+    <!-- SlotDie: 가로 240 슬롯다이. body 240×50 (y=0~50), 상단 inlet, 하단 drain port -->
+    <Canvas>
+        <!-- 좌/우 마운트 플랜지 (lip) -->
+        <Rectangle Canvas.Left="96" Canvas.Top="10" Width="8" Height="30"
+                   Stroke="#475569" StrokeThickness="1.5" Fill="#1E293B"/>
+        <Rectangle Canvas.Left="336" Canvas.Top="10" Width="8" Height="30"
+                   Stroke="#475569" StrokeThickness="1.5" Fill="#1E293B"/>
+
+        <!-- 본체 -->
+        <Rectangle Canvas.Left="100" Canvas.Top="0" Width="240" Height="50"
+                   Stroke="#3B82F6" StrokeThickness="2" Fill="#1E293B" RadiusX="3" RadiusY="3"/>
+
+        <!-- 내부 manifold 채널 (가는 가로줄, 입체감) -->
+        <Rectangle Canvas.Left="110" Canvas.Top="16" Width="220" Height="2"
+                   Fill="#3B82F6" Opacity="0.4"/>
+
+        <!-- Ink inlet 포트 (상단 중앙, 위로 돌출) -->
+        <Ellipse Canvas.Left="213" Canvas.Top="-9" Width="14" Height="14"
+                 Stroke="#3B82F6" StrokeThickness="1.5" Fill="#1E293B"/>
+
+        <!-- 토출 slit (본체 하단 가는 노란선) -->
+        <Rectangle Canvas.Left="120" Canvas.Top="45" Width="200" Height="2"
+                   Fill="#FBBF24" Opacity="0.7"/>
+
+        <!-- 드레인 포트 (하단 중앙, 아래로 돌출) -->
+        <Ellipse Canvas.Left="213" Canvas.Top="46" Width="14" Height="14"
+                 Stroke="#EAB308" StrokeThickness="1.5" Fill="#1E293B"/>
+
+        <!-- Tag (body 중앙 상부) -->
+        <Border Canvas.Left="205" Canvas.Top="8"
+                Background="#1E293B" BorderBrush="#334155" BorderThickness="1" CornerRadius="2" Padding="4,1">
+            <TextBlock Text="{Binding ElementName=root, Path=TagId}"
+                       Foreground="#60A5FA" FontSize="10" FontFamily="Consolas" FontWeight="Bold"/>
+        </Border>
+        <TextBlock Canvas.Left="198" Canvas.Top="28" Text="SLOT DIE"
+                   Foreground="#94A3B8" FontSize="9" FontWeight="Bold"/>
+    </Canvas>
+</UserControl>

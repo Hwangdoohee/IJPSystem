@@ -1,0 +1,37 @@
+<UserControl x:Class="IJPSystem.Platform.HMI.Common.Controls.WaveformChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="22"/>
+        </Grid.RowDefinitions>
+
+        <!-- Y축 레이블 "Voltage" -->
+        <TextBlock Grid.Column="0" Grid.Row="0"
+                   Text="Voltage" Foreground="#64748B"
+                   FontSize="10" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="-90"/>
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+
+        <!-- 차트 캔버스 -->
+        <Canvas x:Name="PART_Chart"
+                Grid.Column="1" Grid.Row="0"
+                Background="#060B14"
+                ClipToBounds="True"
+                SizeChanged="OnChartSizeChanged"/>
+
+        <!-- X축 레이블 "Time (μs)" -->
+        <TextBlock Grid.Column="1" Grid.Row="1"
+                   Text="Time (μs)" Foreground="#64748B"
+                   FontSize="10" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</UserControl>

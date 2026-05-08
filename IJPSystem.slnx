@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/0.Config/">
+    <File Path="Config/AlarmHistory.db" />
+    <File Path="Config/AlarmSystem.db" />
+    <File Path="Config/AppConfig.json" />
+    <File Path="Config/IO.json" />
+    <File Path="Config/MotorConfig.json" />
+    <File Path="Config/RecipeData.db" />
+  </Folder>
+  <Folder Name="/1.Platform/">
+    <Project Path="IJPSystem.Platform.Application/IJPSystem.Platform.Application.csproj" />
+    <Project Path="IJPSystem.Platform.Common/IJPSystem.Platform.Common.csproj" />
+    <Project Path="IJPSystem.Platform.Domain/IJPSystem.Platform.Domain.csproj" />
+    <Project Path="IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj" />
+    <Project Path="IJPSystem.Platform.Infrastructure/IJPSystem.Platform.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/2.Drivers/">
+    <Project Path="IJPSystem.Drivers.IO/IJPSystem.Drivers.IO.csproj" />
+    <Project Path="IJPSystem.Drivers.Motion/IJPSystem.Drivers.Motion.csproj" />
+    <Project Path="IJPSystem.Drivers.Vision/IJPSystem.Drivers.Vision.csproj" />
+  </Folder>
+  <Folder Name="/3.Machines/">
+    <Project Path="IJPSystem.Machines.Inkjet5G/IJPSystem.Machines.Inkjet5G.csproj" />
+  </Folder>
+</Solution>

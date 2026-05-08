@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IJPSystem.Drivers.IO\IJPSystem.Drivers.IO.csproj" />
+    <ProjectReference Include="..\IJPSystem.Drivers.Motion\IJPSystem.Drivers.Motion.csproj" />
+    <ProjectReference Include="..\IJPSystem.Drivers.Vision\IJPSystem.Drivers.Vision.csproj" />
+    <ProjectReference Include="..\IJPSystem.Platform.Application\IJPSystem.Platform.Application.csproj" />
+    <ProjectReference Include="..\IJPSystem.Platform.Domain\IJPSystem.Platform.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

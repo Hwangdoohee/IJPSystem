@@ -1,0 +1,15 @@
+﻿D:\IJP\IJPSystem\IJPSystem.Platform.HMI\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.i.cs
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\App.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Common\Resources\Styles.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\MainWindow.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Alarm\AlarmHistoryView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Log\LogWindowView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\Motor\MotorControlView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\PnidView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\SequenceView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\Vision\DropWatcherView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\Vision\GlassView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Maintenance\Vision\NJIView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Print\WaveformView.xaml;;
+FD:\IJP\IJPSystem\IJPSystem.Platform.HMI\Views\Recipe\RecipeDiffWindow.xaml;;
+
