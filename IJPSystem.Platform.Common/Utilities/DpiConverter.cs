@@ -15,7 +15,7 @@ namespace IJPSystem.Platform.Common.Utilities
         }
 
         /// <summary>drop pitch(mm) → DPI. 예) 0.0423 → ≈600</summary>
-        public static int PitchMmToDpi(double pitchMm)
+        public static int PitchMmToDpi(double pitchMm)//다시 테스트입니다.
         {
             if (pitchMm <= 0) throw new ArgumentOutOfRangeException(nameof(pitchMm));
             return (int)Math.Round(InchToMm / pitchMm);
