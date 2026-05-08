@@ -1,0 +1,95 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+TestResult.xml
+[Bb]uild[Rr]esult.*
+
+# Coverage
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# DotCover
+*.dotCover
+
+# AxoCover
+.axoCover/*
+!.axoCover/settings.json
+
+# Publish
+publish/
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+
+# Other
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+[Dd]esktop.ini
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Claude local settings (개인 설정 — 공유 안함)
+.claude/settings.local.json
