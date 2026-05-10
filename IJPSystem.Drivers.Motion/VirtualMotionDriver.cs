@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
-using System.Windows;
 using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.Domain.Models.Motion;
 
@@ -112,11 +111,8 @@ namespace IJPSystem.Drivers.Motion
         public Task<bool> MoveAbs(string axisNo, double pos, double vel, double acc, double dec)
         {
             var state = GetStatus(axisNo);
-            if (state.IsServoOn == false)
-            {
-                MessageBox.Show("Servo On 진행하세요");
+            if (!state.IsServoOn)
                 return Task.FromResult(false);
-            }
 
             if (_axisStates.TryGetValue(axisNo, out state))
             {
@@ -134,11 +130,8 @@ namespace IJPSystem.Drivers.Motion
         public Task<bool> MoveRel(string axisNo, double distance, double vel, double acc, double dec)
         {
             var state = GetStatus(axisNo);
-            if (state.IsServoOn == false)
-            {
-                MessageBox.Show("Servo On 진행하세요");
+            if (!state.IsServoOn)
                 return Task.FromResult(false);
-            }
 
             if (_axisStates.TryGetValue(axisNo, out state))
             {
@@ -155,11 +148,8 @@ namespace IJPSystem.Drivers.Motion
         public Task<bool> MoveJog(string axisNo, bool isForward, double vel, double acc, double dec)
         {
             var state = GetStatus(axisNo);
-            if (state.IsServoOn == false)
-            {
-                MessageBox.Show("Servo On 진행하세요");
+            if (!state.IsServoOn)
                 return Task.FromResult(false);
-            }
 
             if (_axisStates.TryGetValue(axisNo, out state))
             {
@@ -190,11 +180,8 @@ namespace IJPSystem.Drivers.Motion
         public async Task<bool> Home(string axisNo)
         {
             var state = GetStatus(axisNo);
-            if (state.IsServoOn == false)
-            {
-                MessageBox.Show("Servo On 진행하세요");
+            if (!state.IsServoOn)
                 return false;
-            }
 
             if (!_axisStates.TryGetValue(axisNo, out state))
                 return false;

@@ -53,9 +53,8 @@
                         </StackPanel>
                     </Border>
 
-                    <Button Content="LOGOUT" Command="{Binding LogoutCommand}" 
-                            Visibility="{Binding IsEngineerMode, Converter={StaticResource BooleanToVisibilityConverter}}"
-                            Style="{StaticResource ModernActionButton}" Background="#C0392B" 
+                    <Button Content="{Binding LoginButtonText}" Command="{Binding LogoutCommand}"
+                            Style="{StaticResource ModernActionButton}" Background="#C0392B"
                             Width="60" Height="22" Margin="8,0,0,0" FontSize="8"/>
                 </StackPanel>
 
@@ -288,9 +287,19 @@
                          IsChecked="{Binding SelectedMenu, Mode=TwoWay, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=PRINT}"/>
                     <RadioButton Content="{DynamicResource Menu_Maintenance}"
                          GroupName="MainMenu"
-                         Style="{StaticResource NavMenuButtonStyle}"
                          CommandParameter="MAINTENANCE"
-                         IsChecked="{Binding SelectedMenu, Mode=TwoWay, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=MAINTENANCE}"/>
+                         IsChecked="{Binding SelectedMenu, Mode=TwoWay, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=MAINTENANCE}">
+                        <RadioButton.Style>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource NavMenuButtonStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentUserRole}" Value="Operator">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Setter Property="Opacity" Value="0.3"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
                     <RadioButton Content="{DynamicResource Menu_Recipe}"
                          GroupName="MainMenu"
                          CommandParameter="RECIPE"

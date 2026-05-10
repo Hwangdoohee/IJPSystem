@@ -1,3 +1,4 @@
+using IJPSystem.Platform.Common.Utilities;
 using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
@@ -12,7 +13,7 @@ using System.Windows.Threading;
 
 namespace IJPSystem.Platform.HMI.ViewModels
 {
-    public class GlassViewModel : ViewModelBase
+    public class GlassViewModel : ViewModelBase, IDisposable
     {
         private const string CamId = "CAM_02";
 
@@ -185,7 +186,11 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     CaptureCount++;
                 }
             }
-            catch { /* 라이브 중 오류는 로그 없이 무시 */ }
+            catch (Exception ex)
+            {
+                // 라이브 중 오류는 화면 로그 노출 없이 파일에만 기록
+                LoggerService.WriteToFile("DEBUG", $"[GLASS_LIVE] capture failed: {ex.Message}");
+            }
             finally { IsBusy = false; }
         }
 
@@ -253,6 +258,15 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 ((RelayCommand)LightOffCommand).RaiseCanExecuteChanged();
                 ((RelayCommand)OpenImageCommand).RaiseCanExecuteChanged();
             });
+        }
+
+        public void Dispose()
+        {
+            _statusTimer.Stop();
+            _liveTimer.Stop();
+            _liveCts?.Cancel();
+            _liveCts?.Dispose();
+            _liveCts = null;
         }
     }
 }

@@ -106,7 +106,7 @@
                             </TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Button Grid.Column="1" Content="SAVE TO FILE" Command="{Binding SaveTeachingPointsCommand}"
+                    <Button Grid.Column="1" Content="SAVE TO RECIPE" Command="{Binding SaveTeachingPointsCommand}"
                             FontSize="12" Style="{StaticResource MutedActionButtonStyle}" Width="120"
                             VerticalAlignment="Center" Height="66"/>
                 </Grid>

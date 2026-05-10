@@ -39,7 +39,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public NozzleStatusItem(int index) => Index = index;
     }
 
-    public class DropWatcherViewModel : ViewModelBase
+    public class DropWatcherViewModel : ViewModelBase, IDisposable
     {
         private const string CamId = "CAM_DW";
         private const int NozzleCount = 128;
@@ -266,6 +266,11 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 ((RelayCommand)LightOnCommand).RaiseCanExecuteChanged();
                 ((RelayCommand)LightOffCommand).RaiseCanExecuteChanged();
             });
+        }
+
+        public void Dispose()
+        {
+            _pollTimer.Stop();
         }
     }
 }

@@ -88,6 +88,10 @@
     <system:String x:Key="Msg_LogoutConfirm">Switch to Operator mode?</system:String>
     <system:String x:Key="Msg_LogoutTitle">Change User</system:String>
 
+    <!-- Teaching Save -->
+    <system:String x:Key="Msg_TeachSaveConfirm">Save teaching points for recipe [{0}]?</system:String>
+    <system:String x:Key="Msg_TeachSaveTitle">Save Teaching Points</system:String>
+
     <!-- ══ AddLog Messages ════════════════════════════════════════ -->
     <!-- Navigation — [NAV] -->
     <system:String x:Key="Log_MoveMain">[NAV] Navigating to MAIN screen.</system:String>

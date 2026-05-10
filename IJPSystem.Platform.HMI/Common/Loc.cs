@@ -1,3 +1,5 @@
+using IJPSystem.Platform.Common.Utilities;
+using System;
 using System.Windows;
 
 namespace IJPSystem.Platform.HMI.Common
@@ -16,8 +18,15 @@ namespace IJPSystem.Platform.HMI.Common
         public static string T(string key, params object[] args)
         {
             string template = T(key);
-            try   { return string.Format(template, args); }
-            catch { return template; }
+            try
+            {
+                return string.Format(template, args);
+            }
+            catch (FormatException ex)
+            {
+                LoggerService.WriteToFile("WARN", $"Loc.T format error for key '{key}' (args={args.Length}): {ex.Message}");
+                return template;
+            }
         }
     }
 }

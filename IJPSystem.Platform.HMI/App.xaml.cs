@@ -72,13 +72,16 @@ namespace IJPSystem.Platform.HMI
                 await Task.Delay(350);
 
                 new MainWindow { DataContext = mainVM }.Show();
-                splash.Close();
             }
             catch (Exception ex)
             {
-                splash.Close();
+                LoggerService.WriteToFile("FATAL", $"Startup failed: {ex}");
                 MessageBox.Show($"Startup failed: {ex.Message}");
                 Shutdown();
+            }
+            finally
+            {
+                splash.Close();
             }
         }
 
@@ -86,7 +89,7 @@ namespace IJPSystem.Platform.HMI
         {
             // 모든 종료 경로(메뉴 EXIT / X 버튼 / Alt+F4 / Shutdown)의 단일 정리 지점
             try { _machine?.Terminate(); }
-            catch { /* 종료 중 예외는 삼킴 */ }
+            catch (Exception ex) { LoggerService.WriteToFile("ERROR", $"Machine.Terminate failed: {ex}"); }
 
             base.OnExit(e);
         }

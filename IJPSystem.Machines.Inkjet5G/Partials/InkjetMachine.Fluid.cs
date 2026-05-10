@@ -20,7 +20,7 @@ namespace IJPSystem.Machines.Inkjet5G
             public const string BOTTLE_3_DETECT     = "DI_BOTTLE3_MT_DETECT_SENSOR";
             public const string BOTTLE_3_LEAK       = "DI_BOTTLE3_MT_LEAK_SENSOR";
 
-            // ── Bottle 4 (H/M) ──
+            // ── Bottle 4 (H/M — 설비 신호명은 LEVEL=HM, DETECT/LEAK=MT 로 혼용되어 있음. IO.json 과 일치) ──
             public const string BOTTLE_4_LEVEL_LOW  = "DI_BOTTLE4_HM_LEVEL_SENSOR_LOW";
             public const string BOTTLE_4_DETECT     = "DI_BOTTLE4_MT_DETECT_SENSOR";
             public const string BOTTLE_4_LEAK       = "DI_BOTTLE4_MT_LEAK_SENSOR";

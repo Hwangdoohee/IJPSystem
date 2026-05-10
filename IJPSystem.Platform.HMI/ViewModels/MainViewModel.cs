@@ -123,14 +123,25 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 SetProperty(ref _currentUserRole, value);
                 OnPropertyChanged(nameof(UserStatusText));
                 OnPropertyChanged(nameof(IsEngineerMode)); // 누락 수정
+                OnPropertyChanged(nameof(LoginButtonText));
             }
         }
+
+        public string LoginButtonText =>
+            CurrentUserRole == UserRole.Operator ? "LOGIN" : "LOGOUT";
 
         private object? _currentView;
         public object? CurrentView
         {
             get => _currentView;
-            set => SetProperty(ref _currentView, value);
+            set
+            {
+                if (ReferenceEquals(_currentView, value)) return;
+                // 화면 전환 시 이전 ViewModel 의 Timer/이벤트 정리 (메모리 누수 방지)
+                // RecipeVM 등 재사용 객체는 IDisposable 미구현이므로 자동으로 건너뜀
+                (_currentView as IDisposable)?.Dispose();
+                SetProperty(ref _currentView, value);
+            }
         }
 
         private string _currentRecipeName = "Default";
@@ -697,13 +708,13 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     break;
 
                 case "LOG":
-                    ExecuteOpenLogWindow();
-                    AddLog(T("Log_LogWindowOpened"), LogLevel.Info);
+                    if (ExecuteOpenLogWindow())
+                        AddLog(T("Log_LogWindowOpened"), LogLevel.Info);
                     break;
 
                 default:
                     CollapseAllSubMenus();
-                    SelectedMenu = "MAIN";
+                    SelectedMenu = "MAIN"; 
                     CurrentView = _mainDashboardVM;
                     AddLog(T("Log_UnknownMenu", destination), LogLevel.Warning);
                     break;
@@ -812,6 +823,19 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
         private void OnLogOut()
         {
+            // Operator 상태이면 로그인 동작 — LoginWindow 띄워 권한 상승
+            if (CurrentUserRole == UserRole.Operator)
+            {
+                var loginWin = new LoginWindow();
+                if (loginWin.ShowDialog() == true)
+                {
+                    CurrentUserRole = loginWin.ResultRole;
+                    AddLog(T("Log_LoginRole", CurrentUserRole), LogLevel.Success);
+                }
+                return;
+            }
+
+            // Engineer/Admin 상태이면 로그아웃 동작 — Operator 로 전환
             var result = MessageBox.Show(T("Msg_LogoutConfirm"), T("Msg_LogoutTitle"),
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
@@ -863,8 +887,18 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
         }
 
-        private void ExecuteOpenLogWindow()
+        private bool ExecuteOpenLogWindow()
         {
+            // Admin 권한 전용 — 모든 진입 경로(메뉴/버튼)에서 차단
+            if (CurrentUserRole != UserRole.Admin)
+            {
+                MessageBox.Show(
+                    "로그 화면은 관리자(Admin) 권한으로만 접근할 수 있습니다.",
+                    "권한 부족",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+
             try
             {
                 // 단일 인스턴스 — 이미 떠 있으면 활성화만
@@ -873,7 +907,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 {
                     LogVM.Refresh();
                     _logWindowView.Activate();
-                    return;
+                    return true;
                 }
 
                 _logWindowView = new LogWindowView { DataContext = LogVM };
@@ -896,10 +930,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
                 LogVM.Refresh();   // 열 때마다 최신 데이터로 갱신
                 _logWindowView.Show();
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"로그 창을 여는 중 오류가 발생했습니다: {ex.Message}");
+                return false;
             }
         }
 

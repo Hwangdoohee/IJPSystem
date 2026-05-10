@@ -289,6 +289,13 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private void SaveToDatabase()
         {
             string name = _mainVM.RecipeVM.SelectedRecipeName;
+            var result = MessageBox.Show(
+                Loc.T("Msg_TeachSaveConfirm", name),
+                Loc.T("Msg_TeachSaveTitle"),
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+            if (result != MessageBoxResult.OK)
+                return;
             try
             {
                 using var db = new SqliteConnection(_connectionString);
@@ -315,7 +322,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 trans.Commit();
 
                 _mainVM.AddLog($"[MOTION] Teach [{name}] 저장 완료", LogLevel.Success);
-                MessageBox.Show("저장 완료");
+                //MessageBox.Show("저장 완료");
             }
             catch (Exception ex)
             {

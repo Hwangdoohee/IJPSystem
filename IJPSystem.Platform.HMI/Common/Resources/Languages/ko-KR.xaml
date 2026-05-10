@@ -88,6 +88,10 @@
     <system:String x:Key="Msg_LogoutConfirm">Operator 모드로 변경하겠습니까?</system:String>
     <system:String x:Key="Msg_LogoutTitle">사용자 변경</system:String>
 
+    <!-- 티칭 저장 -->
+    <system:String x:Key="Msg_TeachSaveConfirm">[{0}] 레시피의 티칭 정보를 저장하시겠습니까?</system:String>
+    <system:String x:Key="Msg_TeachSaveTitle">티칭 저장 확인</system:String>
+
     <!-- ══ AddLog 메시지 ══════════════════════════════════════════ -->
     <!-- 화면 이동 — [NAV] -->
     <system:String x:Key="Log_MoveMain">[NAV] MAIN 화면으로 이동합니다.</system:String>
