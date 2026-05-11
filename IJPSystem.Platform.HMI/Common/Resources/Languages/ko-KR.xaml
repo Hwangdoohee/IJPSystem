@@ -208,7 +208,27 @@
     <system:String x:Key="Seq_NJI_Name">NJI</system:String>
     <system:String x:Key="Seq_NJI_Desc">NJI 위치 이동 → 비전 검사 → NG시 알람 → 복귀</system:String>
     <system:String x:Key="Seq_AutoPrint_Name">AUTO PRINT</system:String>
-    <system:String x:Key="Seq_AutoPrint_Desc">글래스 감지 → 진공 고정 → PRINT START 이동 → 인쇄 진행 → 진공 해제 → 복귀</system:String>
+    <system:String x:Key="Seq_AutoPrint_Desc">글래스 감지 → 진공 고정 → PRINT START 이동 → 헤드 DOWN → 인쇄 진행 → 헤드 UP → 진공 해제 → 복귀</system:String>
+    <system:String x:Key="Seq_HeadUp_Name">HEAD UP</system:String>
+    <system:String x:Key="Seq_HeadUp_Desc">프린트 헤드를 위로 이동 (글래스에서 분리)</system:String>
+    <system:String x:Key="Seq_HeadDown_Name">HEAD DOWN</system:String>
+    <system:String x:Key="Seq_HeadDown_Desc">프린트 헤드를 아래로 이동 (글래스 가까이)</system:String>
+
+    <!-- HEAD UP/DOWN 단독 시퀀스 step -->
+    <system:String x:Key="Step_HeadUp_1">프린트 헤드 UP 위치 이동</system:String>
+    <system:String x:Key="Step_HeadUp_2">프린트 헤드 UP InPosition 확인</system:String>
+    <system:String x:Key="Step_HeadDown_1">프린트 헤드 DOWN 위치 이동</system:String>
+    <system:String x:Key="Step_HeadDown_2">프린트 헤드 DOWN InPosition 확인</system:String>
+
+    <!-- AUTO PRINT / PURGE 시퀀스 내 HEAD UP/DOWN step -->
+    <system:String x:Key="Step_AutoPrint_HeadDown">프린트 헤드 DOWN 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadDownDone">프린트 헤드 DOWN InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadUp">프린트 헤드 UP 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadUpDone">프린트 헤드 UP InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_HeadDown">프린트 헤드 DOWN 이동</system:String>
+    <system:String x:Key="Step_Purge_HeadDownDone">프린트 헤드 DOWN InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_HeadUp">프린트 헤드 UP 이동</system:String>
+    <system:String x:Key="Step_Purge_HeadUpDone">프린트 헤드 UP InPosition 확인</system:String>
 
     <!-- AUTO PRINT 시퀀스 -->
     <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] 알람 발생 — 모션 정지 후 일시정지</system:String>

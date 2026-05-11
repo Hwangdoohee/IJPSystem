@@ -208,7 +208,27 @@
     <system:String x:Key="Seq_NJI_Name">NJI</system:String>
     <system:String x:Key="Seq_NJI_Desc">Move to NJI → vision inspection → alarm on NG → return</system:String>
     <system:String x:Key="Seq_AutoPrint_Name">AUTO PRINT</system:String>
-    <system:String x:Key="Seq_AutoPrint_Desc">Glass detection → vacuum clamp → Move to PRINT START → printing → vacuum release → return</system:String>
+    <system:String x:Key="Seq_AutoPrint_Desc">Glass detection → vacuum clamp → Move to PRINT START → Head DOWN → printing → Head UP → vacuum release → return</system:String>
+    <system:String x:Key="Seq_HeadUp_Name">HEAD UP</system:String>
+    <system:String x:Key="Seq_HeadUp_Desc">Move print head up (separate from glass)</system:String>
+    <system:String x:Key="Seq_HeadDown_Name">HEAD DOWN</system:String>
+    <system:String x:Key="Seq_HeadDown_Desc">Move print head down (close to glass)</system:String>
+
+    <!-- Standalone HEAD UP/DOWN sequence steps -->
+    <system:String x:Key="Step_HeadUp_1">Move to PRINT HEAD UP position</system:String>
+    <system:String x:Key="Step_HeadUp_2">PRINT HEAD UP InPosition check</system:String>
+    <system:String x:Key="Step_HeadDown_1">Move to PRINT HEAD DOWN position</system:String>
+    <system:String x:Key="Step_HeadDown_2">PRINT HEAD DOWN InPosition check</system:String>
+
+    <!-- HEAD UP/DOWN steps embedded in AUTO PRINT / PURGE -->
+    <system:String x:Key="Step_AutoPrint_HeadDown">Move PRINT HEAD DOWN</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadDownDone">PRINT HEAD DOWN InPosition check</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadUp">Move PRINT HEAD UP</system:String>
+    <system:String x:Key="Step_AutoPrint_HeadUpDone">PRINT HEAD UP InPosition check</system:String>
+    <system:String x:Key="Step_Purge_HeadDown">Move PRINT HEAD DOWN</system:String>
+    <system:String x:Key="Step_Purge_HeadDownDone">PRINT HEAD DOWN InPosition check</system:String>
+    <system:String x:Key="Step_Purge_HeadUp">Move PRINT HEAD UP</system:String>
+    <system:String x:Key="Step_Purge_HeadUpDone">PRINT HEAD UP InPosition check</system:String>
 
     <!-- AUTO PRINT Sequence -->
     <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] Alarm raised — motion stopped, sequence paused</system:String>

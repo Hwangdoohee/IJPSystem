@@ -59,6 +59,22 @@ namespace IJPSystem.Platform.Application.Sequences
                 DescriptionKey = "Seq_AutoPrint_Desc",
                 BuildSteps     = AutoPrintSequence.Build,
             },
+            new SequenceDefinition
+            {
+                Id             = "HEAD_UP",
+                Icon           = "⬆",
+                NameKey        = "Seq_HeadUp_Name",
+                DescriptionKey = "Seq_HeadUp_Desc",
+                BuildSteps     = HeadUpSequence.Build,
+            },
+            new SequenceDefinition
+            {
+                Id             = "HEAD_DOWN",
+                Icon           = "⬇",
+                NameKey        = "Seq_HeadDown_Name",
+                DescriptionKey = "Seq_HeadDown_Desc",
+                BuildSteps     = HeadDownSequence.Build,
+            },
         };
     }
 }

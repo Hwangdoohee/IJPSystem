@@ -44,13 +44,27 @@ namespace IJPSystem.Platform.Application.Sequences
             new SequenceStepDef(6, "Step_AutoPrint_6",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
-            new SequenceStepDef(7, "Step_AutoPrint_7",
+            // ── 신규: 프린트 헤드 DOWN (글래스 가까이) ──
+            new SequenceStepDef(7, "Step_AutoPrint_HeadDown",
+                ct => motion.MoveToPointAsync(PointNames.PrintHeadDown, ct)),
+
+            new SequenceStepDef(8, "Step_AutoPrint_HeadDownDone",
+                ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 10_000, ct)),
+
+            new SequenceStepDef(9, "Step_AutoPrint_7",
                 ct => motion.MoveToPointAsync(PointNames.PrintEnd, ct, MotionProfileKind.Printing)),
 
-            new SequenceStepDef(8, "Step_AutoPrint_8",
+            new SequenceStepDef(10, "Step_AutoPrint_8",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 60_000, ct)),
 
-            new SequenceStepDef(9, "Step_AutoPrint_9",
+            // ── 신규: 프린트 헤드 UP (글래스에서 떼기) ──
+            new SequenceStepDef(11, "Step_AutoPrint_HeadUp",
+                ct => motion.MoveToPointAsync(PointNames.PrintHeadUp, ct)),
+
+            new SequenceStepDef(12, "Step_AutoPrint_HeadUpDone",
+                ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 10_000, ct)),
+
+            new SequenceStepDef(13, "Step_AutoPrint_9",
                 ct =>
                 {
                     machine.VacuumOff();
@@ -60,10 +74,10 @@ namespace IJPSystem.Platform.Application.Sequences
                                                  expected: false, timeoutMs: 10_000, ct);
                 }),
 
-            new SequenceStepDef(10, "Step_AutoPrint_10",
+            new SequenceStepDef(14, "Step_AutoPrint_10",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),
 
-            new SequenceStepDef(11, "Step_AutoPrint_11",
+            new SequenceStepDef(15, "Step_AutoPrint_11",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
         };
     }

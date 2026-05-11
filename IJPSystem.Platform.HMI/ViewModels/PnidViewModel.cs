@@ -8,6 +8,7 @@ using IJPSystem.Platform.HMI.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -42,6 +43,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                                                               _ => !_isAutoRunning);
             AutoBlottingCommand           = new RelayCommand(async _ => await RunAutoBlottingAsync(),
                                                               _ => !_isAutoRunning);
+            StopAutoSequenceCommand       = new RelayCommand(_ => CancelAutoSequence(),
+                                                              _ => _isAutoRunning);
 
             RefreshFromMachine();
 
@@ -62,9 +65,29 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public ICommand ToggleVacuumCommand           { get; }
         public ICommand AutoPurgeCommand              { get; }
         public ICommand AutoBlottingCommand           { get; }
+        public ICommand StopAutoSequenceCommand       { get; }
 
         // ── AUTO 시퀀스 실행 (Auto 퍼지 / Auto Blotting) ──
         private bool _isAutoRunning;
+        // STOP 버튼이 외부에서 cancel 할 수 있도록 클래스 필드로 보유
+        private CancellationTokenSource? _autoCts;
+
+        public bool IsAutoRunning
+        {
+            get => _isAutoRunning;
+            private set => SetProperty(ref _isAutoRunning, value);
+        }
+
+        private void CancelAutoSequence()
+        {
+            if (!_isAutoRunning || _autoCts == null) return;
+            _mainVM.AddLog("[SEQ] AUTO — 사용자 STOP 요청", LogLevel.Warning);
+            try { _autoCts.Cancel(); } catch { /* 이미 dispose된 경우 무시 */ }
+
+            // SetSequenceRunning(false) 는 RunAutoSequenceAsync 의 finally 에서만 해제.
+            // → 시퀀스가 실제로 멈출 때(다음 await 지점에서 OperationCanceledException)까지
+            //   화면 전환 차단을 유지하여 race condition 방지.
+        }
 
         private Task RunAutoPurgeAsync() =>
             RunAutoSequenceAsync("AUTO PURGE", PurgeSequence.Build, "SEQ-PURGE-FAIL");
@@ -101,16 +124,36 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     System.Windows.MessageBoxImage.Warning);
                 return;
             }
+            // INITIALIZE 시퀀스(전체 축 원점복귀) 수행 여부 체크 — MainDashboardVM 의 사전 조건과 동일
+            var allAxes = _machine.Motion?.GetAllStatus();
+            if (allAxes == null || allAxes.Count == 0)
+            {
+                _mainVM.AddLog($"[SEQ] {name} — 중단 (축 정보 없음 — 모션 드라이버 확인)", LogLevel.Error);
+                _mainVM.AlarmVM.RaiseAlarm("SEQ-NO-AXIS");
+                return;
+            }
+            var notHomed = allAxes.Where(ax => !ax.IsHomeDone).Select(ax => ax.AxisNo).ToList();
+            if (notHomed.Count > 0)
+            {
+                _mainVM.AddLog($"[SEQ] {name} — 중단 (INITIALIZE 미수행, 미원점 축: {string.Join(", ", notHomed)})", LogLevel.Warning);
+                System.Windows.MessageBox.Show(
+                    $"INITIALIZE 시퀀스를 먼저 수행하세요.\n\n미원점 축: {string.Join(", ", notHomed)}",
+                    "시퀀스 시작 불가",
+                    System.Windows.MessageBoxButton.OK,
+                    System.Windows.MessageBoxImage.Warning);
+                return;
+            }
             if (_isAutoRunning) return;
 
-            _isAutoRunning = true;
+            IsAutoRunning = true;
             _mainVM.SetSequenceRunning(true);   // 실행 시작 → 화면 전환 차단
             CommandManager.InvalidateRequerySuggested();
 
             var sw     = Stopwatch.StartNew();
             var motion = new MotionServiceAdapter(_mainVM);
             var steps  = buildSteps(_machine, motion);
-            using var cts = new CancellationTokenSource();
+            _autoCts = new CancellationTokenSource();
+            var token = _autoCts.Token;
 
             _mainVM.AddLog($"[SEQ] {name} — 시작 ({steps.Count} 단계)", LogLevel.Info);
 
@@ -118,12 +161,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
             {
                 for (int i = 0; i < steps.Count; i++)
                 {
-                    cts.Token.ThrowIfCancellationRequested();
+                    token.ThrowIfCancellationRequested();
                     var step = steps[i];
                     _mainVM.AddLog(
                         $"[SEQ] {name} — step {i + 1}/{steps.Count} {step.Name}",
                         LogLevel.Info);
-                    await step.Action(cts.Token).ConfigureAwait(false);
+                    await step.Action(token).ConfigureAwait(false);
                 }
 
                 sw.Stop();
@@ -131,7 +174,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
             catch (OperationCanceledException)
             {
-                _mainVM.AddLog($"[SEQ] {name} — 취소됨", LogLevel.Warning);
+                sw.Stop();
+                _mainVM.AddLog($"[SEQ] {name} — 사용자 STOP 으로 중단됨 ({sw.Elapsed.TotalSeconds:F1}s)", LogLevel.Warning);
             }
             catch (TimeoutException ex)
             {
@@ -145,7 +189,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
             finally
             {
-                _isAutoRunning = false;
+                _autoCts?.Dispose();
+                _autoCts = null;
+                IsAutoRunning = false;
                 _mainVM.SetSequenceRunning(false);   // 종료 → 화면 전환 허용
                 CommandManager.InvalidateRequerySuggested();
             }
@@ -548,6 +594,10 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 _refreshTimer.Stop();
                 _refreshTimer = null;
             }
+            // 화면 닫힐 때 진행 중인 시퀀스가 있으면 취소
+            try { _autoCts?.Cancel(); } catch { }
+            _autoCts?.Dispose();
+            _autoCts = null;
         }
     }
 }

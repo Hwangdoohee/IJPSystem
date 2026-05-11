@@ -759,7 +759,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </Button>
-                            <Button Height="58" Margin="0,0,0,12"
+                            <Button Height="58" Margin="0,0,0,6"
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#0E7490"
                                     Command="{Binding AutoBlottingCommand}"
                                     ToolTip="자동 블로팅 시퀀스 시작">
@@ -768,6 +768,20 @@
                                     <StackPanel VerticalAlignment="Center">
                                         <TextBlock Text="자동 블로팅"   FontSize="14" FontWeight="Black" Foreground="White"/>
                                         <TextBlock Text="AUTO BLOTTING"   FontSize="9"  Foreground="#67E8F9"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- STOP — 진행 중인 자동 시퀀스 취소. 실행 중일 때만 활성 -->
+                            <Button Height="48" Margin="0,0,0,12"
+                                    Style="{StaticResource MutedActionButtonStyle}" Background="#B91C1C"
+                                    Command="{Binding StopAutoSequenceCommand}"
+                                    ToolTip="진행 중인 자동 시퀀스 즉시 중단">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="■" FontSize="16" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="중지"   FontSize="13" FontWeight="Black" Foreground="White"/>
+                                        <TextBlock Text="STOP"   FontSize="9"  Foreground="#FCA5A5"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Button>

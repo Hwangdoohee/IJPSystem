@@ -6,20 +6,24 @@ namespace IJPSystem.Platform.Application.Sequences
     // - 추가/이름변경/삭제 시 이 파일만 수정하면 시퀀스/UI/DB 매핑이 일관됨
     public static class PointNames
     {
-        public const string Ready       = "READY";
-        public const string Load        = "LOAD";
-        public const string Unload      = "UNLOAD";
-        public const string Purge       = "PURGE";
-        public const string Blotting    = "BLOTTING";
-        public const string PrintStart  = "PRINT START";
-        public const string PrintEnd    = "PRINT END";
-        public const string Maintenance = "MT";
-        public const string NJI         = "NJI";
-        public const string DropWatcher = "DROP WATCHER";
+        public const string Ready          = "READY";
+        public const string Load           = "LOAD";
+        public const string Unload         = "UNLOAD";
+        public const string Purge          = "PURGE";
+        public const string Blotting       = "BLOTTING";
+        public const string PrintStart     = "PRINT START";
+        public const string PrintEnd       = "PRINT END";
+        public const string Maintenance    = "MT";
+        public const string NJI            = "NJI";
+        public const string DropWatcher    = "DROP WATCHER";
+        public const string PrintHeadUp    = "PRINT HEAD UP";
+        public const string PrintHeadDown  = "PRINT HEAD DOWN";
 
         public static IReadOnlyList<string> All { get; } = new[]
         {
-            Ready, Load, Unload, Purge, Blotting, PrintStart, PrintEnd, Maintenance, NJI, DropWatcher,
+            Ready, Load, Unload, Purge, Blotting,
+            PrintStart, PrintEnd, Maintenance, NJI, DropWatcher,
+            PrintHeadUp, PrintHeadDown,
         };
     }
 }
