@@ -23,6 +23,24 @@ namespace IJPSystem.Platform.HMI
         {
             base.OnStartup(e);
 
+            // 글로벌 미처리 예외 → LoggerService 에 기록 (다음 충돌 진단용)
+            DispatcherUnhandledException += (s, ev) =>
+            {
+                LoggerService.WriteToFile("FATAL", $"[UI thread] {ev.Exception}");
+                MessageBox.Show($"미처리 예외:\n\n{ev.Exception.Message}\n\n자세한 내용은 C:\\Logs 의 .txt 로그를 확인하세요.",
+                                "Application Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                ev.Handled = true; // 앱이 즉시 죽지 않게 막음 — 사용자가 메시지 확인 후 종료
+            };
+            AppDomain.CurrentDomain.UnhandledException += (s, ev) =>
+            {
+                LoggerService.WriteToFile("FATAL", $"[non-UI thread] {ev.ExceptionObject}");
+            };
+            TaskScheduler.UnobservedTaskException += (s, ev) =>
+            {
+                LoggerService.WriteToFile("FATAL", $"[Task] {ev.Exception}");
+                ev.SetObserved();
+            };
+
             // SplashWindow 즉시 표시 (이후 머신/드라이버 초기화 진행 상황 단계별 표시)
             var splashVM = new SplashViewModel();
             var splash   = new SplashWindow { DataContext = splashVM };

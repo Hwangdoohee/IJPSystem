@@ -2,7 +2,11 @@ using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.Domain.Models.Vision;
+using IJPSystem.Platform.HMI.Services;
+using IJPSystem.Platform.HMI.Views;
+using IJPSystem.Platform.Infrastructure.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,6 +51,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private readonly IVisionDriver _vision;
         private readonly MainViewModel _mainVM;
         private readonly DispatcherTimer _pollTimer;
+        private readonly INozzleClassifier _classifier = new RandomNozzleClassifier();
 
         // ── 카메라 상태 ────────────────────────────────────────────────────────
         private CameraStatus? _camStatus;
@@ -150,6 +155,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public ICommand ClearResultCommand { get; }
         public ICommand LightOnCommand     { get; }
         public ICommand LightOffCommand    { get; }
+        public ICommand OpenTrendCommand   { get; }
 
         public DropWatcherViewModel(MainViewModel mainVM)
         {
@@ -164,6 +170,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             ClearResultCommand = new RelayCommand(_ => ExecuteClearResult(),                 _ => !IsBusy);
             LightOnCommand     = new RelayCommand(_ => ExecuteLight(true),  _ => !IsBusy);
             LightOffCommand    = new RelayCommand(_ => ExecuteLight(false), _ => !IsBusy);
+            OpenTrendCommand   = new RelayCommand(_ => ExecuteOpenTrend());
 
             _pollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
             _pollTimer.Tick += (_, _) => CamStatus = _vision.GetStatus(CamId);
@@ -209,12 +216,21 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 var result = await _vision.CaptureAndInspectAsync(CamId);
                 CurrentImagePath = result.Image?.FilePath;
 
-                UpdateNozzleStatuses(result.Score);
+                var states = _classifier.Classify(result, NozzleCount);
+                ApplyNozzleStates(states);
 
                 string status = result.IsPass ? "PASS" : $"NG [{result.NgCode}]";
                 _mainVM.AddLog(
                     $"[VISION] DropWatcher: 검사 완료 — {status}  Score={result.Score:F1}  Good={GoodCount} Weak={WeakCount} Missing={MissingCount}",
                     result.IsPass ? LogLevel.Success : LogLevel.Warning);
+
+                // SPC 추세 분석용 이력 저장
+                NozzleHealthRepository.Save(
+                    DateTime.Now,
+                    _mainVM.RecipeVM.ActiveRecipeName,
+                    NozzleCount, GoodCount, WeakCount, MissingCount,
+                    result.Score, result.IsPass,
+                    states);
 
                 if (!result.IsPass)
                     _mainVM.AlarmVM.RaiseAlarm("DW-NOZZLE-NG");
@@ -227,22 +243,25 @@ namespace IJPSystem.Platform.HMI.ViewModels
             finally { IsBusy = false; RaiseAllCanExecute(); }
         }
 
-        private void UpdateNozzleStatuses(double score)
+        private void ApplyNozzleStates(IDictionary<int, int> states)
         {
-            double healthPct = Math.Clamp(score / 100.0, 0.0, 1.0);
-            var rng = new Random((int)DateTime.Now.Ticks);
-
             foreach (var nozzle in Nozzles)
             {
-                double r = rng.NextDouble();
-                nozzle.State = r < healthPct        ? NozzleState.Good
-                             : r < healthPct + 0.05 ? NozzleState.Weak
-                                                    : NozzleState.Missing;
+                if (states.TryGetValue(nozzle.Index, out int s))
+                    nozzle.State = (NozzleState)s;
             }
-
             GoodCount    = Nozzles.Count(n => n.State == NozzleState.Good);
             WeakCount    = Nozzles.Count(n => n.State == NozzleState.Weak);
             MissingCount = Nozzles.Count(n => n.State == NozzleState.Missing);
+        }
+
+        private void ExecuteOpenTrend()
+        {
+            var win = new NozzleTrendWindow();
+            var owner = System.Windows.Application.Current?.MainWindow;
+            if (owner != null && owner.IsLoaded && owner.IsVisible)
+                win.Owner = owner;
+            win.Show();
         }
 
         private void ExecuteClearResult()

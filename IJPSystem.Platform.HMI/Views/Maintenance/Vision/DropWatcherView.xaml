@@ -285,11 +285,23 @@
                                 </StackPanel>
                             </Button>
                         </Grid>
-                        <Button Height="36" Command="{Binding ClearResultCommand}"
-                                Style="{StaticResource MutedActionButtonStyle}" Background="#374151">
-                            <TextBlock Text="CLEAR RESULTS" Foreground="#94A3B8"
-                                       FontSize="11" FontWeight="Bold"/>
-                        </Button>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Height="36" Command="{Binding ClearResultCommand}"
+                                    Style="{StaticResource MutedActionButtonStyle}" Background="#374151">
+                                <TextBlock Text="CLEAR RESULTS" Foreground="#94A3B8"
+                                           FontSize="11" FontWeight="Bold"/>
+                            </Button>
+                            <Button Grid.Column="2" Height="36" Command="{Binding OpenTrendCommand}"
+                                    Style="{StaticResource MutedActionButtonStyle}" Background="#1E3A8A">
+                                <TextBlock Text="📈 TREND (SPC)" Foreground="White"
+                                           FontSize="11" FontWeight="Bold"/>
+                            </Button>
+                        </Grid>
                     </StackPanel>
                 </Border>
 

@@ -1,0 +1,68 @@
+<Window x:Class="IJPSystem.Platform.HMI.Views.NozzleTrendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        xmlns:vm="clr-namespace:IJPSystem.Platform.HMI.ViewModels"
+        Title="Nozzle Health Trend (SPC)"
+        Height="700" Width="1100"
+        MinWidth="800" MinHeight="500"
+        WindowStartupLocation="CenterOwner"
+        Background="#0F172A">
+
+    <Window.DataContext>
+        <vm:NozzleTrendViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 헤더 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="📈 Nozzle Health Trend"
+                       Foreground="#3B82F6" FontSize="20" FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text=" — Statistical Process Control (UCL/LCL = mean ± 3σ)"
+                       Foreground="#64748B" FontSize="12"
+                       VerticalAlignment="Center" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <!-- SPC 요약 -->
+        <Border Grid.Row="1" Background="#111827" CornerRadius="8" Padding="14,10"
+                BorderBrush="#334155" BorderThickness="1" Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="SPC: " Foreground="#3B82F6" FontWeight="Bold"
+                           FontSize="13" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding SpcSummary}" Foreground="#E2E8F0"
+                           FontSize="13" VerticalAlignment="Center"
+                           FontFamily="Consolas"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 차트 -->
+        <Border Grid.Row="2" Background="#111827" CornerRadius="8"
+                BorderBrush="#334155" BorderThickness="1" Padding="10">
+            <lvc:CartesianChart
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}"
+                Sections="{Binding Sections}"
+                LegendPosition="Top"
+                Background="Transparent"/>
+        </Border>
+
+        <!-- 푸터 -->
+        <Grid Grid.Row="3" Margin="0,12,0,0">
+            <TextBlock Text="{Binding StatusText}" Foreground="#94A3B8"
+                       FontSize="12" VerticalAlignment="Center"/>
+            <Button Content="🔄 REFRESH" Command="{Binding RefreshCommand}"
+                    HorizontalAlignment="Right" Padding="14,6"
+                    Background="#1E40AF" Foreground="White"
+                    BorderThickness="0" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Window>

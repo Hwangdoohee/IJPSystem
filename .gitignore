@@ -91,5 +91,8 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# Runtime SQLite databases (런타임 생성 — 코드와 분리)
+Config/*.db
+
 # Claude local settings (개인 설정 — 공유 안함)
 .claude/settings.local.json
