@@ -25,7 +25,8 @@ namespace IJPSystem.Platform.Application.Sequences
                 Icon           = "💧",
                 NameKey        = "Seq_Purge_Name",
                 DescriptionKey = "Seq_Purge_Desc",
-                BuildSteps     = PurgeSequence.Build,
+                // 압력 SV 는 호출자(PnidViewModel)가 람다 래퍼로 주입. 여기는 Registry 메타데이터용 디폴트.
+                BuildSteps     = (m, mo) => PurgeSequence.Build(m, mo),
             },
             new SequenceDefinition
             {

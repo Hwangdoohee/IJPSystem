@@ -200,7 +200,7 @@
     <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
     <system:String x:Key="Seq_Init_Desc">Servo ON → Home → Move to READY → wait for glass detection</system:String>
     <system:String x:Key="Seq_Purge_Name">PURGE</system:String>
-    <system:String x:Key="Seq_Purge_Desc">Vacuum OFF → Move to PURGE → wait for purge done → return</system:String>
+    <system:String x:Key="Seq_Purge_Desc">Vacuum OFF → PURGE pos → Head DOWN → valves OPEN → pressurize → discharge → release/meniscus → valves CLOSE → Head UP → return</system:String>
     <system:String x:Key="Seq_Blotting_Name">BLOTTING</system:String>
     <system:String x:Key="Seq_Blotting_Desc">Vacuum OFF → Move to BLOTTING → nozzle surface absorption → return</system:String>
     <system:String x:Key="Seq_Maintenance_Name">MAINTENANCE</system:String>
@@ -229,6 +229,10 @@
     <system:String x:Key="Step_Purge_HeadDownDone">PRINT HEAD DOWN InPosition check</system:String>
     <system:String x:Key="Step_Purge_HeadUp">Move PRINT HEAD UP</system:String>
     <system:String x:Key="Step_Purge_HeadUpDone">PRINT HEAD UP InPosition check</system:String>
+    <system:String x:Key="Step_Purge_ValveOpen">Open head inlet/return valves (Y700~Y715)</system:String>
+    <system:String x:Key="Step_Purge_PressurizeOn">Apply purge pressure (positive) + stabilize</system:String>
+    <system:String x:Key="Step_Purge_PressurizeOff">Release pressure + apply meniscus vacuum</system:String>
+    <system:String x:Key="Step_Purge_ValveClose">Close all head valves (16 EA)</system:String>
 
     <!-- AUTO PRINT Sequence -->
     <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] Alarm raised — motion stopped, sequence paused</system:String>

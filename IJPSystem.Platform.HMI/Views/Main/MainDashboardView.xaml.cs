@@ -26,7 +26,7 @@ namespace IJPSystem.Platform.HMI.Views
         // 시퀀스 진행 상태 추적 — 잉크 분사 / 스캔라인 가시성 제어
         private int _currentStepNo;
         private double _maxScanT;                  // PrintedAreaScale 단조 증가용 (한 번 인쇄된 영역 유지)
-        private const int PrintScanStepNo = 7;     // AutoPrintSequence step 7 = 인쇄 진행
+        private const int PrintScanStepNo = 9;     // AutoPrintSequence step 9 = 인쇄 진행 (15단계 시퀀스)
         // 각 step 진입 시각 (animStart 기준 초) — 스크립트 모드 phase 애니메이션 기점
         private readonly Dictionary<int, double> _stepTimes = new();
         // 파티클 분사 throttle — V-sync ~60fps 환경에서 매 프레임 분사 시 GC 압력 큼
@@ -216,9 +216,13 @@ namespace IJPSystem.Platform.HMI.Views
             return motorMm < s ? HeadScanStartX : HeadScanEndX;
         }
 
-        // 스크립트 모드 헤드 X — step 이벤트 시각 기반 (elapsed 무시)
-        // step 1-4 : 파킹 (글래스 감지 + 진공 ON + 센서 확인 + 안정화 대기)
-        // step 5-6 : 스캔 시작 위치 진입 / step 7 : 스캔 / step 8-9 : 스캔 끝 유지 / step 10+ : 파킹 복귀
+        // 스크립트 모드 헤드 X — step 이벤트 시각 기반 (elapsed 무시) — 15단계 시퀀스 기준
+        // step 1-4  : 파킹 (글래스 감지 + 진공 ON + 센서 확인 + 안정화 대기)
+        // step 5-6  : 스캔 시작 위치 진입 (PRINT START)
+        // step 7-8  : HEAD DOWN — X 위치 변화 없음 (Y/Z축 이동)
+        // step 9    : 인쇄 스캔
+        // step 10-13: 인쇄 완료 / HEAD UP / 진공 해제 — 우측 끝 유지
+        // step 14+  : READY 이동 → 파킹 복귀
         private double ComputeScriptedHeadX(double now)
         {
             if (_currentStepNo < 5) return HeadParkedX;
@@ -230,18 +234,20 @@ namespace IJPSystem.Platform.HMI.Views
                 return Lerp(HeadParkedX, HeadScanStartX, t);
             }
 
-            if (_currentStepNo == 7)  // 인쇄 스캔
+            if (_currentStepNo < 9) return HeadScanStartX;  // 7, 8 — HEAD DOWN (X 유지)
+
+            if (_currentStepNo == 9)  // 인쇄 스캔
             {
-                double start = _stepTimes.TryGetValue(7, out var v7) ? v7 : now;
+                double start = _stepTimes.TryGetValue(9, out var v9) ? v9 : now;
                 double t = Math.Clamp((now - start) / T_ScanDur, 0, 1);
                 return Lerp(HeadScanStartX, HeadScanEndX, t);
             }
 
-            if (_currentStepNo < 10) return HeadScanEndX;   // 8, 9 — 인쇄 완료 후 우측 끝 유지
+            if (_currentStepNo < 14) return HeadScanEndX;   // 10~13 — 인쇄 완료/HEAD UP/진공 해제 우측 끝 유지
 
-            // step 10+ : 파킹 복귀
-            double start10 = _stepTimes.TryGetValue(10, out var v10) ? v10 : now;
-            double tBack = EaseInCubic(Math.Clamp((now - start10) / T_HeadParkDur, 0, 1));
+            // step 14+ : READY 이동 — 파킹 복귀
+            double start14 = _stepTimes.TryGetValue(14, out var v14) ? v14 : now;
+            double tBack = EaseInCubic(Math.Clamp((now - start14) / T_HeadParkDur, 0, 1));
             return Lerp(HeadScanEndX, HeadParkedX, tBack);
         }
 
@@ -268,9 +274,9 @@ namespace IJPSystem.Platform.HMI.Views
             }
             _lastFrameAt = now;
 
-            // ── Glass X (반입: 시작부터 elapsed 기반, 반출: STEP 9(vacuum off) 진입 시점부터) ──
-            // 인쇄 프로파일/거리에 따라 STEP 7 길이가 달라지므로 unload 시점을 step 이벤트에 종속시킴
-            const int VacuumOffStepNo = 9;
+            // ── Glass X (반입: 시작부터 elapsed 기반, 반출: STEP 13(vacuum off) 진입 시점부터) ──
+            // 15단계 시퀀스에서 진공 해제는 step 13 (HEAD DOWN 7-8 + 인쇄 9-10 + HEAD UP 11-12 다음)
+            const int VacuumOffStepNo = 13;
             bool unloadStarted = _stepTimes.TryGetValue(VacuumOffStepNo, out double unloadStart);
             if (!unloadStarted)
             {

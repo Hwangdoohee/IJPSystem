@@ -1,0 +1,191 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word">
+<title>Git 서버 접속 안내 - IJPSystem 저장소</title>
+<style>
+@page { size: A4; margin: 2cm; }
+body {
+  font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #1F2937;
+}
+h1 {
+  font-size: 20pt;
+  color: #1F2937;
+  border-bottom: 3px solid #2563EB;
+  padding-bottom: 6pt;
+  margin-top: 18pt;
+}
+h2 {
+  font-size: 14pt;
+  color: #2563EB;
+  margin-top: 18pt;
+  margin-bottom: 6pt;
+}
+h3 {
+  font-size: 12pt;
+  color: #374151;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+}
+p { margin: 6pt 0; }
+code, .code {
+  font-family: Consolas, 'Courier New', monospace;
+  background-color: #F3F4F6;
+  padding: 1pt 4pt;
+  border-radius: 3px;
+  color: #1F2937;
+  font-size: 10pt;
+}
+pre {
+  background-color: #1E293B;
+  color: #E2E8F0;
+  padding: 10pt 14pt;
+  border-radius: 6px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 10pt;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8pt 0;
+  font-size: 10.5pt;
+}
+th, td {
+  border: 1px solid #D1D5DB;
+  padding: 6pt 10pt;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background-color: #F3F4F6;
+  font-weight: bold;
+  color: #1F2937;
+}
+ul, ol { margin: 6pt 0; padding-left: 24pt; }
+li { margin: 3pt 0; }
+.note {
+  background-color: #FFFBEB;
+  border-left: 4px solid #FCD34D;
+  padding: 8pt 12pt;
+  margin: 8pt 0;
+}
+</style>
+</head>
+<body>
+
+<h1>Git 서버 접속 안내 — IJPSystem 저장소</h1>
+
+<p>
+현재 IJPSystem 프로젝트는 <strong>사내 Git 서버가 아닌 GitHub.com</strong>에 호스팅되어 있습니다.
+본 문서는 저장소 접속 정보, 인증 방법, 그리고 향후 사내 Git 서버 구축 시 고려할 수 있는 옵션을 정리합니다.
+</p>
+
+<h2>1. 현재 저장소 정보</h2>
+
+<table>
+  <thead>
+    <tr><th style="width:25%">항목</th><th>값</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Remote 이름</td><td><span class="code">origin</span></td></tr>
+    <tr><td>저장소 URL</td><td><span class="code">https://github.com/Hwangdoohee/IJPSystem.git</span></td></tr>
+    <tr><td>사용자</td><td>Hwangdoohee (blueye3@naver.com)</td></tr>
+    <tr><td>현재 브랜치</td><td><span class="code">main</span></td></tr>
+  </tbody>
+</table>
+
+<h2>2. 접속 방법</h2>
+
+<h3>2-1. 웹 브라우저로 접속 (코드 보기, Issues, Pull Request)</h3>
+<p>다음 URL을 브라우저에서 열어 접속합니다.</p>
+<pre>https://github.com/Hwangdoohee/IJPSystem</pre>
+
+<h3>2-2. Git Push / Pull (커맨드 라인)</h3>
+<pre>git push origin main      # 로컬 → 원격 업로드
+git pull origin main      # 원격 → 로컬 다운로드
+git fetch                 # 원격 정보만 갱신</pre>
+
+<h3>2-3. 인증 방법 (HTTPS — PAT 필요)</h3>
+<p>GitHub은 2021년부터 <strong>비밀번호 인증을 차단</strong>했습니다. 다음 중 하나로 인증해야 합니다.</p>
+<ol>
+  <li>
+    <strong>Personal Access Token (PAT, 권장)</strong> —
+    github.com → Settings → Developer settings → Personal access tokens 에서
+    <span class="code">repo</span> 권한으로 발급. Push 시 비밀번호 대신 입력하면
+    Git Credential Manager가 자동으로 저장합니다.
+  </li>
+  <li>
+    <strong>GitHub CLI</strong> —
+    <span class="code">gh auth login</span> 명령어 한 번으로 인증 완료. 가장 간편한 방법입니다.
+  </li>
+  <li>
+    <strong>SSH 키로 전환</strong> —
+    Remote를 <span class="code">git@github.com:Hwangdoohee/IJPSystem.git</span> 으로 변경하고,
+    ed25519 / rsa 공개키를 GitHub Settings → SSH and GPG keys 에 등록합니다.
+  </li>
+</ol>
+
+<h2>3. 사내 Git 서버 구축 옵션 (참고)</h2>
+
+<p>
+IJP SW 개발 방안 문서의 <strong>1단계 — Git 서버 구축</strong>이 사내 자체 호스팅을 의미하는 경우,
+다음 옵션을 검토할 수 있습니다.
+</p>
+
+<table>
+  <thead>
+    <tr><th style="width:25%">옵션</th><th>특징</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Gitea</strong></td>
+      <td>가장 가벼움. Docker로 5분 안에 설치 가능. 단일 PC 호스팅에도 적합.</td>
+    </tr>
+    <tr>
+      <td><strong>GitLab CE</strong></td>
+      <td>무료. CI/CD와 컨테이너 레지스트리 내장. 다소 무거우나 기능 풍부.</td>
+    </tr>
+    <tr>
+      <td><strong>Bitbucket Server</strong></td>
+      <td>유료 라이선스. Atlassian Jira / Confluence와 강력하게 연동.</td>
+    </tr>
+    <tr>
+      <td><strong>Azure DevOps Server</strong></td>
+      <td>Microsoft 환경 친화적. Visual Studio / .NET 개발팀에 최적화.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>4. 후속 조치</h2>
+<ul>
+  <li>
+    Push가 실패한다면 <strong>인증 문제(PAT 미설정)</strong> 또는
+    <strong>저장소 권한 문제</strong> 가능성이 높습니다.
+    에러 메시지 전문을 공유해 주시면 즉시 진단 가능합니다.
+  </li>
+  <li>
+    사내 Git 서버 이전을 결정하시면, 신규 서버 URL만 알려주시면
+    Remote 변경부터 전체 히스토리 미러링까지 처리 가능합니다.
+  </li>
+  <li>
+    현재 <span class="code">main</span> 단일 브랜치 운영 중이므로,
+    향후 협업이 늘어나면 <strong>feature 브랜치 + Pull Request 전략</strong>을 도입하는 것을 권장합니다.
+  </li>
+</ul>
+
+<div class="note">
+<strong>※ 이 문서는 HTML 기반 워드 형식입니다.</strong>
+Word에서 열린 뒤 <em>다른 이름으로 저장</em>에서 <strong>"Word 문서 (*.docx)"</strong> 형식을 선택하면
+표준 docx 파일로 변환됩니다.
+</div>
+
+</body>
+</html>

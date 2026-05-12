@@ -200,7 +200,7 @@
     <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
     <system:String x:Key="Seq_Init_Desc">전체 축 서보ON → 원점복귀 → 대기위치 이동 → GLASS 감지 대기</system:String>
     <system:String x:Key="Seq_Purge_Name">PURGE</system:String>
-    <system:String x:Key="Seq_Purge_Desc">진공 해제 → 퍼지 위치 이동 → 잉크 토출 완료 대기 → 복귀</system:String>
+    <system:String x:Key="Seq_Purge_Desc">진공 해제 → 퍼지 위치 → 헤드 DOWN → 밸브 OPEN → 양압 인가 → 토출 → 양압 OFF/음압 복원 → 밸브 CLOSE → 헤드 UP → 복귀</system:String>
     <system:String x:Key="Seq_Blotting_Name">BLOTTING</system:String>
     <system:String x:Key="Seq_Blotting_Desc">진공 해제 → 블로팅 위치 이동 → 노즐 표면 흡수 대기 → 복귀</system:String>
     <system:String x:Key="Seq_Maintenance_Name">MAINTENANCE</system:String>
@@ -229,6 +229,10 @@
     <system:String x:Key="Step_Purge_HeadDownDone">프린트 헤드 DOWN InPosition 확인</system:String>
     <system:String x:Key="Step_Purge_HeadUp">프린트 헤드 UP 이동</system:String>
     <system:String x:Key="Step_Purge_HeadUpDone">프린트 헤드 UP InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_ValveOpen">헤드 인렛/리턴 밸브 OPEN (Y700~Y715)</system:String>
+    <system:String x:Key="Step_Purge_PressurizeOn">양압 인가 (Purge Pressure) + 안정화 대기</system:String>
+    <system:String x:Key="Step_Purge_PressurizeOff">양압 OFF + 음압 인가 (메니스커스 복원)</system:String>
+    <system:String x:Key="Step_Purge_ValveClose">헤드 밸브 CLOSE (16개 일괄)</system:String>
 
     <!-- AUTO PRINT 시퀀스 -->
     <system:String x:Key="Log_AutoPrintAlarmPause">[AUTO PRINT] 알람 발생 — 모션 정지 후 일시정지</system:String>

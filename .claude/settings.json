@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless --disable-gpu --no-margins --print-to-pdf=\"D:\\\\IJP\\\\IJPSystem\\\\docs\\\\Git_Server_Access.pdf\" \"file:///D:/IJP/IJPSystem/docs/Git_Server_Access.doc\")",
+      "Bash(cp d:/IJP/IJPSystem/docs/Git_Server_Access.doc /tmp/git_access.html)",
+      "Bash(cmd.exe //c \"taskkill /F /IM msedge.exe /T 2>nul\")",
+      "Bash(git commit -m ' *)",
+      "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.Platform.Application/IJPSystem.Platform.Application.csproj -nologo -v q 2>&1 | Select-String -Pattern 'error|오류|Build succeeded|빌드' | Select-Object -First 30\")",
+      "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.slnx -nologo -v q 2>&1 | Select-String -Pattern 'error|오류|Build succeeded|빌드' | Select-Object -First 30\")",
+      "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.slnx -nologo 2>&1 | Select-Object -Last 8\")"
+    ]
+  }
+}

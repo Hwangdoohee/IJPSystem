@@ -5,6 +5,7 @@ using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.HMI.Services;
+using static IJPSystem.Platform.HMI.Common.Loc;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -75,8 +76,59 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public bool IsAutoRunning
         {
             get => _isAutoRunning;
-            private set => SetProperty(ref _isAutoRunning, value);
+            private set
+            {
+                if (SetProperty(ref _isAutoRunning, value))
+                    OnPropertyChanged(nameof(SequenceStatusVisible));
+            }
         }
+
+        // ── 시퀀스 진행 상태 (SEQUENCE STATUS 패널 바인딩) ──
+        private string _sequenceName = string.Empty;
+        public string SequenceName
+        {
+            get => _sequenceName;
+            private set => SetProperty(ref _sequenceName, value);
+        }
+
+        private string _currentStepName = string.Empty;
+        public string CurrentStepName
+        {
+            get => _currentStepName;
+            private set => SetProperty(ref _currentStepName, value);
+        }
+
+        private int _currentStepIndex;
+        public int CurrentStepIndex
+        {
+            get => _currentStepIndex;
+            private set
+            {
+                if (SetProperty(ref _currentStepIndex, value))
+                {
+                    OnPropertyChanged(nameof(StepProgressPct));
+                    OnPropertyChanged(nameof(StepIndexText));
+                }
+            }
+        }
+
+        private int _totalSteps;
+        public int TotalSteps
+        {
+            get => _totalSteps;
+            private set
+            {
+                if (SetProperty(ref _totalSteps, value))
+                {
+                    OnPropertyChanged(nameof(StepProgressPct));
+                    OnPropertyChanged(nameof(StepIndexText));
+                }
+            }
+        }
+
+        public double StepProgressPct => _totalSteps == 0 ? 0.0 : (_currentStepIndex * 100.0 / _totalSteps);
+        public string StepIndexText   => _totalSteps == 0 ? string.Empty : $"{_currentStepIndex}/{_totalSteps}";
+        public bool SequenceStatusVisible => _isAutoRunning;
 
         private void CancelAutoSequence()
         {
@@ -90,7 +142,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
         }
 
         private Task RunAutoPurgeAsync() =>
-            RunAutoSequenceAsync("AUTO PURGE", PurgeSequence.Build, "SEQ-PURGE-FAIL");
+            // 양압/음압 SV 는 PNID 화면 PMC 패널의 SET 버튼으로 입력한 값을 사용.
+            // SET 으로 IO 에 적용된 값과 ViewModel SV 는 동기화되어 있으므로, 시퀀스가
+            // step 7/9 에서 동일 값을 다시 인가해도 무방하다.
+            RunAutoSequenceAsync("AUTO PURGE",
+                (m, mo) => PurgeSequence.Build(m, mo, PressureSV, VacuumSV),
+                "SEQ-PURGE-FAIL");
 
         private Task RunAutoBlottingAsync() =>
             RunAutoSequenceAsync("AUTO BLOTTING", BlottingSequence.Build, "SEQ-STEP-FAIL");
@@ -155,6 +212,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
             _autoCts = new CancellationTokenSource();
             var token = _autoCts.Token;
 
+            // 시퀀스 STATUS 초기 세팅
+            SequenceName    = name;
+            TotalSteps      = steps.Count;
+            CurrentStepIndex = 0;
+            CurrentStepName = string.Empty;
+
             _mainVM.AddLog($"[SEQ] {name} — 시작 ({steps.Count} 단계)", LogLevel.Info);
 
             try
@@ -163,6 +226,14 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 {
                     token.ThrowIfCancellationRequested();
                     var step = steps[i];
+
+                    // STATUS 갱신 — XAML 패널에 즉시 반영
+                    CurrentStepIndex = i + 1;
+                    CurrentStepName  = T(step.Name);  // 번역 키 → 사용자 언어
+
+                    // 퍼지 동작 애니메이션 동기화 — 양압 인가 후 토출 완료 직전까지 IsPurging=true
+                    UpdatePurgingAnimation(step.Name);
+
                     _mainVM.AddLog(
                         $"[SEQ] {name} — step {i + 1}/{steps.Count} {step.Name}",
                         LogLevel.Info);
@@ -193,7 +264,31 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 _autoCts = null;
                 IsAutoRunning = false;
                 _mainVM.SetSequenceRunning(false);   // 종료 → 화면 전환 허용
+
+                // 시퀀스 STATUS 패널 정리 + 퍼지 애니메이션 OFF
+                CurrentStepIndex = 0;
+                CurrentStepName  = string.Empty;
+                SequenceName     = string.Empty;
+                IsPurging        = false;
+
                 CommandManager.InvalidateRequerySuggested();
+            }
+        }
+
+        // 시퀀스 step 진입 시 IsPurging(노즐 분사 애니메이션) 토글.
+        // - Step_Purge_PressurizeOn 이후 (양압 인가) → 토출 시작
+        // - Step_Purge_PressurizeOff 이후 (양압 해제) → 토출 종료
+        // BlottingSequence 등 다른 시퀀스에서는 ValveOpen/Close 또는 본 메서드의 다른 분기로 자연스럽게 확장 가능.
+        private void UpdatePurgingAnimation(string stepKey)
+        {
+            switch (stepKey)
+            {
+                case "Step_Purge_PressurizeOn":
+                    IsPurging = true;
+                    break;
+                case "Step_Purge_PressurizeOff":
+                    IsPurging = false;
+                    break;
             }
         }
 
