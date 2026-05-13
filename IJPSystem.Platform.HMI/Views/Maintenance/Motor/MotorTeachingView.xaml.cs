@@ -13,6 +13,19 @@ namespace IJPSystem.Platform.HMI.Views
 {
     public partial class MotorTeachingView : UserControl
     {
+        // 미사용 축 표시 — RecipeView.NumericEditingStyle 과 동일한 빨간색 계열.
+        // Freeze 로 dispatcher-affinity 제거 + 셀 다수에서 공유 안전.
+        private static readonly Brush DisabledFieldBg     = MakeFrozen("#3F1D1D");
+        private static readonly Brush DisabledFieldBorder = MakeFrozen("#7F1D1D");
+        private static readonly Brush DisabledFieldFg     = MakeFrozen("#FCA5A5");
+
+        private static SolidColorBrush MakeFrozen(string hex)
+        {
+            var b = new SolidColorBrush((Color)ColorConverter.ConvertFromString(hex));
+            b.Freeze();
+            return b;
+        }
+
         public MotorTeachingView()
         {
             InitializeComponent();
@@ -27,8 +40,13 @@ namespace IJPSystem.Platform.HMI.Views
         private void OnTeachingClick(object sender, RoutedEventArgs e)
         {
             // CheckBox.Click은 사용자 클릭/Space 키에만 발동 (IsChecked 프로그래밍 변경에는 안 발동)
-            if (e.OriginalSource is CheckBox && DataContext is MotorTeachingViewModel vm)
+            if (e.OriginalSource is CheckBox cb && DataContext is MotorTeachingViewModel vm)
+            {
                 vm.MarkDirty();
+                // Dictionary indexer 바인딩은 자동 통지가 없어 같은 행의 다른 셀이 stale 됨
+                if (cb.DataContext is TeachingPoint tp)
+                    tp.RefreshAxisUsed();
+            }
         }
 
         private void OnTeachingTextChanged(object sender, TextChangedEventArgs e)
@@ -99,8 +117,17 @@ namespace IJPSystem.Platform.HMI.Views
         }
 
         // 단일 클릭으로 셀 편집 진입
+        // CheckBox 는 ClickMode=Press(BuildAxisCellTemplate 에서 설정)로 자체 처리하므로
+        // 클릭 타겟이 CheckBox 트리이면 이 핸들러는 비켜준다(이중 토글 방지).
         private void PointGrid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var probe = e.OriginalSource as DependencyObject;
+            while (probe != null && probe is not DataGridCell)
+            {
+                if (probe is CheckBox) return;
+                probe = VisualTreeHelper.GetParent(probe);
+            }
+
             var dep = e.OriginalSource as DependencyObject;
             while (dep != null && dep is not DataGridCell && dep is not DataGridColumnHeader)
                 dep = VisualTreeHelper.GetParent(dep);
@@ -159,6 +186,14 @@ namespace IJPSystem.Platform.HMI.Views
                     }
                 };
 
+                // 미사용 축은 기본 WPF disabled 회색보다 명확한 빨간색 계열로 표시.
+                var disabledTrigger = new Trigger { Property = UIElement.IsEnabledProperty, Value = false };
+                disabledTrigger.Setters.Add(new Setter(TextBox.BackgroundProperty,  DisabledFieldBg));
+                disabledTrigger.Setters.Add(new Setter(TextBox.BorderBrushProperty, DisabledFieldBorder));
+                disabledTrigger.Setters.Add(new Setter(TextBox.ForegroundProperty,  DisabledFieldFg));
+                disabledTrigger.Setters.Add(new Setter(UIElement.OpacityProperty,   1.0));
+                editingStyle.Triggers.Add(disabledTrigger);
+
                 var displayStyle = new Style(typeof(TextBlock))
                 {
                     Setters =
@@ -206,7 +241,10 @@ namespace IJPSystem.Platform.HMI.Views
             stack.SetValue(StackPanel.HorizontalAlignmentProperty,  HorizontalAlignment.Center);
             stack.SetValue(StackPanel.VerticalAlignmentProperty,    VerticalAlignment.Center);
 
-            // CheckBox
+            // CheckBox — ClickMode=Press 로 마우스 Down 시점에 즉시 토글.
+            // DataGrid 가 셀 선택 처리로 Click(=MouseUp) 을 가로채는 WPF 의 고질적 버그
+            // (DataGridTemplateColumn 안의 CheckBox 가 한 번에 토글 안 되는 현상) 를 우회.
+            // Focusable=false 는 셀이 키보드 포커스를 먼저 가져가서 첫 클릭이 묻히는 케이스 방지.
             var cb = new FrameworkElementFactory(typeof(CheckBox));
             cb.SetBinding(CheckBox.IsCheckedProperty,
                 new Binding($"AxisUsed[{axisName}]")
@@ -216,6 +254,8 @@ namespace IJPSystem.Platform.HMI.Views
                 });
             cb.SetValue(CheckBox.VerticalAlignmentProperty, VerticalAlignment.Center);
             cb.SetValue(CheckBox.MarginProperty, new Thickness(0, 0, 8, 0));
+            cb.SetValue(CheckBox.ClickModeProperty, ClickMode.Press);
+            cb.SetValue(UIElement.FocusableProperty, false);
             stack.AppendChild(cb);
 
             // TextBox (값 입력 — LostFocus에 ViewModel 갱신)

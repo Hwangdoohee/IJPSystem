@@ -79,56 +79,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
             private set
             {
                 if (SetProperty(ref _isAutoRunning, value))
-                    OnPropertyChanged(nameof(SequenceStatusVisible));
+                    Status.IsRunning = value;
             }
         }
 
-        // ── 시퀀스 진행 상태 (SEQUENCE STATUS 패널 바인딩) ──
-        private string _sequenceName = string.Empty;
-        public string SequenceName
-        {
-            get => _sequenceName;
-            private set => SetProperty(ref _sequenceName, value);
-        }
-
-        private string _currentStepName = string.Empty;
-        public string CurrentStepName
-        {
-            get => _currentStepName;
-            private set => SetProperty(ref _currentStepName, value);
-        }
-
-        private int _currentStepIndex;
-        public int CurrentStepIndex
-        {
-            get => _currentStepIndex;
-            private set
-            {
-                if (SetProperty(ref _currentStepIndex, value))
-                {
-                    OnPropertyChanged(nameof(StepProgressPct));
-                    OnPropertyChanged(nameof(StepIndexText));
-                }
-            }
-        }
-
-        private int _totalSteps;
-        public int TotalSteps
-        {
-            get => _totalSteps;
-            private set
-            {
-                if (SetProperty(ref _totalSteps, value))
-                {
-                    OnPropertyChanged(nameof(StepProgressPct));
-                    OnPropertyChanged(nameof(StepIndexText));
-                }
-            }
-        }
-
-        public double StepProgressPct => _totalSteps == 0 ? 0.0 : (_currentStepIndex * 100.0 / _totalSteps);
-        public string StepIndexText   => _totalSteps == 0 ? string.Empty : $"{_currentStepIndex}/{_totalSteps}";
-        public bool SequenceStatusVisible => _isAutoRunning;
+        // SEQUENCE STATUS 패널 바인딩의 단일 소스 — XAML 은 {Binding Status.*} 로 접근
+        public SequenceStatusViewModel Status { get; } = new();
 
         private void CancelAutoSequence()
         {
@@ -212,11 +168,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             _autoCts = new CancellationTokenSource();
             var token = _autoCts.Token;
 
-            // 시퀀스 STATUS 초기 세팅
-            SequenceName    = name;
-            TotalSteps      = steps.Count;
-            CurrentStepIndex = 0;
-            CurrentStepName = string.Empty;
+            Status.Begin(name, steps.Count);
 
             _mainVM.AddLog($"[SEQ] {name} — 시작 ({steps.Count} 단계)", LogLevel.Info);
 
@@ -227,9 +179,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     token.ThrowIfCancellationRequested();
                     var step = steps[i];
 
-                    // STATUS 갱신 — XAML 패널에 즉시 반영
-                    CurrentStepIndex = i + 1;
-                    CurrentStepName  = T(step.Name);  // 번역 키 → 사용자 언어
+                    Status.Advance(i + 1, T(step.Name));
 
                     // 퍼지 동작 애니메이션 동기화 — 양압 인가 후 토출 완료 직전까지 IsPurging=true
                     UpdatePurgingAnimation(step.Name);
@@ -265,11 +215,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 IsAutoRunning = false;
                 _mainVM.SetSequenceRunning(false);   // 종료 → 화면 전환 허용
 
-                // 시퀀스 STATUS 패널 정리 + 퍼지 애니메이션 OFF
-                CurrentStepIndex = 0;
-                CurrentStepName  = string.Empty;
-                SequenceName     = string.Empty;
-                IsPurging        = false;
+                Status.Reset();
+                IsPurging = false;
 
                 CommandManager.InvalidateRequerySuggested();
             }

@@ -994,40 +994,50 @@
                             <!-- ── SEQUENCE STATUS — 자동 시퀀스 진행 상태 (실행 중에만 표시) ── -->
                             <Border Background="#0F172A" CornerRadius="8" Padding="12,10"
                                     BorderBrush="#1E40AF" BorderThickness="1"
-                                    Visibility="{Binding SequenceStatusVisible, Converter={StaticResource BoolToVisibility}}">
+                                    Visibility="{Binding Status.IsVisible, Converter={StaticResource BoolToVisibility}}">
                                 <StackPanel>
                                     <!-- 헤더: 시퀀스 이름 + step 인덱스 -->
                                     <Grid Margin="0,0,0,6">
                                         <StackPanel Orientation="Horizontal">
+                                            <!-- 패널 숨김 시 Storyboard 도 Stop — Visibility=Collapsed 만으로는 애니메이션이 멈추지 않음 -->
                                             <Ellipse Width="8" Height="8" Fill="#10B981" VerticalAlignment="Center" Margin="0,0,6,0">
-                                                <Ellipse.Triggers>
-                                                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                                                        <BeginStoryboard>
-                                                            <Storyboard RepeatBehavior="Forever">
-                                                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
-                                                                                 From="1.0" To="0.2" Duration="0:0:0.6" AutoReverse="True"/>
-                                                            </Storyboard>
-                                                        </BeginStoryboard>
-                                                    </EventTrigger>
-                                                </Ellipse.Triggers>
+                                                <Ellipse.Style>
+                                                    <Style TargetType="Ellipse">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Status.IsVisible}" Value="True">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard x:Name="StatusBlinkSb">
+                                                                        <Storyboard RepeatBehavior="Forever" FillBehavior="Stop">
+                                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                                             From="1.0" To="0.2" Duration="0:0:0.6" AutoReverse="True"/>
+                                                                        </Storyboard>
+                                                                    </BeginStoryboard>
+                                                                </DataTrigger.EnterActions>
+                                                                <DataTrigger.ExitActions>
+                                                                    <StopStoryboard BeginStoryboardName="StatusBlinkSb"/>
+                                                                </DataTrigger.ExitActions>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Ellipse.Style>
                                             </Ellipse>
                                             <TextBlock Text="SEQUENCE STATUS" Foreground="#3B82F6"
                                                        FontSize="10" FontWeight="Bold" VerticalAlignment="Center"/>
                                         </StackPanel>
-                                        <TextBlock Text="{Binding StepIndexText}" HorizontalAlignment="Right"
+                                        <TextBlock Text="{Binding Status.StepIndexText}" HorizontalAlignment="Right"
                                                    Foreground="#94A3B8" FontFamily="Consolas" FontSize="11" FontWeight="Bold"/>
                                     </Grid>
 
                                     <!-- 시퀀스 이름 -->
-                                    <TextBlock Text="{Binding SequenceName}" Foreground="White"
+                                    <TextBlock Text="{Binding Status.SequenceName}" Foreground="White"
                                                FontSize="13" FontWeight="Black" Margin="0,0,0,2"/>
 
                                     <!-- 현재 step 이름 (번역됨) -->
-                                    <TextBlock Text="{Binding CurrentStepName}" Foreground="#86EFAC"
+                                    <TextBlock Text="{Binding Status.CurrentStepName}" Foreground="#86EFAC"
                                                FontSize="11" TextWrapping="Wrap" Margin="0,0,0,8"/>
 
                                     <!-- 진행률 바 -->
-                                    <ProgressBar Value="{Binding StepProgressPct, Mode=OneWay}" Maximum="100" Height="6"
+                                    <ProgressBar Value="{Binding Status.StepProgressPct, Mode=OneWay}" Maximum="100" Height="6"
                                                  Background="#1E293B" Foreground="#3B82F6" BorderThickness="0"/>
                                 </StackPanel>
                             </Border>
