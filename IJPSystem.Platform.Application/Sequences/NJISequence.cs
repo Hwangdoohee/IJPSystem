@@ -11,13 +11,13 @@ namespace IJPSystem.Platform.Application.Sequences
 
         public static IReadOnlyList<SequenceStepDef> Build(IMachine machine, IMotionService motion) => new[]
         {
-            new SequenceStepDef(1, "Step_NJI_1",
+            new SequenceStepDef(1, "Step_NJI_MoveNji",
                 ct => motion.MoveToPointAsync(PointNames.NJI, ct)),
 
-            new SequenceStepDef(2, "Step_NJI_2",
+            new SequenceStepDef(2, "Step_NJI_MoveNjiDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
-            new SequenceStepDef(3, "Step_NJI_3",
+            new SequenceStepDef(3, "Step_NJI_LightOn",
                 ct =>
                 {
                     machine.Vision.SetLight(CamId, true);
@@ -25,7 +25,7 @@ namespace IJPSystem.Platform.Application.Sequences
                     return System.Threading.Tasks.Task.CompletedTask;
                 }),
 
-            new SequenceStepDef(4, "Step_NJI_4",
+            new SequenceStepDef(4, "Step_NJI_Inspect",
                 async ct =>
                 {
                     var result = await WaitHelper.CaptureAndWait(machine.Vision, CamId,
@@ -35,17 +35,17 @@ namespace IJPSystem.Platform.Application.Sequences
                             $"노즐 검사 NG — [{result?.NgCode}] {result?.NgDescription}  Score={result?.Score}");
                 }),
 
-            new SequenceStepDef(5, "Step_NJI_5",
+            new SequenceStepDef(5, "Step_NJI_LightOff",
                 ct =>
                 {
                     machine.Vision.SetLight(CamId, false);
                     return System.Threading.Tasks.Task.CompletedTask;
                 }),
 
-            new SequenceStepDef(6, "Step_NJI_6",
+            new SequenceStepDef(6, "Step_NJI_MoveReady",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),
 
-            new SequenceStepDef(7, "Step_NJI_7",
+            new SequenceStepDef(7, "Step_NJI_MoveReadyDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
         };
     }

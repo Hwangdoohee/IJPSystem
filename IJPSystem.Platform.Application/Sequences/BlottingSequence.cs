@@ -8,7 +8,7 @@ namespace IJPSystem.Platform.Application.Sequences
     {
         public static IReadOnlyList<SequenceStepDef> Build(IMachine machine, IMotionService motion) => new[]
         {
-            new SequenceStepDef(1, "Step_Blotting_1",
+            new SequenceStepDef(1, "Step_Blotting_VacuumOff",
                 ct =>
                 {
                     machine.VacuumOff();
@@ -17,19 +17,19 @@ namespace IJPSystem.Platform.Application.Sequences
                                                  expected: false, timeoutMs: 10_000, ct);
                 }),
 
-            new SequenceStepDef(2, "Step_Blotting_2",
+            new SequenceStepDef(2, "Step_Blotting_MoveBlotting",
                 ct => motion.MoveToPointAsync(PointNames.Blotting, ct)),
 
-            new SequenceStepDef(3, "Step_Blotting_3",
+            new SequenceStepDef(3, "Step_Blotting_MoveBlottingDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
-            new SequenceStepDef(4, "Step_Blotting_4",
+            new SequenceStepDef(4, "Step_Blotting_Wait",
                 ct => Task.Delay(3_000, ct)),
 
-            new SequenceStepDef(5, "Step_Blotting_5",
+            new SequenceStepDef(5, "Step_Blotting_MoveReady",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),
 
-            new SequenceStepDef(6, "Step_Blotting_6",
+            new SequenceStepDef(6, "Step_Blotting_MoveReadyDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
         };
     }

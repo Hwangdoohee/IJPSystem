@@ -19,7 +19,7 @@ namespace IJPSystem.Platform.Application.Sequences
             double meniscusPressureKpa = -3.5)   // 음압 SV (kPa) — PNID 화면 VacuumSV 로 주입
             => new[]
         {
-            new SequenceStepDef(1, "Step_Purge_1",
+            new SequenceStepDef(1, "Step_Purge_VacuumOff",
                 ct =>
                 {
                     machine.VacuumOff();
@@ -28,10 +28,10 @@ namespace IJPSystem.Platform.Application.Sequences
                                                  expected: false, timeoutMs: 10_000, ct);
                 }),
 
-            new SequenceStepDef(2, "Step_Purge_2",
+            new SequenceStepDef(2, "Step_Purge_MovePurge",
                 ct => motion.MoveToPointAsync(PointNames.Purge, ct)),
 
-            new SequenceStepDef(3, "Step_Purge_3",
+            new SequenceStepDef(3, "Step_Purge_MovePurgeDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
             // ── 신규: 프린트 헤드 DOWN (퍼지 위치 가까이) ──
@@ -61,7 +61,7 @@ namespace IJPSystem.Platform.Application.Sequences
                     return Task.Delay(PressureStabilizeMs, ct);
                 }),
 
-            new SequenceStepDef(8, "Step_Purge_4",
+            new SequenceStepDef(8, "Step_Purge_WaitDispense",
                 ct =>
                 {
                     machine.IO.ScheduleInput("DI_PRESSURE_SW1_N2_IMS_AIR_KNIFE", true, 3_000);
@@ -97,10 +97,10 @@ namespace IJPSystem.Platform.Application.Sequences
             new SequenceStepDef(12, "Step_Purge_HeadUpDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 10_000, ct)),
 
-            new SequenceStepDef(13, "Step_Purge_5",
+            new SequenceStepDef(13, "Step_Purge_MoveReady",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),
 
-            new SequenceStepDef(14, "Step_Purge_6",
+            new SequenceStepDef(14, "Step_Purge_MoveReadyDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
         };
     }

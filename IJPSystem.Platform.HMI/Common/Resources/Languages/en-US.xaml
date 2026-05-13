@@ -147,54 +147,54 @@
     <system:String x:Key="Log_AlarmCleared">[ALARM] Cleared — system in STANDBY.</system:String>
 
     <!-- Sequence step display names (matching SequenceStepDef.Name keys) -->
-    <system:String x:Key="Step_AutoPrint_1">Wait for glass detection (V/C chuck entry)</system:String>
-    <system:String x:Key="Step_AutoPrint_2">V/C chuck Vacuum ON (clamp glass)</system:String>
-    <system:String x:Key="Step_AutoPrint_3">Confirm vacuum sensor (Pressure SW4 ON)</system:String>
-    <system:String x:Key="Step_AutoPrint_4">Vacuum stabilization wait (1s)</system:String>
-    <system:String x:Key="Step_AutoPrint_5">Move to PRINT START position</system:String>
-    <system:String x:Key="Step_AutoPrint_6">Confirm InPosition at PRINT START</system:String>
-    <system:String x:Key="Step_AutoPrint_7">Printing — jet to PRINT END</system:String>
-    <system:String x:Key="Step_AutoPrint_8">Confirm InPosition after printing</system:String>
-    <system:String x:Key="Step_AutoPrint_9">V/C chuck Vacuum OFF (prepare unload)</system:String>
-    <system:String x:Key="Step_AutoPrint_10">Move to READY position</system:String>
-    <system:String x:Key="Step_AutoPrint_11">Confirm InPosition at READY</system:String>
+    <system:String x:Key="Step_AutoPrint_WaitGlass">Wait for glass detection (V/C chuck entry)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumOn">V/C chuck Vacuum ON (clamp glass)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumConfirm">Confirm vacuum sensor (Pressure SW4 ON)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumStabilize">Vacuum stabilization wait (1s)</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveStart">Move to PRINT START position</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveStartDone">Confirm InPosition at PRINT START</system:String>
+    <system:String x:Key="Step_AutoPrint_Print">Printing — jet to PRINT END</system:String>
+    <system:String x:Key="Step_AutoPrint_PrintDone">Confirm InPosition after printing</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumOff">V/C chuck Vacuum OFF (prepare unload)</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveReadyDone">Confirm InPosition at READY</system:String>
 
-    <system:String x:Key="Step_Init_1">Servo ON — all axes</system:String>
-    <system:String x:Key="Step_Init_2">Home — all axes</system:String>
-    <system:String x:Key="Step_Init_3">Move to READY position</system:String>
-    <system:String x:Key="Step_Init_4">Confirm InPosition (all axes)</system:String>
-    <system:String x:Key="Step_Init_5">Wait for glass detection sensor</system:String>
-    <system:String x:Key="Step_Init_6">Move to LOAD position</system:String>
-    <system:String x:Key="Step_Init_7">Confirm InPosition at LOAD</system:String>
+    <system:String x:Key="Step_Init_ServoOn">Servo ON — all axes</system:String>
+    <system:String x:Key="Step_Init_Homing">Home — all axes</system:String>
+    <system:String x:Key="Step_Init_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_Init_MoveReadyDone">Confirm InPosition (all axes)</system:String>
+    <system:String x:Key="Step_Init_WaitGlass">Wait for glass detection sensor</system:String>
+    <system:String x:Key="Step_Init_MoveLoad">Move to LOAD position</system:String>
+    <system:String x:Key="Step_Init_MoveLoadDone">Confirm InPosition at LOAD</system:String>
 
-    <system:String x:Key="Step_Purge_1">Vacuum OFF</system:String>
-    <system:String x:Key="Step_Purge_2">Move to PURGE position</system:String>
-    <system:String x:Key="Step_Purge_3">Confirm InPosition at PURGE</system:String>
-    <system:String x:Key="Step_Purge_4">Wait for ink purge completion</system:String>
-    <system:String x:Key="Step_Purge_5">Move to READY position</system:String>
-    <system:String x:Key="Step_Purge_6">Confirm InPosition at READY</system:String>
+    <system:String x:Key="Step_Purge_VacuumOff">Vacuum OFF</system:String>
+    <system:String x:Key="Step_Purge_MovePurge">Move to PURGE position</system:String>
+    <system:String x:Key="Step_Purge_MovePurgeDone">Confirm InPosition at PURGE</system:String>
+    <system:String x:Key="Step_Purge_WaitDispense">Wait for ink purge completion</system:String>
+    <system:String x:Key="Step_Purge_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_Purge_MoveReadyDone">Confirm InPosition at READY</system:String>
 
-    <system:String x:Key="Step_Blotting_1">Vacuum OFF</system:String>
-    <system:String x:Key="Step_Blotting_2">Move to BLOTTING position</system:String>
-    <system:String x:Key="Step_Blotting_3">Confirm InPosition at BLOTTING</system:String>
-    <system:String x:Key="Step_Blotting_4">Nozzle surface absorption wait (3s)</system:String>
-    <system:String x:Key="Step_Blotting_5">Move to READY position</system:String>
-    <system:String x:Key="Step_Blotting_6">Confirm InPosition at READY</system:String>
+    <system:String x:Key="Step_Blotting_VacuumOff">Vacuum OFF</system:String>
+    <system:String x:Key="Step_Blotting_MoveBlotting">Move to BLOTTING position</system:String>
+    <system:String x:Key="Step_Blotting_MoveBlottingDone">Confirm InPosition at BLOTTING</system:String>
+    <system:String x:Key="Step_Blotting_Wait">Nozzle surface absorption wait (3s)</system:String>
+    <system:String x:Key="Step_Blotting_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_Blotting_MoveReadyDone">Confirm InPosition at READY</system:String>
 
-    <system:String x:Key="Step_Maint_1">Confirm door unlock</system:String>
-    <system:String x:Key="Step_Maint_2">Move to MAINTENANCE position</system:String>
-    <system:String x:Key="Step_Maint_3">Confirm InPosition at MAINTENANCE</system:String>
-    <system:String x:Key="Step_Maint_4">Wait for maintenance complete (door close)</system:String>
-    <system:String x:Key="Step_Maint_5">Move to READY position</system:String>
-    <system:String x:Key="Step_Maint_6">Confirm InPosition at READY</system:String>
+    <system:String x:Key="Step_Maint_DoorUnlock">Confirm door unlock</system:String>
+    <system:String x:Key="Step_Maint_MoveMt">Move to MAINTENANCE position</system:String>
+    <system:String x:Key="Step_Maint_MoveMtDone">Confirm InPosition at MAINTENANCE</system:String>
+    <system:String x:Key="Step_Maint_WaitDoorClose">Wait for maintenance complete (door close)</system:String>
+    <system:String x:Key="Step_Maint_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_Maint_MoveReadyDone">Confirm InPosition at READY</system:String>
 
-    <system:String x:Key="Step_NJI_1">Move to NJI position</system:String>
-    <system:String x:Key="Step_NJI_2">Confirm InPosition at NJI</system:String>
-    <system:String x:Key="Step_NJI_3">Light ON</system:String>
-    <system:String x:Key="Step_NJI_4">Nozzle vision inspection</system:String>
-    <system:String x:Key="Step_NJI_5">Light OFF</system:String>
-    <system:String x:Key="Step_NJI_6">Move to READY position</system:String>
-    <system:String x:Key="Step_NJI_7">Confirm InPosition at READY</system:String>
+    <system:String x:Key="Step_NJI_MoveNji">Move to NJI position</system:String>
+    <system:String x:Key="Step_NJI_MoveNjiDone">Confirm InPosition at NJI</system:String>
+    <system:String x:Key="Step_NJI_LightOn">Light ON</system:String>
+    <system:String x:Key="Step_NJI_Inspect">Nozzle vision inspection</system:String>
+    <system:String x:Key="Step_NJI_LightOff">Light OFF</system:String>
+    <system:String x:Key="Step_NJI_MoveReady">Move to READY position</system:String>
+    <system:String x:Key="Step_NJI_MoveReadyDone">Confirm InPosition at READY</system:String>
 
     <!-- Sequence display names / descriptions (matching SequenceRegistry keys) -->
     <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
@@ -215,10 +215,10 @@
     <system:String x:Key="Seq_HeadDown_Desc">Move print head down (close to glass)</system:String>
 
     <!-- Standalone HEAD UP/DOWN sequence steps -->
-    <system:String x:Key="Step_HeadUp_1">Move to PRINT HEAD UP position</system:String>
-    <system:String x:Key="Step_HeadUp_2">PRINT HEAD UP InPosition check</system:String>
-    <system:String x:Key="Step_HeadDown_1">Move to PRINT HEAD DOWN position</system:String>
-    <system:String x:Key="Step_HeadDown_2">PRINT HEAD DOWN InPosition check</system:String>
+    <system:String x:Key="Step_HeadUp_Move">Move to PRINT HEAD UP position</system:String>
+    <system:String x:Key="Step_HeadUp_MoveDone">PRINT HEAD UP InPosition check</system:String>
+    <system:String x:Key="Step_HeadDown_Move">Move to PRINT HEAD DOWN position</system:String>
+    <system:String x:Key="Step_HeadDown_MoveDone">PRINT HEAD DOWN InPosition check</system:String>
 
     <!-- HEAD UP/DOWN steps embedded in AUTO PRINT / PURGE -->
     <system:String x:Key="Step_AutoPrint_HeadDown">Move PRINT HEAD DOWN</system:String>

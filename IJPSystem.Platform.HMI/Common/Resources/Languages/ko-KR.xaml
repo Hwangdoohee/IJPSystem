@@ -147,54 +147,54 @@
     <system:String x:Key="Log_AlarmCleared">[ALARM] 해제: 시스템이 대기(STANDBY) 상태입니다.</system:String>
 
     <!-- 시퀀스 단계 표시명 (AutoPrintSequence / InitializeSequence 의 SequenceStepDef.Name 키) -->
-    <system:String x:Key="Step_AutoPrint_1">글래스 감지 대기 (V/C 척 진입)</system:String>
-    <system:String x:Key="Step_AutoPrint_2">V/C 척 진공 ON (글래스 고정)</system:String>
-    <system:String x:Key="Step_AutoPrint_3">V/C 척 진공 센서 확인 (압력 SW4 ON)</system:String>
-    <system:String x:Key="Step_AutoPrint_4">진공 안정화 대기 (1s)</system:String>
-    <system:String x:Key="Step_AutoPrint_5">인쇄 시작 위치(PRINT START) 이동</system:String>
-    <system:String x:Key="Step_AutoPrint_6">인쇄 시작 위치 InPosition 확인</system:String>
-    <system:String x:Key="Step_AutoPrint_7">인쇄 진행 — 종점(PRINT END)까지 토출</system:String>
-    <system:String x:Key="Step_AutoPrint_8">인쇄 완료 InPosition 확인</system:String>
-    <system:String x:Key="Step_AutoPrint_9">V/C 척 진공 해제 (글래스 배출 준비)</system:String>
-    <system:String x:Key="Step_AutoPrint_10">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_AutoPrint_11">READY 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_WaitGlass">글래스 감지 대기 (V/C 척 진입)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumOn">V/C 척 진공 ON (글래스 고정)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumConfirm">V/C 척 진공 센서 확인 (압력 SW4 ON)</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumStabilize">진공 안정화 대기 (1s)</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveStart">인쇄 시작 위치(PRINT START) 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveStartDone">인쇄 시작 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_Print">인쇄 진행 — 종점(PRINT END)까지 토출</system:String>
+    <system:String x:Key="Step_AutoPrint_PrintDone">인쇄 완료 InPosition 확인</system:String>
+    <system:String x:Key="Step_AutoPrint_VacuumOff">V/C 척 진공 해제 (글래스 배출 준비)</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_AutoPrint_MoveReadyDone">READY 위치 InPosition 확인</system:String>
 
-    <system:String x:Key="Step_Init_1">서보 ON — 전체 축</system:String>
-    <system:String x:Key="Step_Init_2">원점복귀 — 전체 축</system:String>
-    <system:String x:Key="Step_Init_3">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_Init_4">전체 축 InPosition 확인</system:String>
-    <system:String x:Key="Step_Init_5">GLASS 감지 센서 대기</system:String>
-    <system:String x:Key="Step_Init_6">LOAD 위치 이동</system:String>
-    <system:String x:Key="Step_Init_7">LOAD 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Init_ServoOn">서보 ON — 전체 축</system:String>
+    <system:String x:Key="Step_Init_Homing">원점복귀 — 전체 축</system:String>
+    <system:String x:Key="Step_Init_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Init_MoveReadyDone">전체 축 InPosition 확인</system:String>
+    <system:String x:Key="Step_Init_WaitGlass">GLASS 감지 센서 대기</system:String>
+    <system:String x:Key="Step_Init_MoveLoad">LOAD 위치 이동</system:String>
+    <system:String x:Key="Step_Init_MoveLoadDone">LOAD 위치 InPosition 확인</system:String>
 
-    <system:String x:Key="Step_Purge_1">진공 해제</system:String>
-    <system:String x:Key="Step_Purge_2">퍼지 위치(PURGE) 이동</system:String>
-    <system:String x:Key="Step_Purge_3">퍼지 위치 InPosition 확인</system:String>
-    <system:String x:Key="Step_Purge_4">잉크 토출 완료 대기</system:String>
-    <system:String x:Key="Step_Purge_5">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_Purge_6">READY 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_VacuumOff">진공 해제</system:String>
+    <system:String x:Key="Step_Purge_MovePurge">퍼지 위치(PURGE) 이동</system:String>
+    <system:String x:Key="Step_Purge_MovePurgeDone">퍼지 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Purge_WaitDispense">잉크 토출 완료 대기</system:String>
+    <system:String x:Key="Step_Purge_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Purge_MoveReadyDone">READY 위치 InPosition 확인</system:String>
 
-    <system:String x:Key="Step_Blotting_1">진공 해제</system:String>
-    <system:String x:Key="Step_Blotting_2">블로팅 위치(BLOTTING) 이동</system:String>
-    <system:String x:Key="Step_Blotting_3">블로팅 위치 InPosition 확인</system:String>
-    <system:String x:Key="Step_Blotting_4">노즐 표면 흡수 대기 (3초)</system:String>
-    <system:String x:Key="Step_Blotting_5">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_Blotting_6">READY 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Blotting_VacuumOff">진공 해제</system:String>
+    <system:String x:Key="Step_Blotting_MoveBlotting">블로팅 위치(BLOTTING) 이동</system:String>
+    <system:String x:Key="Step_Blotting_MoveBlottingDone">블로팅 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Blotting_Wait">노즐 표면 흡수 대기 (3초)</system:String>
+    <system:String x:Key="Step_Blotting_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Blotting_MoveReadyDone">READY 위치 InPosition 확인</system:String>
 
-    <system:String x:Key="Step_Maint_1">도어 잠금 해제 확인</system:String>
-    <system:String x:Key="Step_Maint_2">유지보수 위치(MT) 이동</system:String>
-    <system:String x:Key="Step_Maint_3">유지보수 위치 InPosition 확인</system:String>
-    <system:String x:Key="Step_Maint_4">유지보수 완료 신호 대기 (도어 닫힘)</system:String>
-    <system:String x:Key="Step_Maint_5">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_Maint_6">READY 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Maint_DoorUnlock">도어 잠금 해제 확인</system:String>
+    <system:String x:Key="Step_Maint_MoveMt">유지보수 위치(MT) 이동</system:String>
+    <system:String x:Key="Step_Maint_MoveMtDone">유지보수 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_Maint_WaitDoorClose">유지보수 완료 신호 대기 (도어 닫힘)</system:String>
+    <system:String x:Key="Step_Maint_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_Maint_MoveReadyDone">READY 위치 InPosition 확인</system:String>
 
-    <system:String x:Key="Step_NJI_1">NJI 위치 이동</system:String>
-    <system:String x:Key="Step_NJI_2">NJI 위치 InPosition 확인</system:String>
-    <system:String x:Key="Step_NJI_3">조명 ON</system:String>
-    <system:String x:Key="Step_NJI_4">노즐 비전 검사</system:String>
-    <system:String x:Key="Step_NJI_5">조명 OFF</system:String>
-    <system:String x:Key="Step_NJI_6">대기 위치(READY) 이동</system:String>
-    <system:String x:Key="Step_NJI_7">READY 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_NJI_MoveNji">NJI 위치 이동</system:String>
+    <system:String x:Key="Step_NJI_MoveNjiDone">NJI 위치 InPosition 확인</system:String>
+    <system:String x:Key="Step_NJI_LightOn">조명 ON</system:String>
+    <system:String x:Key="Step_NJI_Inspect">노즐 비전 검사</system:String>
+    <system:String x:Key="Step_NJI_LightOff">조명 OFF</system:String>
+    <system:String x:Key="Step_NJI_MoveReady">대기 위치(READY) 이동</system:String>
+    <system:String x:Key="Step_NJI_MoveReadyDone">READY 위치 InPosition 확인</system:String>
 
     <!-- 시퀀스 표시명 / 설명 (SequenceRegistry 의 Name/Description 키) -->
     <system:String x:Key="Seq_Init_Name">INITIALIZE</system:String>
@@ -215,10 +215,10 @@
     <system:String x:Key="Seq_HeadDown_Desc">프린트 헤드를 아래로 이동 (글래스 가까이)</system:String>
 
     <!-- HEAD UP/DOWN 단독 시퀀스 step -->
-    <system:String x:Key="Step_HeadUp_1">프린트 헤드 UP 위치 이동</system:String>
-    <system:String x:Key="Step_HeadUp_2">프린트 헤드 UP InPosition 확인</system:String>
-    <system:String x:Key="Step_HeadDown_1">프린트 헤드 DOWN 위치 이동</system:String>
-    <system:String x:Key="Step_HeadDown_2">프린트 헤드 DOWN InPosition 확인</system:String>
+    <system:String x:Key="Step_HeadUp_Move">프린트 헤드 UP 위치 이동</system:String>
+    <system:String x:Key="Step_HeadUp_MoveDone">프린트 헤드 UP InPosition 확인</system:String>
+    <system:String x:Key="Step_HeadDown_Move">프린트 헤드 DOWN 위치 이동</system:String>
+    <system:String x:Key="Step_HeadDown_MoveDone">프린트 헤드 DOWN InPosition 확인</system:String>
 
     <!-- AUTO PRINT / PURGE 시퀀스 내 HEAD UP/DOWN step -->
     <system:String x:Key="Step_AutoPrint_HeadDown">프린트 헤드 DOWN 이동</system:String>

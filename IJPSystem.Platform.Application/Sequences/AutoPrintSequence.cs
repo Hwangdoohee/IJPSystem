@@ -7,15 +7,15 @@ namespace IJPSystem.Platform.Application.Sequences
 {
     /// <summary>Auto Print — 자동 인쇄 시퀀스</summary>
     /// <remarks>
-    /// SequenceStepDef.Name 은 표시용 **번역 키** (Step_AutoPrint_N).
+    /// SequenceStepDef.Name 은 표시용 **번역 키** (Step_AutoPrint_*).
     /// HMI 의 ViewModel 이 Loc.T(key) 로 사용자 언어로 변환해서 화면에 표시.
     /// 키→번역은 Common/Resources/Languages/ko-KR.xaml, en-US.xaml 참조.
-    /// </remarks>3
+    /// </remarks>
     public static class AutoPrintSequence
     {
         public static IReadOnlyList<SequenceStepDef> Build(IMachine machine, IMotionService motion) => new[]
         {
-            new SequenceStepDef(1, "Step_AutoPrint_1",
+            new SequenceStepDef(1, "Step_AutoPrint_WaitGlass",
                 ct =>
                 {
                     machine.IO.ScheduleInput("DI_VC_SENSOR_GLASS_STOP", true, 2_000);
@@ -23,7 +23,7 @@ namespace IJPSystem.Platform.Application.Sequences
                                                  expected: true, timeoutMs: 30_000, ct);
                 }),
 
-            new SequenceStepDef(2, "Step_AutoPrint_2",
+            new SequenceStepDef(2, "Step_AutoPrint_VacuumOn",
                 ct =>
                 {
                     machine.VacuumOn();
@@ -31,40 +31,40 @@ namespace IJPSystem.Platform.Application.Sequences
                     return Task.CompletedTask;
                 }),
 
-            new SequenceStepDef(3, "Step_AutoPrint_3",
+            new SequenceStepDef(3, "Step_AutoPrint_VacuumConfirm",
                 ct => WaitHelper.ForIOSignal(machine.IO, "DI_PRESSURE_SW4_VACUUM_CV_P",
                                              expected: true, timeoutMs: 5_000, ct)),
 
-            new SequenceStepDef(4, "Step_AutoPrint_4",
+            new SequenceStepDef(4, "Step_AutoPrint_VacuumStabilize",
                 ct => Task.Delay(1_000, ct)),
 
-            new SequenceStepDef(5, "Step_AutoPrint_5",
+            new SequenceStepDef(5, "Step_AutoPrint_MoveStart",
                 ct => motion.MoveToPointAsync(PointNames.PrintStart, ct)),
 
-            new SequenceStepDef(6, "Step_AutoPrint_6",
+            new SequenceStepDef(6, "Step_AutoPrint_MoveStartDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
-            // ── 신규: 프린트 헤드 DOWN (글래스 가까이) ──
+            // ── 프린트 헤드 DOWN (글래스 가까이) ──
             new SequenceStepDef(7, "Step_AutoPrint_HeadDown",
                 ct => motion.MoveToPointAsync(PointNames.PrintHeadDown, ct)),
 
             new SequenceStepDef(8, "Step_AutoPrint_HeadDownDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 10_000, ct)),
 
-            new SequenceStepDef(9, "Step_AutoPrint_7",
+            new SequenceStepDef(9, "Step_AutoPrint_Print",
                 ct => motion.MoveToPointAsync(PointNames.PrintEnd, ct, MotionProfileKind.Printing)),
 
-            new SequenceStepDef(10, "Step_AutoPrint_8",
+            new SequenceStepDef(10, "Step_AutoPrint_PrintDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 60_000, ct)),
 
-            // ── 신규: 프린트 헤드 UP (글래스에서 떼기) ──
+            // ── 프린트 헤드 UP (글래스에서 떼기) ──
             new SequenceStepDef(11, "Step_AutoPrint_HeadUp",
                 ct => motion.MoveToPointAsync(PointNames.PrintHeadUp, ct)),
 
             new SequenceStepDef(12, "Step_AutoPrint_HeadUpDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 10_000, ct)),
 
-            new SequenceStepDef(13, "Step_AutoPrint_9",
+            new SequenceStepDef(13, "Step_AutoPrint_VacuumOff",
                 ct =>
                 {
                     machine.VacuumOff();
@@ -74,10 +74,10 @@ namespace IJPSystem.Platform.Application.Sequences
                                                  expected: false, timeoutMs: 10_000, ct);
                 }),
 
-            new SequenceStepDef(14, "Step_AutoPrint_10",
+            new SequenceStepDef(14, "Step_AutoPrint_MoveReady",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),
 
-            new SequenceStepDef(15, "Step_AutoPrint_11",
+            new SequenceStepDef(15, "Step_AutoPrint_MoveReadyDone",
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
         };
     }
