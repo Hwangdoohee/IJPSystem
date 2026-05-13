@@ -32,20 +32,20 @@ namespace IJPSystem.Platform.HMI
                 }
 
                 // 2. 로그인 창 띄우기
-                var loginWin = new LoginWindow();
-                loginWin.Owner = this; // 메인 화면 중앙에 띄우기 위해 설정
+                //var loginWin = new LoginWindow();
+                //loginWin.Owner = this; // 메인 화면 중앙에 띄우기 위해 설정
 
-                ////////if (loginWin.ShowDialog() == true)
-                ////////{
-                ////////    // 로그인 성공 시 권한 설정 및 로그 기록
-                    viewModel.CurrentUserRole = loginWin.ResultRole;
-                    viewModel.AddLog(T("Log_LoginSuccess", viewModel.CurrentUserRole), LogLevel.Success);
-                //////////}
-                //////////else
-                //////////{
-                //////////    // 로그인 취소 시 프로그램 즉시 종료
-                //////////    Application.Current.Shutdown();
-                //////////}
+                //if (loginWin.ShowDialog() == true)
+                //{
+                //    // 로그인 성공 시 권한 설정 및 로그 기록
+                //viewModel.CurrentUserRole = loginWin.ResultRole;
+                //viewModel.AddLog(T("Log_LoginSuccess", viewModel.CurrentUserRole), LogLevel.Success);
+                ////}
+                ////else
+                ////{
+                ////    // 로그인 취소 시 프로그램 즉시 종료
+                ////    Application.Current.Shutdown();
+                ////}
             }), DispatcherPriority.ContextIdle); // 가장 낮은 우선순위로 실행 (화면 다 그려진 후)
         }
         // 로그가 추가될 때마다 스크롤을 끝으로 내리는 핸들러
