@@ -1,0 +1,10 @@
+{
+  "name": "HEAD UP — 1ms 시간 한도 (성능 회귀 감지 데모)",
+  "description": "시뮬 모드라도 시퀀스 호출 오버헤드/스케줄러 지터로 최소 수 ms 는 소요. 듀레이션 한도를 1ms 로 박아 일부러 시간 초과 FAIL 을 유도해 어설션 동작을 검증.",
+  "sequence": "HEAD_UP",
+  "events": [],
+  "expect": {
+    "result": "completed",
+    "duration_max_ms": 1
+  }
+}

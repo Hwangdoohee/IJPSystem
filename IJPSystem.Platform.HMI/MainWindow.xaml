@@ -196,6 +196,9 @@
                 <Button Content="{DynamicResource SubMenu_Sequence}"
                         Style="{StaticResource MaintenanceSubButtonStyle}"
                         Command="{Binding MoveWindowCommand}" CommandParameter="SEQUENCE"/>
+                <Button Content="{DynamicResource SubMenu_Simulator}"
+                        Style="{StaticResource MaintenanceSubButtonStyle}"
+                        Command="{Binding MoveWindowCommand}" CommandParameter="SIMULATOR"/>
                 <!-- ── PRINT 서브메뉴 ── -->
                 <Button Content="{DynamicResource SubMenu_PatternPrint}"
                         Style="{StaticResource PrintSubButtonStyle}"

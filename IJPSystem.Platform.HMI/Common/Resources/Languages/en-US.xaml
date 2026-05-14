@@ -14,6 +14,7 @@
     <system:String x:Key="SubMenu_GLASS_VIEW">└ GLASS VIEW</system:String>
     <system:String x:Key="SubMenu_DROP_WATCHER">└ DROP WATCHER</system:String>
     <system:String x:Key="SubMenu_Sequence">SEQUENCE</system:String>
+    <system:String x:Key="SubMenu_Simulator">SIMULATOR</system:String>
     <system:String x:Key="SubMenu_MotorInfo">MOTOR INFO</system:String>
     <system:String x:Key="SubMenu_TeachingPoint">TEACH INFO</system:String>
     <system:String x:Key="SubMenu_OtherPoint">OTHER INFO</system:String>

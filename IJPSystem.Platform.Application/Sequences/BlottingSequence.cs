@@ -24,7 +24,7 @@ namespace IJPSystem.Platform.Application.Sequences
                 ct => WaitHelper.ForAllMotionDone(machine.Motion, timeoutMs: 20_000, ct)),
 
             new SequenceStepDef(4, "Step_Blotting_Wait",
-                ct => Task.Delay(3_000, ct)),
+                ct => SimClock.DelayAsync(3_000, ct)),
 
             new SequenceStepDef(5, "Step_Blotting_MoveReady",
                 ct => motion.MoveToPointAsync(PointNames.Ready, ct)),

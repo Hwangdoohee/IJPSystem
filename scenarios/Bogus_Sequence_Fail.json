@@ -1,0 +1,9 @@
+{
+  "name": "잘못된 시퀀스 ID — 명세 검증 데모",
+  "description": "존재하지 않는 시퀀스 ID를 지정. 시나리오 파일 자체의 오타/구버전을 시뮬이 잡아내는지 확인.",
+  "sequence": "NONEXISTENT_SEQUENCE",
+  "events": [],
+  "expect": {
+    "result": "completed"
+  }
+}

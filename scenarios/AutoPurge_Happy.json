@@ -1,0 +1,10 @@
+{
+  "name": "AUTO PURGE — happy path",
+  "description": "정상 퍼지 사이클: 모든 가상 입력이 시퀀스 내부 ScheduleInput 으로 자동 만족됨",
+  "sequence": "PURGE",
+  "events": [],
+  "expect": {
+    "result": "completed",
+    "duration_max_ms": 60000
+  }
+}

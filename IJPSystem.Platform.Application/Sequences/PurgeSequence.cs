@@ -50,7 +50,7 @@ namespace IJPSystem.Platform.Application.Sequences
                         machine.IO.SetOutput($"DO_PACK1_H{i}_IN",  true);
                         machine.IO.SetOutput($"DO_PACK1_H{i}_OUT", true);
                     }
-                    return Task.Delay(300, ct);   // 밸브 응답 시간
+                    return SimClock.DelayAsync(300, ct);   // 밸브 응답 시간
                 }),
 
             // ── 신규: 양압(Purge pressure) 인가 + 안정화 대기 ──
@@ -58,7 +58,7 @@ namespace IJPSystem.Platform.Application.Sequences
                 ct =>
                 {
                     machine.IO.SetAnalogOutput(AO_PURGE_PRESSURE_SV, purgePressureKpa);
-                    return Task.Delay(PressureStabilizeMs, ct);
+                    return SimClock.DelayAsync(PressureStabilizeMs, ct);
                 }),
 
             new SequenceStepDef(8, "Step_Purge_WaitDispense",
@@ -75,7 +75,7 @@ namespace IJPSystem.Platform.Application.Sequences
                 {
                     machine.IO.SetAnalogOutput(AO_PURGE_PRESSURE_SV, 0.0);
                     machine.IO.SetAnalogOutput(AO_MENISCUS_PRESSURE_SV, meniscusPressureKpa);
-                    return Task.Delay(PressureStabilizeMs, ct);
+                    return SimClock.DelayAsync(PressureStabilizeMs, ct);
                 }),
 
             // ── 신규: 헤드 밸브 CLOSE (16개 일괄) ──
@@ -87,7 +87,7 @@ namespace IJPSystem.Platform.Application.Sequences
                         machine.IO.SetOutput($"DO_PACK1_H{i}_IN",  false);
                         machine.IO.SetOutput($"DO_PACK1_H{i}_OUT", false);
                     }
-                    return Task.Delay(300, ct);
+                    return SimClock.DelayAsync(300, ct);
                 }),
 
             // ── 신규: 프린트 헤드 UP (퍼지 완료 후 떼기) ──

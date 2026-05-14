@@ -1,4 +1,5 @@
-﻿using IJPSystem.Platform.Domain.Interfaces;
+﻿using IJPSystem.Platform.Common;
+using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.Domain.Models.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -120,6 +121,13 @@ namespace IJPSystem.Drivers.IO
         public void ScheduleInput(string indexName, bool value, int delayMs)
         {
             if (!_inputStates.ContainsKey(indexName)) return;
+
+            // 시뮬 모드: 지연 무시하고 즉시 적용
+            if (SimulationContext.FastForward || delayMs <= 0)
+            {
+                _inputStates[indexName] = value;
+                return;
+            }
 
             _ = Task.Run(async () =>
             {

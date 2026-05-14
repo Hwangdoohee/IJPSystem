@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
+using IJPSystem.Platform.Common;
 using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.Domain.Models.Motion;
 
@@ -116,11 +117,20 @@ namespace IJPSystem.Drivers.Motion
 
             if (_axisStates.TryGetValue(axisNo, out state))
             {
-                state.IsMoving     = true;
-                state.IsInPosition = false;
-                state.TargetPos    = pos;
-                state.CurrentVel   = vel;
-
+                state.TargetPos  = pos;
+                state.CurrentVel = vel;
+                if (SimulationContext.FastForward)
+                {
+                    state.CurrentPos   = pos;
+                    state.IsMoving     = false;
+                    state.IsInPosition = true;
+                    state.CurrentVel   = 0;
+                }
+                else
+                {
+                    state.IsMoving     = true;
+                    state.IsInPosition = false;
+                }
                 return Task.FromResult(true);
             }
             return Task.FromResult(false);
@@ -135,10 +145,20 @@ namespace IJPSystem.Drivers.Motion
 
             if (_axisStates.TryGetValue(axisNo, out state))
             {
-                state.IsMoving     = true;
-                state.IsInPosition = false;
-                state.TargetPos    = state.CurrentPos + distance;
-                state.CurrentVel   = vel;
+                state.TargetPos  = state.CurrentPos + distance;
+                state.CurrentVel = vel;
+                if (SimulationContext.FastForward)
+                {
+                    state.CurrentPos   = state.TargetPos;
+                    state.IsMoving     = false;
+                    state.IsInPosition = true;
+                    state.CurrentVel   = 0;
+                }
+                else
+                {
+                    state.IsMoving     = true;
+                    state.IsInPosition = false;
+                }
                 return Task.FromResult(true);
             }
             return Task.FromResult(false);
@@ -186,8 +206,8 @@ namespace IJPSystem.Drivers.Motion
             if (!_axisStates.TryGetValue(axisNo, out state))
                 return false;
 
-            // 이미 원점인 경우에도 한 번 더 스냅하고 종료
-            if (Math.Abs(state.CurrentPos) < 1e-6)
+            // 이미 원점이거나 시뮬 모드면 즉시 스냅
+            if (Math.Abs(state.CurrentPos) < 1e-6 || SimulationContext.FastForward)
             {
                 state.CurrentPos = 0;
                 state.IsHomeDone = true;

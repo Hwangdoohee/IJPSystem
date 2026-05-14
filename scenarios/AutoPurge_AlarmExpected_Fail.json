@@ -1,0 +1,10 @@
+{
+  "name": "AUTO PURGE — 가짜 알람 기대 (expect 불일치 감지 데모)",
+  "description": "정상 완료되는 PURGE 시퀀스에 expect.alarm 을 일부러 명시. 시퀀스가 실제로는 알람 없이 끝나므로 시뮬이 'completed != failed' 또는 알람 불일치로 FAIL 판정해야 함.",
+  "sequence": "PURGE",
+  "events": [],
+  "expect": {
+    "result": "failed",
+    "alarm": "SOMETHING_THAT_NEVER_HAPPENS"
+  }
+}
