@@ -666,14 +666,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     AddLog(T("Log_Sequence"), LogLevel.Info);
                     break;
 
-                case "SIMULATOR":
-                    CollapseAllSubMenus();
-                    SelectedMenu    = "MAINTENANCE";
-                    SelectedSubMenu = "SIMULATOR";
-                    CurrentView = new SimulationView { DataContext = new SimulationViewModel(this) };
-                    AddLog("[SIM] 시뮬레이터 화면 진입", LogLevel.Info);
-                    break;
-
                 case "RECIPE":
                     CollapseAllSubMenus();
                     SelectedMenu    = "RECIPE";

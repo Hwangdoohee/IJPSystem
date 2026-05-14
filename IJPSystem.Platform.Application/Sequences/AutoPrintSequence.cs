@@ -36,7 +36,7 @@ namespace IJPSystem.Platform.Application.Sequences
                                              expected: true, timeoutMs: 5_000, ct)),
 
             new SequenceStepDef(4, "Step_AutoPrint_VacuumStabilize",
-                ct => SimClock.DelayAsync(1_000, ct)),
+                ct => Task.Delay(1_000, ct)),
 
             new SequenceStepDef(5, "Step_AutoPrint_MoveStart",
                 ct => motion.MoveToPointAsync(PointNames.PrintStart, ct)),
