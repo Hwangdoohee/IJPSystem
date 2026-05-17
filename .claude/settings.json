@@ -17,7 +17,10 @@
       "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj -nologo 2>&1 | Select-String -Pattern 'CS\\\\d{4}'\")",
       "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj -nologo 2>&1 | Select-String -Pattern 'error|오류' -Context 0,1 | Select-Object -First 30\")",
       "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj -nologo --verbosity normal 2>&1 | Select-Object -Last 40\")",
-      "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.slnx -nologo 2>&1 | Select-Object -Last 4\")"
+      "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.slnx -nologo 2>&1 | Select-Object -Last 4\")",
+      "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj -nologo 2>&1 | Select-Object -Last 5\")",
+      "Bash(git revert *)",
+      "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Drivers.Motion/IJPSystem.Drivers.Motion.csproj -nologo 2>&1 | Select-Object -Last 4\")"
     ]
   }
 }
