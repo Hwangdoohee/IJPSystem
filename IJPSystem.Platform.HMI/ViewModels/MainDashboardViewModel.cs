@@ -68,33 +68,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
             OnPropertyChanged(nameof(HasReadyMapping));
         }
 
-        // ── RECENT CYCLES — 최근 사이클 통계 (최대 10개 유지) ──
-        private const int MaxCycleHistory = 10;
-        public ObservableCollection<CycleRecord> RecentCycles { get; } = new();
-
-        public double MaxTact     => RecentCycles.Count == 0 ? 1.0 : RecentCycles.Max(c => c.TactTime);
-        public double MinTact     => RecentCycles.Count == 0 ? 0.0 : RecentCycles.Min(c => c.TactTime);
-        public double AverageTact => RecentCycles.Count == 0 ? 0.0 : RecentCycles.Average(c => c.TactTime);
-
-        private void RegisterCycle(double tactSeconds)
-        {
-            System.Windows.Application.Current?.Dispatcher.Invoke(() =>
-            {
-                RecentCycles.Insert(0, new CycleRecord
-                {
-                    Number      = TotalCount,   // 누적 생산 카운트와 일치 — 큐에서 빠진 번호와 충돌 없음
-                    TactTime    = tactSeconds,
-                    CompletedAt = DateTime.Now,
-                });
-                while (RecentCycles.Count > MaxCycleHistory)
-                    RecentCycles.RemoveAt(RecentCycles.Count - 1);
-
-                OnPropertyChanged(nameof(MaxTact));
-                OnPropertyChanged(nameof(MinTact));
-                OnPropertyChanged(nameof(AverageTact));
-            });
-        }
-
         // 알람/STOP 일시정지 게이트 — 폴링 방식으로 OCE 없이 대기
         // - 알람: 모터 즉시 정지 + step 취소 → 재개 시 같은 step 재실행
         // - STOP: 현재 step은 그대로 완료, 다음 step 진입 전에 정지 → START로 재개 시 다음 step부터 진행
@@ -502,7 +475,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 TotalCount++;
                 TactTime = Math.Round((DateTime.Now - startTime).TotalSeconds, 1);
                 _machine.SetSystemStatus(MachineState.Standby);
-                RegisterCycle(TactTime);   // RECENT CYCLES 통계에 등록
                 _logAction?.Invoke(T("Log_AutoPrintCompleted", TactTime), LogLevel.Success);
                 success = true;
             }
@@ -682,13 +654,4 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
     }
 
-    /// <summary>완료된 한 사이클의 통계 레코드 — RECENT CYCLES 패널에 바인딩</summary>
-    public class CycleRecord
-    {
-        public int      Number      { get; init; }
-        public double   TactTime    { get; init; }
-        public DateTime CompletedAt { get; init; }
-        public string   Label       => $"#{Number}";
-        public string   TimeText    => $"{TactTime:F2}s";
-    }
 }
