@@ -16,7 +16,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
 {
     public class MainDashboardViewModel : ViewModelBase
     {
-        // ── 기존 필드 유지 ──
         private double _tactTime;
         private string _currentStepName = "IDLE";
         private double _processProgress;
@@ -24,9 +23,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private readonly Action<string, LogLevel> _logAction;
         private readonly Action<bool> _onAlarmChanged;
         private readonly Action<string>? _raiseAlarm;
-        // (pointName, axisName) → mm. 활성 레시피의 티칭 좌표 조회용.
+        // (pointName, axisName) → mm — 활성 레시피의 X축 티칭 좌표 조회용
         private readonly Func<string, string, double?>? _getPointAxisMm;
-        // 미해제 알람 존재 여부 — 시작 전 체크용
         private readonly Func<bool>? _hasActiveAlarm;
 
         private readonly IMachine _machine;
@@ -34,13 +32,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private CancellationTokenSource? _cts;
         private CancellationTokenSource? _stepCts;   // 스텝 단위 취소 (일시정지 시 사용)
 
-        // AUTO PRINT 절차 — 우측 패널의 단계별 진행 표시용
         public ObservableCollection<SequenceStep> Steps { get; } = new();
 
-        // 활성 레시피의 X축 티칭 좌표(mm) — 시퀀스 시작 시 캐싱.
-        // View는 이 값과 GetLiveMotorX()로 헤드 픽셀 위치를 piecewise 매핑한다:
-        //   motor ∈ [Ready, PrintStart] → head ∈ [HeadParkedX, HeadScanStartX]   (파킹↔스캔시작)
-        //   motor ∈ [PrintStart, PrintEnd] → head ∈ [HeadScanStartX, HeadScanEndX] (스캔)
+        // 시퀀스 시작 시 캐싱되는 X축 티칭 좌표. View 가 GetLiveMotorX() 와 함께
+        // 헤드 픽셀 위치를 piecewise 매핑할 때 사용:
+        //   motor ∈ [Ready, PrintStart]    → head ∈ [HeadParkedX, HeadScanStartX]
+        //   motor ∈ [PrintStart, PrintEnd] → head ∈ [HeadScanStartX, HeadScanEndX]
         public double ReadyXmm      { get; private set; } = double.NaN;
         public double PrintStartXmm { get; private set; } = double.NaN;
         public double PrintEndXmm   { get; private set; } = double.NaN;
@@ -51,9 +48,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                                       && !double.IsNaN(PrintStartXmm)
                                       && Math.Abs(PrintStartXmm - ReadyXmm) > 0.001;
 
-        // View 60fps 프레임 타이머용 — MotorXPosition 캐시(100ms 주기)와 별도로 매 호출마다 실측치 반환.
-        // 모터 드라이버 자체는 50ms 시뮬레이션이므로, 60fps 호출 시 픽셀 동기는 사실상 부드러워짐.
-        // 인쇄 속도 vs Move 속도 차이도 자연스럽게 헤드 속도에 반영됨 (모터 vel을 그대로 따름).
+        // View 60fps 프레임 타이머용 — 100ms 주기 MotorXPosition 캐시 대신 매 호출 실측치 반환
         public double GetLiveMotorX() => _machine.Motion?.GetActualPosition("X") ?? 0.0;
 
         private void CachePrintRange()
@@ -68,9 +63,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
             OnPropertyChanged(nameof(HasReadyMapping));
         }
 
-        // 알람/STOP 일시정지 게이트 — 폴링 방식으로 OCE 없이 대기
-        // - 알람: 모터 즉시 정지 + step 취소 → 재개 시 같은 step 재실행
-        // - STOP: 현재 step은 그대로 완료, 다음 step 진입 전에 정지 → START로 재개 시 다음 step부터 진행
+        // 일시정지 게이트 — OCE 없이 폴링으로 대기. 알람과 STOP 의미가 다르다:
+        //   알람: 모터 즉시 정지 + 진행 step 취소 → 재개 시 같은 step 재실행
+        //   STOP: 현재 step 은 끝까지 완료, 다음 step 진입 전 정지 → 재개 시 다음 step 부터
         private bool _isPaused;
         public bool IsPaused
         {
@@ -79,14 +74,14 @@ namespace IJPSystem.Platform.HMI.ViewModels
             {
                 if (SetProperty(ref _isPaused, value))
                 {
-                    // START는 (가동 중이 아닐 때) 또는 (가동 중이고 일시정지 상태일 때 재개용으로) 활성화
+                    // 정지 상태든 일시정지 상태든 START 로 활성화되어야 하므로 둘 다 재평가
                     (StartCommand as RelayCommand)?.RaiseCanExecuteChanged();
                     (StopCommand  as RelayCommand)?.RaiseCanExecuteChanged();
                 }
             }
         }
 
-        // MainViewModel이 AlarmVM.HasActiveAlarm 변경을 감지하면 호출
+        // MainViewModel 이 AlarmVM.HasActiveAlarm 변경 시 호출
         public void OnAlarmActiveChanged(bool isAlarmActive)
         {
             if (!IsRunning) return;
@@ -94,8 +89,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (isAlarmActive && !IsPaused)
             {
                 IsPaused = true;
-                StopAllMotion();        // 진행 중인 Move를 즉시 정지
-                _stepCts?.Cancel();     // 진행 중인 스텝의 await도 즉시 깨움 → 외부 루프가 게이트에서 대기 후 재실행
+                StopAllMotion();
+                // 진행 중 step 의 await 를 즉시 깨움 → 외부 루프가 게이트에서 대기 후 같은 step 재시도
+                _stepCts?.Cancel();
                 _logAction?.Invoke(T("Log_AutoPrintAlarmPause"), LogLevel.Warning);
             }
             else if (!isAlarmActive && IsPaused)
@@ -105,7 +101,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
         }
 
-        // 전체 축 즉시 정지 (감속 정지)
         private void StopAllMotion()
         {
             try
@@ -128,7 +123,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             set => SetProperty(ref _selectedRecipeName, value);
         }
         
-        #region Properties (기존 유지)
+        #region Properties
         private int _totalCount;
         public int TotalCount
         {
@@ -195,16 +190,15 @@ namespace IJPSystem.Platform.HMI.ViewModels
         #endregion
 
         #region View 동기화 이벤트
-        // View가 구독해서 시각 애니메이션을 시작/정지/완료 처리.
-        // 시각 사이클 길이 = 시퀀스 길이 (View는 AutoPrintCompleted/Aborted에서 렌더링 종료).
+        // View 가 시각 애니메이션을 시퀀스 사이클에 동기화하기 위해 구독.
+        // Started → 매 스텝마다 StepChanged → 종료 시 Completed 또는 Aborted.
         public event Action? AutoPrintStarted;
         public event Action? AutoPrintAborted;
         public event Action? AutoPrintCompleted;
-        // 각 스텝 진입 시점에 호출 (View가 스텝 번호로 매칭하여 해당 phase 처리)
         public event Action<int>? AutoPrintStepChanged;
         #endregion
 
-        #region 추가 상태 프로퍼티
+        #region 센서 / 모터 상태
 
         private bool _isDoorLocked;
         public bool IsDoorLocked
@@ -234,7 +228,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
             set => SetProperty(ref _isEmoActive, value);
         }
 
-        // ── 모터 위치 (X / Y / Z / Q) ──
         private double _motorXPosition;
         public double MotorXPosition
         {
@@ -264,7 +257,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
         }
         #endregion
 
-        // ── 생성자: IMachine + IMotionService + 알람/티칭 좌표 조회 콜백 ──
         public MainDashboardViewModel(
             Action<string, LogLevel> logAction,
             Action<bool> onAlarmChanged,
@@ -285,7 +277,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
             ActiveRecipeName = initialActiveRecipe;
 
-            // START: 정지 상태면 새 시퀀스 시작, 일시정지 상태면 재개 (남은 step부터 이어서)
+            // 정지 상태면 시퀀스 시작, 일시정지 상태면 재개
             StartCommand = new RelayCommand(async _ =>
             {
                 if (IsRunning && IsPaused)
@@ -298,8 +290,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     await RunAutoPrintAsync();
             }, _ => !IsRunning || IsPaused);
 
-            // STOP: 즉시 취소가 아니라 일시정지 — 진행 중인 step은 끝까지 마무리되고 다음 step 진입 전에 멈춤
-            // 재시작은 START 버튼으로 (재개)
+            // STOP 은 취소가 아니라 일시정지 — 현재 step 끝까지 마무리 후 다음 step 진입 전 멈춤. 재시작은 START.
             StopCommand = new RelayCommand(_ =>
             {
                 if (IsRunning && !IsPaused)
@@ -317,10 +308,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 _logAction?.Invoke(T("Log_ErrorReset"), LogLevel.Info);
             });
 
-            // ── 추가 커맨드 ──
             OpenDoorCommand = new RelayCommand(_ =>
             {
-                // 가동 중 도어 오픈 차단
+                // 가동 중 도어 오픈은 안전상 차단
                 if (IsRunning)
                 {
                     _logAction?.Invoke(T("Log_DoorOpenBlocked"), LogLevel.Warning);
@@ -352,18 +342,17 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 _logAction?.Invoke(T("Log_VacuumOff"), LogLevel.Info);
             });
 
-            // 시작 전에도 절차 미리 표시
+            // 시작 전에도 우측 패널에 절차를 미리 표시
             BuildSteps();
 
-            // 100ms 주기 센서 폴링 (타이머의 유일한 책임)
+            // 100ms 주기 센서 폴링 — 타이머의 유일한 책임
             _procTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
             _procTimer.Tick += (_, _) => UpdateSensorStatus();
             _procTimer.Start();
         }
 
-        // 시퀀스 시작 직전 호출 — Steps 컬렉션을 sequence 정의로 다시 채우고 모두 Waiting으로 초기화.
-        // def.Name 은 번역 키 (Step_AutoPrint_N) → 현재 언어로 변환해서 표시.
-        // NameKey 도 보존해 언어 변경 시 RefreshStepNames() 로 재번역.
+        // def.Name 은 번역 키 (Step_AutoPrint_*). NameKey 를 보존해 언어 변경 시
+        // RefreshStepNames() 로 재번역할 수 있게 한다.
         private void BuildSteps()
         {
             Steps.Clear();
@@ -386,30 +375,25 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 s.Name = Common.Loc.T(s.NameKey);
         }
 
-        // 예외 발생 시 현재 Running 스텝의 상태를 갱신
         private void MarkRunningStepAs(StepStatus status)
         {
             var running = Steps.FirstOrDefault(s => s.Status == StepStatus.Running);
             if (running != null) running.Status = status;
         }
 
-        /// <summary>
-        /// AUTO PRINT 시퀀스 실행 — Application/Sequences/AutoPrintSequence와 연결
-        /// </summary>
         private async Task RunAutoPrintAsync()
         {
-            // 진행 중에는 CanExecute에서 차단됨 — 사전 조건만 확인
+            // 가동 중 재진입은 CanExecute 에서 막히므로 여기서는 사전 조건만 확인
             if (!CheckSafetyBeforeStart()) return;
 
             IsRunning  = true;
             IsError    = false;
             ProcessProgress = 0;
             CurrentStepName = "STARTING";
-            CachePrintRange();   // 시각 헤드 X 매핑용 좌표 캐싱
+            CachePrintRange();
             _machine.SetSystemStatus(MachineState.Running);
             _logAction?.Invoke(T("Log_Start"), LogLevel.Success);
 
-            // View 시각 애니메이션 시작 — 시퀀스 길이 = 시각 사이클 길이
             AutoPrintStarted?.Invoke();
 
             _cts = new CancellationTokenSource();
@@ -428,21 +412,21 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     var step = Steps[i];
                     bool stepCompleted = false;
 
-                    // 일시정지로 인해 스텝이 중단되면 IsPaused가 풀린 후 같은 스텝을 재실행
+                    // 알람 일시정지로 step 이 중단되면 IsPaused 가 풀린 후 같은 step 을 재시도
                     while (!stepCompleted)
                     {
-                        // 폴링 대기 — OCE 없이 IsPaused 또는 cts 취소를 감지
+                        // OCE 대신 폴링으로 IsPaused/CTS 를 감지 — UI 스레드 부담 최소화
                         if (IsPaused)
                         {
                             CurrentStepName = $"[{step.Number}/{total}] {step.Name}  (PAUSED)";
                             while (IsPaused && !_cts.Token.IsCancellationRequested)
                                 await Task.Delay(100);
                         }
-                        _cts.Token.ThrowIfCancellationRequested();   // STOP시 외부 catch로
+                        _cts.Token.ThrowIfCancellationRequested();   // STOP → 외부 catch
 
                         CurrentStepName = $"[{step.Number}/{total}] {step.Name}";
                         ProcessProgress = (double)i / total * 100;
-                        AutoPrintStepChanged?.Invoke(step.Number);   // View 애니메이션 sync
+                        AutoPrintStepChanged?.Invoke(step.Number);
 
                         step.Status  = StepStatus.Running;
                         step.Elapsed = "-";
@@ -460,16 +444,15 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         }
                         catch (OperationCanceledException)
                         {
-                            // STOP을 누른 경우(메인 cts 취소)는 외부 catch로 던짐
+                            // 메인 CTS 가 취소된 경우(STOP) 는 외부 catch 로 위임,
+                            // 그 외(=_stepCts 만 취소)는 알람 일시정지 → 재개 후 같은 step 재시도
                             _cts.Token.ThrowIfCancellationRequested();
-                            // 그 외에는 알람 일시정지로 인한 취소 — 재개 후 같은 스텝 재시도
                             step.Status = StepStatus.Aborted;
                             _logAction?.Invoke(T("Log_AutoPrintStepAborted", step.Number), LogLevel.Warning);
                         }
                     }
                 }
 
-                // 모든 step 완료 = 시퀀스 사이클 종료 (시각 애니메이션도 여기서 같이 정지됨)
                 ProcessProgress = 100;
                 CurrentStepName = "COMPLETED";
                 TotalCount++;
@@ -505,27 +488,24 @@ namespace IJPSystem.Platform.HMI.ViewModels
             finally
             {
                 IsRunning = false;
-                IsPaused  = false;     // 게이트 열기 (다음 런 대비)
+                IsPaused  = false;     // 다음 런을 위해 게이트 해제
                 IsVacuumOn = _machine.IsGlassDetected();
                 _stepCts?.Dispose();
                 _stepCts = null;
                 _cts?.Dispose();
                 _cts = null;
 
-                // View 데모 애니메이션 종료 신호
                 if (success) AutoPrintCompleted?.Invoke();
                 else         AutoPrintAborted?.Invoke();
             }
         }
 
         /// <summary>
-        /// 가동 전 사전 조건 체크 (디버그/릴리즈 공통)
-        /// - 모든 축이 원점복귀 완료 상태 (= INITIAL 시퀀스 수행 완료)
-        /// - 모든 축이 서보 ON 상태
+        /// 가동 전 사전 조건 (디버그/릴리즈 공통):
+        /// 미해제 알람 없음, 전체 축 원점복귀 완료(INITIAL 시퀀스 수행), 전체 축 서보 ON.
         /// </summary>
         private bool CheckPrerequisites()
         {
-            // 미해제 알람이 있으면 시퀀스 시작 거부 (알람 클리어 후 재시도)
             if (_hasActiveAlarm?.Invoke() == true)
             {
                 _logAction?.Invoke("[AUTO PRINT] 미해제 알람 존재 — 시작 거부", LogLevel.Warning);
@@ -544,7 +524,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 return false;
             }
 
-            // INITIAL 시퀀스 수행 여부 (전체 축 원점복귀 완료)
             var notHomed = allAxes.Where(ax => !ax.IsHomeDone)
                                   .Select(ax => ax.AxisNo).ToList();
             if (notHomed.Count > 0)
@@ -556,7 +535,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 return false;
             }
 
-            // 서보 ON 확인
             var notServoOn = allAxes.Where(ax => !ax.IsServoOn)
                                     .Select(ax => ax.AxisNo).ToList();
             if (notServoOn.Count > 0)
@@ -571,20 +549,15 @@ namespace IJPSystem.Platform.HMI.ViewModels
             return true;
         }
 
-        /// <summary>
-        /// 가동 전 안전 조건 체크
-        /// </summary>
+        // 사전 조건은 항상 체크, EMO/도어/압력은 릴리즈 빌드에서만.
         private bool CheckSafetyBeforeStart()
         {
-            // 사전 조건은 디버그/릴리즈 무관하게 항상 체크
             if (!CheckPrerequisites()) return false;
 
         #if DEBUG
-                    // 개발 중에는 안전 조건 무시하고 바로 통과
             _logAction?.Invoke(T("Log_SafetyBypass"), LogLevel.Warning);
             return true;
         #else
-            // EMO 감지
             if (_machine.IsEmoActive())
             {
                 _machine.SetSystemStatus(MachineState.Emergency);
@@ -594,7 +567,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 return false;
             }
 
-            // 도어 잠금 확인
             if (!_machine.IsDoorLocked())
             {
                 _machine.SetSystemStatus(MachineState.Alarm);
@@ -604,7 +576,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 return false;
             }
 
-            // 압력 스위치 확인 (1번~3번)
             for (int i = 1; i <= 3; i++)
             {
                 if (!_machine.IsPressureOk(i))
@@ -620,9 +591,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
         #endif
         }
 
-        /// <summary>
-        /// 센서 상태 주기적 업데이트 (SlowTimer에서 호출 또는 내부 타이머 활용)
-        /// </summary>
         public void UpdateSensorStatus()
         {
             if (_machine == null) return;
@@ -631,7 +599,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             IsDoorLocked = _machine.IsDoorLocked();
             IsEmoActive = _machine.IsEmoActive();
 
-            // 모터 위치 갱신 — HMI는 X/Y/Z/Q로 표기, 모션 드라이버는 회전축을 "T"로 사용
+            // HMI 표기는 X/Y/Z/Q 인데 모션 드라이버는 회전축을 "T" 로 식별
             if (_machine.Motion != null)
             {
                 MotorXPosition = _machine.Motion.GetActualPosition("X");
@@ -640,7 +608,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 MotorQPosition = _machine.Motion.GetActualPosition("T");
             }
 
-            // EMO 실시간 감지 — 시퀀스 진행 중이면 즉시 취소
+            // 시퀀스 도중 EMO 가 들어오면 메인 CTS 를 즉시 취소해 step 을 깨운다
             if (IsEmoActive && IsRunning)
             {
                 _cts?.Cancel();

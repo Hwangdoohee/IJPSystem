@@ -45,7 +45,7 @@ namespace IJPSystem.Platform.HMI
                 ////{
                 ////    // 로그인 취소 시 프로그램 즉시 종료
                 ////    Application.Current.Shutdown();
-                ////}
+                ////} 
             }), DispatcherPriority.ContextIdle); // 가장 낮은 우선순위로 실행 (화면 다 그려진 후)
         }
         // 로그가 추가될 때마다 스크롤을 끝으로 내리는 핸들러
