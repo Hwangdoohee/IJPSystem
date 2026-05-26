@@ -23,7 +23,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
             set => SetProperty(ref _selectedAxis, value);
         }
        
-        public ICommand AllHomeCommand    { get; }
         public ICommand AllServoOnCommand  { get; }
         public ICommand AllServoOffCommand { get; }
         public ICommand AllStopCommand     { get; }
@@ -59,31 +58,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
             SelectedAxis = AxisList.FirstOrDefault();
 
-            AllHomeCommand    = new RelayCommand(async _ => await ExecuteAllHome());
             AllServoOnCommand  = new RelayCommand(async _ => await ExecuteAllServoOn());
             AllServoOffCommand = new RelayCommand(async _ => await ExecuteAllServoOff());
             AllStopCommand     = new RelayCommand(async _ => await ExecuteAllStop());
-        }
-        
-        private async Task ExecuteAllHome()
-        {
-            var result = System.Windows.MessageBox.Show(
-                "모든 축의 홈 복귀를 실행합니다.\n주변 장애물을 확인하세요.",
-                "Home 복귀 확인",
-                System.Windows.MessageBoxButton.YesNo,
-                System.Windows.MessageBoxImage.Warning);
-            if (result != System.Windows.MessageBoxResult.Yes) return;
-
-            _mainVM.AddLog("[MOTION] All axes homing sequence started.");
-            try
-            {
-                await Task.WhenAll(AxisList.Select(a => a.HomeAsync()));
-                _mainVM.AddLog("[MOTION] All axes home complete.");
-            }
-            catch (Exception ex)
-            {
-                _mainVM.AddLog($"[MOTION] All Home failed: {ex.Message}", LogLevel.Error);
-            }
         }
 
         private async Task ExecuteAllServoOn()
