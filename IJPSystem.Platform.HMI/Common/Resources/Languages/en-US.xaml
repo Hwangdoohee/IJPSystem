@@ -20,7 +20,8 @@
     <system:String x:Key="SubMenu_AutoPrint">AUTO PRINT</system:String>
     <system:String x:Key="SubMenu_Initialize">INITIALIZE</system:String>
     <system:String x:Key="SubMenu_SystemExit">SYSTEM EXIT</system:String>
-    
+    <system:String x:Key="Tip_SystemExit">System exit (Engineer/Admin role · only when not running)</system:String>
+
     <!-- 메인 메뉴 -->
     <system:String x:Key="Menu_Main">MAIN</system:String>
     <system:String x:Key="Menu_Print">PRINT</system:String>

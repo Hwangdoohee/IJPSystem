@@ -27,6 +27,12 @@ namespace IJPSystem.Platform.Infrastructure.Config
                 return new AppSettings(); // 에러 시 기본값 반환
             }
         }
+
+        public void SaveAppSettings(string path, AppSettings settings)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            File.WriteAllText(path, JsonSerializer.Serialize(settings, options));
+        }
         // --- IO 설정 로드는 기존과 동일하게 유지 ---
         public IOConfig LoadIOConfig(string filePath)
         {

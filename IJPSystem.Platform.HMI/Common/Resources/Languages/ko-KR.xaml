@@ -20,7 +20,8 @@
     <system:String x:Key="SubMenu_AutoPrint">자동 인쇄</system:String>
     <system:String x:Key="SubMenu_Initialize">초기화</system:String>
     <system:String x:Key="SubMenu_SystemExit">시스템 종료</system:String>
-    
+    <system:String x:Key="Tip_SystemExit">시스템 종료 (Engineer/Admin 권한 · 운전 정지 상태에서만 가능)</system:String>
+
     <!-- 메인 메뉴 -->
     <system:String x:Key="Menu_Main">메인화면</system:String>
     <system:String x:Key="Menu_Print">프린트</system:String>

@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="{Binding SubMenuColumnWidth}"/>
         </Grid.ColumnDefinitions>
         <Border Grid.Row="0" Grid.ColumnSpan="2" Background="#1E293B" BorderBrush="#334155" BorderThickness="0,0,0,2">
             <Grid Margin="20,0">
@@ -125,13 +125,13 @@
                             </Ellipse>
                         </StackPanel>
                     </Border>
-                    <StackPanel Orientation="Vertical" 
-                                HorizontalAlignment="Right" 
-                                VerticalAlignment="Center" 
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
                                 Margin="20">
                         <Button Command="{Binding ToggleLanguageCommand}"
                                 Width="60" Height="30"
-                                Style="{StaticResource ModernActionButton}" 
+                                Style="{StaticResource ModernActionButton}"
                                 Background="#334155"
                                 HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
@@ -148,8 +148,24 @@
             <ContentControl Content="{Binding CurrentView}"/>
         </Border>
         
-        <Border Grid.Row="1" Grid.Column="1" Background="#1E293B" CornerRadius="12" Margin="5,15,15,15">
-            <StackPanel Margin="10">
+        <Border Grid.Row="1" Grid.Column="1" Background="#1E293B" CornerRadius="12" Margin="5,15,15,15"
+                Visibility="{Binding IsSubMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <DockPanel Margin="10">
+                <!-- 시스템 종료 — 서브메뉴 하단 고정, MAIN 메뉴에서만 표시 (크기는 다른 서브버튼과 동일) -->
+                <!-- 권한(Operator) 또는 운전중이면 ExitCommand.CanExecute=false → 자동 비활성 -->
+                <Button DockPanel.Dock="Bottom"
+                        Style="{StaticResource MainSubButtonStyle}"
+                        Background="#C0392B"
+                        Command="{Binding ExitCommand}"
+                        ToolTipService.ShowOnDisabled="True"
+                        ToolTip="{DynamicResource Tip_SystemExit}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="⏻" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource SubMenu_SystemExit}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <StackPanel>
                 <TextBlock Text="SUB MENU" Foreground="#94A3B8"
                            FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,15"/>
                 <!-- ── MAIN 메뉴 선택 시에만 표시 ── -->
@@ -216,12 +232,8 @@
                 <Button Content="{DynamicResource SubMenu_OtherPoint}"
                         Style="{StaticResource RecipeSubButtonStyle}"
                         Command="{Binding MoveWindowCommand}" CommandParameter="OTHER_INFO"/>
-                <Separator Background="#334155" Margin="10,15"/>
-                <Button Content="{DynamicResource SubMenu_SystemExit}"
-                        Command="{Binding ExitCommand}"
-                        Background="#C0392B"
-                        Style="{StaticResource ModernMenuButton}"/>
-            </StackPanel>
+                </StackPanel>
+            </DockPanel>
         </Border>
 
         <Border Grid.Row="2" Grid.ColumnSpan="2" 

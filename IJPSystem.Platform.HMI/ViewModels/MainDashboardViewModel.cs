@@ -2,6 +2,7 @@
 using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
+using IJPSystem.Platform.Infrastructure.Config;
 using static IJPSystem.Platform.HMI.Common.Loc;
 using System;
 using System.Collections.ObjectModel;
@@ -567,7 +568,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 return false;
             }
 
-            if (!_machine.IsDoorLocked())
+            // 도어 잠금 체크 — 기타정보 화면의 "도어 사용" 설정이 ON 일 때만 검사
+            if (AppSettingsService.Current.IsDoorCheckEnabled && !_machine.IsDoorLocked())
             {
                 _machine.SetSystemStatus(MachineState.Alarm);
                 _onAlarmChanged?.Invoke(true);

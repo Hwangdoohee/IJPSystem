@@ -53,6 +53,7 @@ namespace IJPSystem.Platform.HMI
                 var appSettings = await splashVM.RunStepAsync(
                     "System Configuration", "AppConfig.json 로드",
                     () => loader.LoadAppSettings(GetConfigPath("AppConfig.json")));
+                IJPSystem.Platform.Infrastructure.Config.AppSettingsService.Initialize(appSettings);
 
                 var ioDriver = await splashVM.RunStepAsync(
                     "I/O Driver", "Virtual I/O 드라이버 연결",
@@ -89,7 +90,11 @@ namespace IJPSystem.Platform.HMI
                 // 마지막 ✓ 잠깐 보여주기
                 await Task.Delay(350);
 
-                new MainWindow { DataContext = mainVM }.Show();
+                // SplashWindow 가 먼저 인스턴스화되어 Application.MainWindow 로 잡히므로
+                // 실제 메인 창을 명시적으로 지정 — 종료 커맨드(MainWindow.Close())가 올바른 창을 닫게 함
+                var mainWindow = new MainWindow { DataContext = mainVM };
+                Current.MainWindow = mainWindow;
+                mainWindow.Show();
             }
             catch (Exception ex)
             {

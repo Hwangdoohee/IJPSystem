@@ -231,6 +231,30 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     IsDirty = true;
             }
         }
+
+        // 도어 사용 유무 — 기타정보 화면 콤보박스에 바인딩
+        // Why: 현장 설치 환경에 따라 안전키 미연결 시 운전 시작 차단을 해제할 수 있어야 함
+        public bool IsDoorCheckEnabled
+        {
+            get => IJPSystem.Platform.Infrastructure.Config.AppSettingsService.Current.IsDoorCheckEnabled;
+            set
+            {
+                if (IJPSystem.Platform.Infrastructure.Config.AppSettingsService.Current.IsDoorCheckEnabled == value) return;
+                IJPSystem.Platform.Infrastructure.Config.AppSettingsService.Current.IsDoorCheckEnabled = value;
+                try
+                {
+                    IJPSystem.Platform.Infrastructure.Config.AppSettingsService.Save();
+                    _addLogAction?.Invoke(
+                        value ? "[CONFIG] 도어 사용 ON" : "[CONFIG] 도어 사용 OFF (가동 전 도어 잠금 체크 우회)",
+                        value ? LogLevel.Info : LogLevel.Warning);
+                }
+                catch (Exception ex)
+                {
+                    _addLogAction?.Invoke($"[CONFIG] 설정 저장 실패: {ex.Message}", LogLevel.Error);
+                }
+                OnPropertyChanged(nameof(IsDoorCheckEnabled));
+            }
+        }
         private ObservableCollection<AxisViewModel> _axisList = new ObservableCollection<AxisViewModel>();
         public ObservableCollection<AxisViewModel> AxisList
         {

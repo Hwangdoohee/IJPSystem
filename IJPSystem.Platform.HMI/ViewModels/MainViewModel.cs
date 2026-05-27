@@ -76,7 +76,11 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public bool IsSequenceRunning
         {
             get => _isSequenceRunning;
-            private set => SetProperty(ref _isSequenceRunning, value);
+            private set
+            {
+                if (SetProperty(ref _isSequenceRunning, value))
+                    (ExitCommand as RelayCommand)?.RaiseCanExecuteChanged(); // 운전중 비활성화 재평가
+            }
         }
         public void SetSequenceRunning(bool active) => IsSequenceRunning = active;
 
@@ -124,6 +128,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 OnPropertyChanged(nameof(UserStatusText));
                 OnPropertyChanged(nameof(IsEngineerMode)); // 누락 수정
                 OnPropertyChanged(nameof(LoginButtonText));
+                (ExitCommand as RelayCommand)?.RaiseCanExecuteChanged(); // 권한 게이트 재평가
             }
         }
 
@@ -155,8 +160,21 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public string SelectedMenu
         {
             get => _selectedMenu;
-            set => SetProperty(ref _selectedMenu, value);
+            set
+            {
+                if (SetProperty(ref _selectedMenu, value))
+                {
+                    // 서브메뉴가 없는 화면(알람이력)에서는 우측 서브메뉴 영역 자체를 숨김
+                    OnPropertyChanged(nameof(IsSubMenuVisible));
+                    OnPropertyChanged(nameof(SubMenuColumnWidth));
+                }
+            }
         }
+
+        // 알람이력 화면은 서브메뉴 버튼이 없으므로 우측 패널/컬럼을 접는다
+        public bool IsSubMenuVisible => _selectedMenu != "ALARM";
+        public System.Windows.GridLength SubMenuColumnWidth
+            => _selectedMenu == "ALARM" ? new System.Windows.GridLength(0) : new System.Windows.GridLength(220);
 
         private string _selectedSubMenu = "";
         public string SelectedSubMenu
@@ -285,7 +303,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             _mainDashboardVM.PropertyChanged += OnDashboardViewModelPropertyChanged;
 
             MoveWindowCommand = new RelayCommand<string>(ExecuteMoveWindow);
-            ExitCommand = new RelayCommand(_ => OnExit());
+            ExitCommand = new RelayCommand(_ => OnExit(), _ => CanExit());
             ClearLogCommand = new RelayCommand(_ => OnClearLog());
             LogoutCommand = new RelayCommand(_ => OnLogOut());
             ToggleLanguageCommand = new RelayCommand(_ => ExecuteToggleLanguage());
@@ -750,6 +768,10 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 AddLog(T("Log_LogCleared"), LogLevel.Info);
             });
         }
+
+        // 종료 가능 조건 — ① Engineer/Admin 권한 ② 시퀀스 미실행
+        // 권한 게이트: Operator 는 임의 종료 불가 / 운전중 비활성화: 가동 중 데이터 유실·라인정지 방지
+        private bool CanExit() => IsEngineerMode && !IsSequenceRunning;
 
         private void OnExit()
         {

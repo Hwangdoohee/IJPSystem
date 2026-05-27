@@ -20,7 +20,25 @@
       "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.slnx -nologo 2>&1 | Select-Object -Last 4\")",
       "Bash(powershell.exe -NoProfile -Command \"Get-Process IJPSystem.Platform.HMI -ErrorAction SilentlyContinue | Stop-Process -Force; dotnet build IJPSystem.Platform.HMI/IJPSystem.Platform.HMI.csproj -nologo 2>&1 | Select-Object -Last 5\")",
       "Bash(git revert *)",
-      "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Drivers.Motion/IJPSystem.Drivers.Motion.csproj -nologo 2>&1 | Select-Object -Last 4\")"
+      "Bash(powershell.exe -NoProfile -Command \"dotnet build IJPSystem.Drivers.Motion/IJPSystem.Drivers.Motion.csproj -nologo 2>&1 | Select-Object -Last 4\")",
+      "Bash(npx -p @marp-team/marp-cli marp --version)",
+      "Bash(Select-Object -First 3)",
+      "Bash(Select-Object -First 1)",
+      "Bash(powershell.exe -NoProfile -Command \"Get-Command marp,pandoc,node,wkhtmltopdf -ErrorAction SilentlyContinue | Select-Object Name,Source\")",
+      "Bash(powershell.exe -NoProfile -Command \"Test-Path 'C:\\\\Program Files\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD.EXE'; Test-Path 'C:\\\\Program Files \\(x86\\)\\\\Microsoft Office\\\\root\\\\Office16\\\\WINWORD.EXE'; \\(Get-Command msedge -ErrorAction SilentlyContinue\\).Source\")",
+      "Bash(git show *)",
+      "Bash(mkdir -p docs)",
+      "Bash(ls \"/c/Program Files \\(x86\\)/Inno Setup 6\" 2>/dev/null || echo \"Inno Setup not installed at default x86 path\"; ls \"/c/Program Files/Inno Setup 6\" 2>/dev/null || echo \"Inno Setup not installed at default x64 path\")",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"d:\\\\IJP\\\\IJPSystem\\\\build\\\\publish.ps1\")",
+      "Bash(powershell.exe -NoProfile -Command \"Get-ChildItem 'd:\\\\IJP\\\\IJPSystem\\\\build\\\\publish\\\\IJPSystem\\\\Config\\\\*.db' | Select-Object Name, Attributes, IsReadOnly\")",
+      "Bash(powershell.exe -NoProfile -Command \"\\(Get-Content 'd:\\\\IJP\\\\IJPSystem\\\\IJPSystem.Platform.HMI\\\\Views\\\\Main\\\\MainDashboardView.xaml' | Measure-Object -Line\\).Lines\")",
+      "Bash(powershell.exe -NoProfile -Command \"Select-String -Path 'd:\\\\IJP\\\\IJPSystem\\\\IJPSystem.Platform.HMI\\\\Views\\\\Main\\\\MainDashboardView.xaml' -Pattern 'Grid.Column=\\\\\"1\\\\\"|Grid.Row=\\\\\"2\\\\\"|Button|ExitCommand|StackPanel' | Select-Object LineNumber, Line | Format-Table -AutoSize -Wrap\")"
+    ],
+    "additionalDirectories": [
+      "d:\\tmp",
+      "D:\\tmp",
+      "D:\\IJP\\IJPSystem"
     ]
   }
 }
