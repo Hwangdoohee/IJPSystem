@@ -3,7 +3,10 @@
 ; 산출물: build\Output\IJPSystem_Setup_{버전}.exe
 
 #define MyAppName       "IJP System"
-#define MyAppVersion    "1.0.0"
+; CI 에서 ISCC /DMyAppVersion=x.y.z 로 덮어쓸 수 있도록 — 미지정 시 기본값 사용
+#ifndef MyAppVersion
+  #define MyAppVersion "1.0.0"
+#endif
 #define MyAppPublisher  "IJP"
 #define MyAppExeName    "IJPSystem.Platform.HMI.exe"
 #define SrcDir          "publish\IJPSystem"

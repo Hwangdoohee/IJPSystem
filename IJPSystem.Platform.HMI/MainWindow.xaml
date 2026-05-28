@@ -150,22 +150,7 @@
         
         <Border Grid.Row="1" Grid.Column="1" Background="#1E293B" CornerRadius="12" Margin="5,15,15,15"
                 Visibility="{Binding IsSubMenuVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <DockPanel Margin="10">
-                <!-- 시스템 종료 — 서브메뉴 하단 고정, MAIN 메뉴에서만 표시 (크기는 다른 서브버튼과 동일) -->
-                <!-- 권한(Operator) 또는 운전중이면 ExitCommand.CanExecute=false → 자동 비활성 -->
-                <Button DockPanel.Dock="Bottom"
-                        Style="{StaticResource MainSubButtonStyle}"
-                        Background="#C0392B"
-                        Command="{Binding ExitCommand}"
-                        ToolTipService.ShowOnDisabled="True"
-                        ToolTip="{DynamicResource Tip_SystemExit}">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="⏻" Margin="0,0,8,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="{DynamicResource SubMenu_SystemExit}" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-
-                <StackPanel>
+            <StackPanel Margin="10">
                 <TextBlock Text="SUB MENU" Foreground="#94A3B8"
                            FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,15"/>
                 <!-- ── MAIN 메뉴 선택 시에만 표시 ── -->
@@ -175,6 +160,19 @@
                 <Button Content="{DynamicResource SubMenu_Initialize}"
                         Style="{StaticResource MainSubButtonStyle}"
                         Command="{Binding MoveWindowCommand}" CommandParameter="INITIALIZE"/>
+                <!-- 시스템 종료 — 위 버튼(Initialize) 아래에 간극을 두고 배치, MAIN 메뉴에서만 표시 -->
+                <!-- 좌우 마진 8 은 다른 서브버튼과 동일(크기 유지), 위쪽 16 으로 간극만 부여 -->
+                <!-- 권한(Operator) 또는 운전중이면 ExitCommand.CanExecute=false → 자동 비활성 -->
+                <Button Style="{StaticResource MainSubButtonStyle}"
+                        Background="#C0392B" Margin="8,16,8,4"
+                        Command="{Binding ExitCommand}"
+                        ToolTipService.ShowOnDisabled="True"
+                        ToolTip="{DynamicResource Tip_SystemExit}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="⏻" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource SubMenu_SystemExit}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 <!-- 일반 서브메뉴 버튼 -->
                 <Button Content="{DynamicResource SubMenu_IO}"
                         Style="{StaticResource MaintenanceSubButtonStyle}"
@@ -232,8 +230,7 @@
                 <Button Content="{DynamicResource SubMenu_OtherPoint}"
                         Style="{StaticResource RecipeSubButtonStyle}"
                         Command="{Binding MoveWindowCommand}" CommandParameter="OTHER_INFO"/>
-                </StackPanel>
-            </DockPanel>
+            </StackPanel>
         </Border>
 
         <Border Grid.Row="2" Grid.ColumnSpan="2" 

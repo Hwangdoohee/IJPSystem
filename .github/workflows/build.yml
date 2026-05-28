@@ -1,0 +1,28 @@
+name: build
+
+# Tier 0 — 빌드 게이트: main 으로의 push/PR 마다 솔루션이 오류 0개로 컴파일되는지 검증
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest   # WPF(net8.0-windows) → Windows 러너 필수
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET (8 + 10)
+        uses: actions/setup-dotnet@v4
+        with:
+          # .slnx 는 신 SDK(9+) 필요 / net8 타깃·런타임 팩 확보용으로 8.0 도 함께 설치
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore IJPSystem.slnx
+
+      - name: Build (Release)
+        run: dotnet build IJPSystem.slnx -c Release --no-restore

@@ -1,5 +1,9 @@
 # Inno Setup 컴파일러 호출 → setup.exe 생성
 # 사전조건: publish.ps1 먼저 실행, Inno Setup 6 설치 (https://jrsoftware.org/isdl.php)
+# 사용: .\make-installer.ps1            (installer.iss 기본 버전)
+#       .\make-installer.ps1 -Version 1.2.0   (CI 에서 git 태그 버전 주입)
+
+param([string]$Version = "")
 
 $ErrorActionPreference = 'Stop'
 $iss = Join-Path $PSScriptRoot 'installer.iss'
@@ -17,7 +21,8 @@ if (-not $iscc) {
 
 Push-Location $PSScriptRoot
 try {
-    & $iscc $iss
+    if ($Version) { & $iscc "/DMyAppVersion=$Version" $iss }
+    else          { & $iscc $iss }
     if ($LASTEXITCODE -ne 0) { throw "ISCC failed (exit=$LASTEXITCODE)" }
     $out = Join-Path $PSScriptRoot 'Output'
     Write-Host ""
