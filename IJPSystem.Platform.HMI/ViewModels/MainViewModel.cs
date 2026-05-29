@@ -76,13 +76,15 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public bool IsSequenceRunning
         {
             get => _isSequenceRunning;
-            private set
-            {
-                if (SetProperty(ref _isSequenceRunning, value))
-                    (ExitCommand as RelayCommand)?.RaiseCanExecuteChanged(); // 운전중 비활성화 재평가
-            }
+            private set => SetProperty(ref _isSequenceRunning, value);
         }
         public void SetSequenceRunning(bool active) => IsSequenceRunning = active;
+
+        // 모든 실행 경로를 통합 — Sequence/Pnid 화면(IsSequenceRunning) + 메인 대시보드 Auto Print(IsRunning, paused 아님)
+        // MainWindow.Closing 의 운전 중 종료 차단 게이트에 사용
+        public bool IsOperationRunning =>
+            IsSequenceRunning ||
+            (_mainDashboardVM?.IsRunning == true && _mainDashboardVM?.IsPaused != true);
 
         // ── StatusBar ─────────────────────────────────────────────────────────
         public string MachineStatusText => HasActiveAlarm ? "ALARM"
@@ -769,9 +771,10 @@ namespace IJPSystem.Platform.HMI.ViewModels
             });
         }
 
-        // 종료 가능 조건 — ① Engineer/Admin 권한 ② 시퀀스 미실행
-        // 권한 게이트: Operator 는 임의 종료 불가 / 운전중 비활성화: 가동 중 데이터 유실·라인정지 방지
-        private bool CanExit() => IsEngineerMode && !IsSequenceRunning;
+        // 종료 가능 조건 — Engineer/Admin 권한
+        // 운전중에는 버튼을 활성 상태로 두고 클릭 시 MainWindow.Closing 에서 메세지로 차단
+        // (왜 안 되는지 사용자가 알 수 있도록 비활성화 대신 메시지 안내 방식 채택)
+        private bool CanExit() => IsEngineerMode;
 
         private void OnExit()
         {

@@ -33,7 +33,17 @@
       "Bash(powershell.exe -ExecutionPolicy Bypass -File \"d:\\\\IJP\\\\IJPSystem\\\\build\\\\publish.ps1\")",
       "Bash(powershell.exe -NoProfile -Command \"Get-ChildItem 'd:\\\\IJP\\\\IJPSystem\\\\build\\\\publish\\\\IJPSystem\\\\Config\\\\*.db' | Select-Object Name, Attributes, IsReadOnly\")",
       "Bash(powershell.exe -NoProfile -Command \"\\(Get-Content 'd:\\\\IJP\\\\IJPSystem\\\\IJPSystem.Platform.HMI\\\\Views\\\\Main\\\\MainDashboardView.xaml' | Measure-Object -Line\\).Lines\")",
-      "Bash(powershell.exe -NoProfile -Command \"Select-String -Path 'd:\\\\IJP\\\\IJPSystem\\\\IJPSystem.Platform.HMI\\\\Views\\\\Main\\\\MainDashboardView.xaml' -Pattern 'Grid.Column=\\\\\"1\\\\\"|Grid.Row=\\\\\"2\\\\\"|Button|ExitCommand|StackPanel' | Select-Object LineNumber, Line | Format-Table -AutoSize -Wrap\")"
+      "Bash(powershell.exe -NoProfile -Command \"Select-String -Path 'd:\\\\IJP\\\\IJPSystem\\\\IJPSystem.Platform.HMI\\\\Views\\\\Main\\\\MainDashboardView.xaml' -Pattern 'Grid.Column=\\\\\"1\\\\\"|Grid.Row=\\\\\"2\\\\\"|Button|ExitCommand|StackPanel' | Select-Object LineNumber, Line | Format-Table -AutoSize -Wrap\")",
+      "Bash(git config *)",
+      "Bash(grep -v \"\\\\.sample$\")",
+      "Bash(dotnet --version)",
+      "Bash(dotnet --list-sdks)",
+      "Bash(git ls-tree *)",
+      "Bash(git commit -m '@ *)",
+      "Bash(cat)",
+      "Bash(git commit *)",
+      "Bash(gh run *)",
+      "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command ' *)"
     ],
     "additionalDirectories": [
       "d:\\tmp",

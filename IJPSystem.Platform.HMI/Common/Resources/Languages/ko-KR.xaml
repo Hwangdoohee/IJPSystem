@@ -20,7 +20,9 @@
     <system:String x:Key="SubMenu_AutoPrint">자동 인쇄</system:String>
     <system:String x:Key="SubMenu_Initialize">초기화</system:String>
     <system:String x:Key="SubMenu_SystemExit">시스템 종료</system:String>
-    <system:String x:Key="Tip_SystemExit">시스템 종료 (Engineer/Admin 권한 · 운전 정지 상태에서만 가능)</system:String>
+    <system:String x:Key="Tip_SystemExit">시스템 종료 (Engineer/Admin 권한 필요)</system:String>
+    <system:String x:Key="Msg_ExitBlockedTitle">종료 차단</system:String>
+    <system:String x:Key="Msg_ExitBlockedRunning">운전 중에는 시스템을 종료할 수 없습니다.&#x0A;&#x0A;현재 실행 중인 시퀀스(오토 인쇄 / 초기화 등)를 정지한 뒤 다시 시도하세요.</system:String>
 
     <!-- 메인 메뉴 -->
     <system:String x:Key="Menu_Main">메인화면</system:String>

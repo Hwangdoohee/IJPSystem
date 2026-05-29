@@ -3,5 +3,6 @@
   "AdminPassword": "admin",
   "EngineerPassword": "00",
   "OperatorPassword": "11",
-  "LogSaveDays": 30
+  "LogSaveDays": 30,
+  "IsDoorCheckEnabled": false
 }

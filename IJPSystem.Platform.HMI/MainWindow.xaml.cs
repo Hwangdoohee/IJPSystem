@@ -62,6 +62,18 @@ namespace IJPSystem.Platform.HMI
         // 모든 종료 경로(메뉴 EXIT / X 버튼 / Alt+F4)의 단일 확인 지점
         private void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
+            var vm = DataContext as MainViewModel;
+
+            // 운전 중 종료 차단 — 메인 대시보드 Auto Print / Sequence·Pnid 화면의 Initialize·Purge 등
+            // 어느 경로로 실행 중이든 데이터 유실·라인 정지 방지를 위해 종료를 막고 사유 안내
+            if (vm?.IsOperationRunning == true)
+            {
+                MessageBox.Show(this, T("Msg_ExitBlockedRunning"), T("Msg_ExitBlockedTitle"),
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                e.Cancel = true;
+                return;
+            }
+
             // owner 미지정 시 Maximized 본창 뒤로 가려져 다이얼로그가 보이지 않는 문제 — this 명시
             var result = MessageBox.Show(this, T("Msg_ExitConfirm"), T("Msg_ExitTitle"),
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -73,7 +85,7 @@ namespace IJPSystem.Platform.HMI
             }
 
 
-            (DataContext as MainViewModel)?.OnApplicationClosing();
+            vm?.OnApplicationClosing();
             // 드라이버 정리(IO/Motion/Vision)는 App.OnExit가 처리
         }
     }
