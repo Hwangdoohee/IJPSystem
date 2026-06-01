@@ -196,7 +196,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             CurrentUserRole == UserRole.Admin;
 
         private string[] _languages = { "KO", "EN" };
-        private int _langIndex = 1;
+        private int _langIndex = 0;          // 초기 언어 = KO
 
         private string _currentLanguage = "EN";
         public string CurrentLanguage
