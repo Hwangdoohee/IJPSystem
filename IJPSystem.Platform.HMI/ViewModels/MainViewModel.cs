@@ -31,6 +31,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private DispatcherTimer _slowTimer;
 
         private MainDashboardViewModel _mainDashboardVM;
+        private PatternPrintViewModel? _patternPrintVM;
+        private MotorControlViewModel? _motorControlVM;
+        private NJIViewModel? _njiVM;
         public ObservableCollection<AxisViewModel> SharedAxisList { get; } = new();
         private LogWindowView? _logWindowView;
 
@@ -269,7 +272,18 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
             InitializeSharedAxes();
 
-            RecipeVM = new RecipeViewModel(SharedAxisList, this.AddLog, code => _alarmVM?.RaiseAlarm(code));
+            // _alarmVM 을 먼저 생성 — RecipeVM/MainDashboardVM 의 raiseAlarm 람다가
+            // 생성자 내에서 호출돼도 알람이 유실되지 않도록 의존성 순서 보장
+            _alarmVM = new AlarmViewModel(this.AddLog);
+            _alarmVM.PropertyChanged += OnAlarmViewModelPropertyChanged;
+
+            // AlarmVM ctor 내 LoadHistoryFromDatabase 가 PropertyChanged 를 발화했지만
+            // 구독 전이라 놓쳤을 수 있음. 활성 알람이면 명시적으로 sync 호출해서 초기 상태 반영.
+            // (활성 아닐 땐 SyncSystemStatusWithAlarm 가 "Cleared" 로그를 남기므로 호출 회피)
+            if (_alarmVM.HasActiveAlarm)
+                SyncSystemStatusWithAlarm();
+
+            RecipeVM = new RecipeViewModel(SharedAxisList, this.AddLog, code => _alarmVM.RaiseAlarm(code));
 
             var motionAdapter = new Services.MotionServiceAdapter(this);
             _mainDashboardVM = new MainDashboardViewModel(
@@ -278,7 +292,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     machine,
                     RecipeVM.ActiveRecipeName,
                     motionAdapter,
-                    raiseAlarm: code => _alarmVM?.RaiseAlarm(code),
+                    raiseAlarm: code => _alarmVM.RaiseAlarm(code),
                     getPointAxisMm: motionAdapter.GetAxisPositionMm,
                     hasActiveAlarm: () => HasActiveAlarm
                 );
@@ -292,15 +306,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 }
             };
             RecipeVM.CurrentLanguage = this.CurrentLanguage;
-
-            _alarmVM = new AlarmViewModel(this.AddLog);
-            _alarmVM.PropertyChanged += OnAlarmViewModelPropertyChanged;
-
-            // AlarmVM ctor 내 LoadHistoryFromDatabase 가 PropertyChanged 를 발화했지만
-            // 구독 전이라 놓쳤을 수 있음. 활성 알람이면 명시적으로 sync 호출해서 초기 상태 반영.
-            // (활성 아닐 땐 SyncSystemStatusWithAlarm 가 "Cleared" 로그를 남기므로 호출 회피)
-            if (_alarmVM.HasActiveAlarm)
-                SyncSystemStatusWithAlarm();
 
             _mainDashboardVM.PropertyChanged += OnDashboardViewModelPropertyChanged;
 
@@ -368,6 +373,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             {
                 var log = new LogModel { Message = message, Level = level, Time = time };
                 SystemLogs.Add(log);
+                // 메인창 UI는 롤링 버퍼(최근 100개만) — 전체 히스토리는 LogWindow에서 DB 직접 조회
                 if (SystemLogs.Count > 100) SystemLogs.RemoveAt(0);
                 LastLogMessage = message;
             });
@@ -521,7 +527,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if ((target == "MAINTENANCE" || target == "RECIPE" || target == "MOTOR" ||
                  target == "IO" || target == "MOTOR_INFO") && !IsEngineerMode)
             {
-                var loginWin = new LoginWindow();
+                var loginWin = new LoginWindow { Owner = System.Windows.Application.Current.MainWindow };
                 if (loginWin.ShowDialog() == true)
                 {
                     CurrentUserRole = loginWin.ResultRole;
@@ -563,7 +569,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         IsPrintSubMenuVisible = true;
                         SelectedMenu    = "PRINT";
                         SelectedSubMenu = "PATTERN_PRINT";
-                        CurrentView = new PatternPrintViewModel(this);
+                        _patternPrintVM ??= new PatternPrintViewModel(this);
+                        CurrentView = _patternPrintVM;
                         AddLog(T("Log_Waveform"), LogLevel.Info);
                     }
                     break;
@@ -580,7 +587,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     IsPrintSubMenuVisible = true;
                     SelectedMenu    = "PRINT";
                     SelectedSubMenu = "PATTERN_PRINT";
-                    CurrentView = new PatternPrintViewModel(this);
+                    _patternPrintVM ??= new PatternPrintViewModel(this);
+                    CurrentView = _patternPrintVM;
                     AddLog(T("Log_PatternPrint"), LogLevel.Info);
                     break;
 
@@ -604,7 +612,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         IsMotorSubMenuVisible  = true;
                         SelectedMenu    = "MAINTENANCE";
                         SelectedSubMenu = "AXIS_CONTROL";
-                        CurrentView = new MotorControlViewModel(this);
+                        _motorControlVM ??= new MotorControlViewModel(this);
+                        CurrentView = _motorControlVM;
                         AddLog(T("Log_MoveMotor"), LogLevel.Info);
                     }
                     break;
@@ -614,7 +623,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     IsVisionSubMenuVisible = false;
                     SelectedMenu    = "MAINTENANCE";
                     SelectedSubMenu = "AXIS_CONTROL";
-                    CurrentView = new MotorControlViewModel(this);
+                    _motorControlVM ??= new MotorControlViewModel(this);
+                    CurrentView = _motorControlVM;
                     AddLog(T("Log_MoveAxisControl"), LogLevel.Info);
                     break;
 
@@ -638,7 +648,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         IsVisionSubMenuVisible = true;
                         SelectedMenu    = "MAINTENANCE";
                         SelectedSubMenu = "NJI";
-                        CurrentView = new NJIViewModel(this);
+                        _njiVM ??= new NJIViewModel(this);
+                        CurrentView = _njiVM;
                         AddLog(T("Log_MoveNJI"), LogLevel.Info);
                     }
                     break;
@@ -648,7 +659,8 @@ namespace IJPSystem.Platform.HMI.ViewModels
                     IsMotorSubMenuVisible  = false;
                     SelectedMenu    = "MAINTENANCE";
                     SelectedSubMenu = "NJI";
-                    CurrentView = new NJIViewModel(this);
+                    _njiVM ??= new NJIViewModel(this);
+                    CurrentView = _njiVM;
                     AddLog(T("Log_MoveNJI"), LogLevel.Info);
                     break;
 
@@ -787,6 +799,10 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             AddLog(T("Log_ExitAttempt"), LogLevel.Fatal);
 
+            // DispatcherTimer 정지 — Tick 핸들러가 VM 참조를 잡고 있어 미정지 시 GC 누수
+            _fastTimer.Stop();
+            _slowTimer.Stop();
+
             // 종료 전 램프 소등 (드라이버 정리는 App.OnExit에서 일괄 처리)
             _controller?.GetMachine()?.SetSystemStatus(MachineState.Idle);
         }
@@ -851,7 +867,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             // Operator 상태이면 로그인 동작 — LoginWindow 띄워 권한 상승
             if (CurrentUserRole == UserRole.Operator)
             {
-                var loginWin = new LoginWindow();
+                var loginWin = new LoginWindow { Owner = System.Windows.Application.Current.MainWindow };
                 if (loginWin.ShowDialog() == true)
                 {
                     CurrentUserRole = loginWin.ResultRole;
