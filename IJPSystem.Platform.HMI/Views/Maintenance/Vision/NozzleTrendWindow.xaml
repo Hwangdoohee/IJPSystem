@@ -59,7 +59,7 @@
         <Grid Grid.Row="3" Margin="0,12,0,0">
             <TextBlock Text="{Binding StatusText}" Foreground="#94A3B8"
                        FontSize="12" VerticalAlignment="Center"/>
-            <Button Content="🔄 REFRESH" Command="{Binding RefreshCommand}"
+            <Button Content="{DynamicResource Btn_Refresh}" Command="{Binding RefreshCommand}"
                     HorizontalAlignment="Right" Padding="14,6"
                     Background="#1E40AF" Foreground="White"
                     BorderThickness="0" FontWeight="Bold"/>

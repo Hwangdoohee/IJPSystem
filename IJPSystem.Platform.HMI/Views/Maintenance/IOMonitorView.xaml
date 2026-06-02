@@ -183,7 +183,7 @@
                                             <TextBlock Text="{Binding Unit}"
                                                        Foreground="#64748B" FontSize="11"
                                                        VerticalAlignment="Center" Margin="6,0"/>
-                                            <Button Content="SET"
+                                            <Button Content="{DynamicResource Btn_Set}"
                                                     Command="{Binding SetAnalogCommand}"
                                                     Width="50" Height="26"
                                                     FontSize="11" FontWeight="Bold"

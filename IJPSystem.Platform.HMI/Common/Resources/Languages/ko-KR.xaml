@@ -24,6 +24,88 @@
     <system:String x:Key="Msg_ExitBlockedTitle">종료 차단</system:String>
     <system:String x:Key="Msg_ExitBlockedRunning">운전 중에는 시스템을 종료할 수 없습니다.&#x0A;&#x0A;현재 실행 중인 시퀀스(오토 인쇄 / 초기화 등)를 정지한 뒤 다시 시도하세요.</system:String>
 
+    <!-- 버튼 — 메인 대시보드 -->
+    <system:String x:Key="Btn_Start">▶ 시작</system:String>
+    <system:String x:Key="Btn_Stop">■ 정지</system:String>
+    <system:String x:Key="Btn_EmergencyReset">⚠️ 비상 리셋</system:String>
+
+    <!-- 버튼 — 패턴 인쇄 -->
+    <system:String x:Key="Btn_Print">인쇄</system:String>
+    <system:String x:Key="Btn_Abort">중단</system:String>
+    <system:String x:Key="Btn_SetPrintOrigin">인쇄 원점 설정</system:String>
+
+    <!-- 버튼 — 웨이브폼 -->
+    <system:String x:Key="Btn_Load">로드</system:String>
+    <system:String x:Key="Btn_Save">저장</system:String>
+    <system:String x:Key="Btn_ApplySpitParam">스핏 파라미터 적용</system:String>
+    <system:String x:Key="Btn_StartSpit">스핏 시작</system:String>
+    <system:String x:Key="Btn_AbortSpit">스핏 중단</system:String>
+
+    <!-- 버튼 — I/O 모니터 -->
+    <system:String x:Key="Btn_Set">설정</system:String>
+
+    <!-- 버튼 — 시퀀스 화면 -->
+    <system:String x:Key="Btn_SeqStart">시작</system:String>
+
+    <!-- 버튼 — 모터 제어 -->
+    <system:String x:Key="Btn_Servo">서보</system:String>
+    <system:String x:Key="Btn_Home">원점</system:String>
+    <system:String x:Key="Btn_Reset">리셋</system:String>
+    <system:String x:Key="Btn_Move">▶ 이동</system:String>
+
+    <!-- 버튼 — 모터 티칭 -->
+    <system:String x:Key="Btn_SaveToRecipe">레시피에 저장</system:String>
+
+    <!-- 버튼 — 비전 (Glass / DropWatcher) -->
+    <system:String x:Key="Btn_Capture">캡쳐</system:String>
+    <system:String x:Key="Btn_InspectAll">전체 검사</system:String>
+    <system:String x:Key="Btn_ClearResults">결과 지우기</system:String>
+    <system:String x:Key="Btn_TrendSpc">📈 추세 (SPC)</system:String>
+    <system:String x:Key="Btn_Refresh">🔄 새로고침</system:String>
+
+    <!-- 버튼 — 레시피 화면 -->
+    <system:String x:Key="Btn_Add">추가</system:String>
+    <system:String x:Key="Btn_Copy">복사</system:String>
+    <system:String x:Key="Btn_Edit">편집</system:String>
+    <system:String x:Key="Btn_Delete">삭제</system:String>
+    <system:String x:Key="Btn_MoveUp">▲ 위로</system:String>
+    <system:String x:Key="Btn_MoveDown">▼ 아래로</system:String>
+    <system:String x:Key="Btn_CancelEdit">편집 취소</system:String>
+    <system:String x:Key="Btn_DiffModels">모델 비교</system:String>
+    <system:String x:Key="Btn_SaveModel">모델 저장</system:String>
+    <system:String x:Key="Btn_ApplyToMachine">장비 적용</system:String>
+
+    <!-- 버튼 — 알람 -->
+    <system:String x:Key="Btn_Search">검색</system:String>
+    <system:String x:Key="Btn_Ack">확인</system:String>
+    <system:String x:Key="Btn_ExportCsv">CSV 내보내기</system:String>
+    <system:String x:Key="Btn_AlarmReset">알람 리셋</system:String>
+    <system:String x:Key="Btn_AlarmClear">알람 해제</system:String>
+
+    <!-- 섹션 헤더 — P&amp;ID 운전 패널 -->
+    <system:String x:Key="Section_ContinuousOp">연 속 동 작</system:String>
+    <system:String x:Key="Section_AutoSequence">자동 시퀀스</system:String>
+    <system:String x:Key="Section_ManualOps">단위 동작</system:String>
+
+    <!-- 버튼 — P&amp;ID 자동 시퀀스 -->
+    <system:String x:Key="Btn_AutoPurge">자동 퍼지</system:String>
+    <system:String x:Key="Btn_AutoBlotting">자동 블로팅</system:String>
+    <system:String x:Key="Btn_PnidStop">중지</system:String>
+
+    <!-- 버튼 — P&amp;ID 단위 동작 -->
+    <system:String x:Key="Btn_Refill">잉크 충전</system:String>
+    <system:String x:Key="Btn_Purge">퍼지</system:String>
+    <system:String x:Key="Btn_PurgeStop">퍼지 중지</system:String>
+    <system:String x:Key="Btn_Spitting">스피팅</system:String>
+    <system:String x:Key="Btn_SpittingStop">스피팅 중지</system:String>
+    <system:String x:Key="Btn_Drain">드레인</system:String>
+    <system:String x:Key="Btn_PosPressureOn">양압 ON</system:String>
+    <system:String x:Key="Btn_PosPressureOff">양압 OFF</system:String>
+    <system:String x:Key="Btn_NegPressureOn">음압 ON</system:String>
+    <system:String x:Key="Btn_NegPressureOff">음압 OFF</system:String>
+    <system:String x:Key="Btn_AllOpen">전체 OPEN</system:String>
+    <system:String x:Key="Btn_AllClose">전체 CLOSE</system:String>
+
     <!-- 메인 메뉴 -->
     <system:String x:Key="Menu_Main">메인화면</system:String>
     <system:String x:Key="Menu_Print">프린트</system:String>

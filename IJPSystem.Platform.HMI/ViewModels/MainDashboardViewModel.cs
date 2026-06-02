@@ -2,6 +2,7 @@
 using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
+using IJPSystem.Platform.HMI.Common;
 using IJPSystem.Platform.Infrastructure.Config;
 using static IJPSystem.Platform.HMI.Common.Loc;
 using System;
@@ -510,7 +511,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (_hasActiveAlarm?.Invoke() == true)
             {
                 _logAction?.Invoke("[AUTO PRINT] 미해제 알람 존재 — 시작 거부", LogLevel.Warning);
-                System.Windows.MessageBox.Show(
+                Dialogs.Show(
                     "미해제 알람이 있습니다.\n알람 화면에서 알람을 모두 해제(Clear)한 뒤 다시 시도하세요.",
                     "AUTO PRINT 시작 불가",
                     System.Windows.MessageBoxButton.OK,
@@ -531,7 +532,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             {
                 string msg = T("Log_PrereqNotHomed", string.Join(", ", notHomed));
                 _logAction?.Invoke(msg.Replace("\n\n", " — "), LogLevel.Error);
-                System.Windows.MessageBox.Show(msg, T("Log_PrereqDialogTitle"),
+                Dialogs.Show(msg, T("Log_PrereqDialogTitle"),
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
                 return false;
             }
@@ -542,7 +543,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             {
                 string msg = T("Log_PrereqNotServoOn", string.Join(", ", notServoOn));
                 _logAction?.Invoke(msg.Replace("\n\n", " — "), LogLevel.Error);
-                System.Windows.MessageBox.Show(msg, T("Log_PrereqDialogTitle"),
+                Dialogs.Show(msg, T("Log_PrereqDialogTitle"),
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning);
                 return false;
             }

@@ -72,11 +72,11 @@
                         </StackPanel>
                     </Border>
 
-                    <Button Content="SEARCH" Command="{Binding AlarmVM.SearchCommand}"
+                    <Button Content="{DynamicResource Btn_Search}" Command="{Binding AlarmVM.SearchCommand}"
                             Width="90" Height="32" Margin="12,0,0,0"
                             Style="{StaticResource ModernActionButton}"
                             Background="#1D4ED8" BorderBrush="#3B82F6"/>
-                    <Button Content="RESET" Command="{Binding AlarmVM.ResetFilterCommand}"
+                    <Button Content="{DynamicResource Btn_Reset}" Command="{Binding AlarmVM.ResetFilterCommand}"
                             Width="80" Height="32" Margin="8,0,0,0"
                             Style="{StaticResource ModernActionButton}"
                             Background="#334155" BorderBrush="#475569"/>
@@ -244,7 +244,7 @@
                     <DataGridTemplateColumn Header="ACK" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="ACK"
+                                <Button Content="{DynamicResource Btn_Ack}"
                                         Command="{Binding DataContext.AlarmVM.AckSingleAlarmCommand,
                                                   RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         CommandParameter="{Binding}"
@@ -273,19 +273,19 @@
 
         <Grid Grid.Row="2" Margin="0,20,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Content="EXPORT CSV" Click="ExportButton_Click" 
+                <Button Content="{DynamicResource Btn_ExportCsv}" Click="ExportButton_Click"
                                 Width="130" Height="38" 
                                 Style="{StaticResource ModernActionButton}" Background="#334155" BorderBrush="#475569"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="ALARM RESET" 
+                <Button Content="{DynamicResource Btn_AlarmReset}"
                                 Command="{Binding AlarmVM.ClearAlarmCommand}"
                                 Width="110" Height="38" Margin="0,0,10,0"
                                 Style="{StaticResource ModernActionButton}" 
                                 Background="#059669" BorderBrush="#10B981"/>
-                <Button Content="ALARM CLEAR" 
-                                Command="{Binding AlarmVM.DeleteHistoryCommand}" 
+                <Button Content="{DynamicResource Btn_AlarmClear}"
+                                Command="{Binding AlarmVM.DeleteHistoryCommand}"
                                 Width="110" Height="38" Margin="0,0,10,0"
                                 Style="{StaticResource ModernActionButton}" 
                                 Background="#3B82F6" BorderBrush="#60A5FA"/>

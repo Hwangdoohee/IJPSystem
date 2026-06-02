@@ -4,6 +4,7 @@ using IJPSystem.Platform.Common.Enums;
 using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
+using IJPSystem.Platform.HMI.Common;
 using IJPSystem.Platform.HMI.Services;
 using static IJPSystem.Platform.HMI.Common.Loc;
 using System;
@@ -130,7 +131,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (_mainVM.HasActiveAlarm)
             {
                 _mainVM.AddLog($"[SEQ] {name} — 중단 (미해제 알람 존재)", LogLevel.Warning);
-                System.Windows.MessageBox.Show(
+                Dialogs.Show(
                     "미해제 알람이 있습니다.\n알람 화면에서 알람을 모두 해제(Clear)한 뒤 다시 시도하세요.",
                     "시퀀스 시작 불가",
                     System.Windows.MessageBoxButton.OK,
@@ -149,7 +150,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (notHomed.Count > 0)
             {
                 _mainVM.AddLog($"[SEQ] {name} — 중단 (INITIALIZE 미수행, 미원점 축: {string.Join(", ", notHomed)})", LogLevel.Warning);
-                System.Windows.MessageBox.Show(
+                Dialogs.Show(
                     $"INITIALIZE 시퀀스를 먼저 수행하세요.\n\n미원점 축: {string.Join(", ", notHomed)}",
                     "시퀀스 시작 불가",
                     System.Windows.MessageBoxButton.OK,

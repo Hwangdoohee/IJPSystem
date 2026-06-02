@@ -73,11 +73,6 @@ namespace IJPSystem.Drivers.Vision
             Debug.WriteLine($"[Virtual Vision] Init Complete: {_statusMap.Count} camera(s).");
         }
 
-        public void Terminate()
-        {
-            Disconnect();
-        }
-
         // ────────────────────────────────────────────────
         // 2. 상태 조회
         // ────────────────────────────────────────────────

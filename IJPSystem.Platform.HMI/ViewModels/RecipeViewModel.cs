@@ -166,7 +166,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 // 2. 수정 중(IsDirty)이라면 사용자에게 물어보기
                 if (IsDirty)
                 {
-                    var result = MessageBox.Show(
+                    var result = Dialogs.Show(
                         T("Msg_RecipeDirtyConfirm", _selectedRecipeName),
                         T("Msg_RecipeDirtyTitle"),
                         MessageBoxButton.YesNoCancel,
@@ -666,7 +666,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             if (!IsDirty) return;
 
-            var result = MessageBox.Show(
+            var result = Dialogs.Show(
                 T("Msg_RecipeCancelConfirm", SelectedRecipeName),
                 T("Msg_RecipeCancelTitle"),
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -693,7 +693,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         "EN" => $"[Axis: {axis.Info.Name}] Invalid value.\nMove speed: 1~2000, Jog speed: 0~5000.",
                         _ => $"[{axis.Info.Name}] 설정값이 범위를 벗어났습니다.\nMove 속도: 1~2000, Jog 속도: 0~5000."
                     };
-                    MessageBox.Show(warnMsg, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Dialogs.Show(warnMsg, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -706,7 +706,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         "EN" => $"[Axis: {axis.Info.Name}] Print parameter out of range.\nVelocity: 0~5000, Acc/Dec: 0~50000.",
                         _ => $"[{axis.Info.Name}] 인쇄 파라미터가 범위를 벗어났습니다.\n속도: 0~5000, 가속도/감속도: 0~50000."
                     };
-                    MessageBox.Show(warnMsg, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Dialogs.Show(warnMsg, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
             }
@@ -795,7 +795,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         _addLogAction?.Invoke($"[RECIPE] {SelectedRecipeName} — 파라미터 저장 완료", LogLevel.Success);
 
                         string successMsg = CurrentLanguage == "KO" ? "저장되었습니다." : "Saved successfully.";
-                        MessageBox.Show(successMsg);
+                        Dialogs.Show(successMsg);
                     }
                     catch (Exception)
                     {
@@ -810,7 +810,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             if (string.IsNullOrEmpty(SelectedRecipeName)) return;
 
-            if (MessageBox.Show($"[{SelectedRecipeName}] 모델을 설비에 실제 적용하시겠습니까?\n(가동 중인 데이터가 변경됩니다)", "모델 적용", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (Dialogs.Show($"[{SelectedRecipeName}] 모델을 설비에 실제 적용하시겠습니까?\n(가동 중인 데이터가 변경됩니다)", "모델 적용", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 using (var db = new SqliteConnection(_dbPath))
                 {
@@ -825,7 +825,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
                     // 실제 모터 주입 로직은 여기서 호출 (이미 LoadAllRecipeData가 되어있으므로, 필요 시 PLC/Driver 전송 로직 추가)
                     _addLogAction?.Invoke($"[RECIPE] {SelectedRecipeName} — 모델 적용 완료", LogLevel.Success);
-                    MessageBox.Show("설비에 적용되었습니다.");
+                    Dialogs.Show("설비에 적용되었습니다.");
                 }
             }
         }
@@ -836,7 +836,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             // 현재 활성 레시피인 경우 경고
             if (ActiveRecipeName == SelectedRecipeName)
             {
-                var warn = MessageBox.Show(
+                var warn = Dialogs.Show(
                     T("Msg_RecipeRenameActiveWarn", SelectedRecipeName),
                     T("Msg_RecipeRenameActiveTitle"),
                     MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -853,7 +853,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             // 이름 중복 체크
             if (RecipeNames.Contains(newName))
             {
-                MessageBox.Show("이미 존재하는 레시피 이름입니다.", "중복 오류", MessageBoxButton.OK, MessageBoxImage.Error);
+                Dialogs.Show("이미 존재하는 레시피 이름입니다.", "중복 오류", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -960,12 +960,12 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
             if (SelectedRecipeName == ActiveRecipeName)
             {
-                MessageBox.Show($"[{SelectedRecipeName}]은 현재 적용 중인 모델입니다.\n적용 중인 모델은 삭제할 수 없습니다.",
+                Dialogs.Show($"[{SelectedRecipeName}]은 현재 적용 중인 모델입니다.\n적용 중인 모델은 삭제할 수 없습니다.",
                     "삭제 불가", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if (MessageBox.Show($"[{SelectedRecipeName}] 레시피를 삭제하시겠습니까?", "삭제", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (Dialogs.Show($"[{SelectedRecipeName}] 레시피를 삭제하시겠습니까?", "삭제", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 using (var db = new SqliteConnection(_dbPath))
                 {
@@ -1040,7 +1040,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (string.IsNullOrWhiteSpace(newName) || RecipeNames.Contains(newName))
             {
                 if (RecipeNames.Contains(newName))
-                    MessageBox.Show(errorDuplicate, title, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Dialogs.Show(errorDuplicate, title, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -1088,7 +1088,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(errorFail + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Dialogs.Show(errorFail + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

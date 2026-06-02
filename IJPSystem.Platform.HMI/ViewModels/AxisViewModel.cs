@@ -229,7 +229,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             if (string.IsNullOrEmpty(Info.AxisNo))
             {
-                MessageBox.Show("숫자를 입력하세요");
+                Dialogs.Show("숫자를 입력하세요");
                 return;
             }
             string modeName = IsAbsMode ? "ABS" : "INC";

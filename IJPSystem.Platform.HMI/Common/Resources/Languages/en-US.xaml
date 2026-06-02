@@ -24,6 +24,88 @@
     <system:String x:Key="Msg_ExitBlockedTitle">Exit Blocked</system:String>
     <system:String x:Key="Msg_ExitBlockedRunning">Cannot exit while a sequence is running.&#x0A;&#x0A;Stop the active sequence (Auto Print / Initialize / etc.) and try again.</system:String>
 
+    <!-- Buttons — Main Dashboard -->
+    <system:String x:Key="Btn_Start">▶ START</system:String>
+    <system:String x:Key="Btn_Stop">■ STOP</system:String>
+    <system:String x:Key="Btn_EmergencyReset">⚠️ EMERGENCY RESET</system:String>
+
+    <!-- Buttons — Pattern Print -->
+    <system:String x:Key="Btn_Print">PRINT</system:String>
+    <system:String x:Key="Btn_Abort">ABORT</system:String>
+    <system:String x:Key="Btn_SetPrintOrigin">SET PRINT ORIGIN</system:String>
+
+    <!-- Buttons — Waveform -->
+    <system:String x:Key="Btn_Load">Load</system:String>
+    <system:String x:Key="Btn_Save">Save</system:String>
+    <system:String x:Key="Btn_ApplySpitParam">Apply Spit Parameter</system:String>
+    <system:String x:Key="Btn_StartSpit">Start Spit</system:String>
+    <system:String x:Key="Btn_AbortSpit">Abort Spit</system:String>
+
+    <!-- Buttons — I/O Monitor -->
+    <system:String x:Key="Btn_Set">SET</system:String>
+
+    <!-- Buttons — Sequence View -->
+    <system:String x:Key="Btn_SeqStart">START</system:String>
+
+    <!-- Buttons — Motor Control -->
+    <system:String x:Key="Btn_Servo">SERVO</system:String>
+    <system:String x:Key="Btn_Home">HOME</system:String>
+    <system:String x:Key="Btn_Reset">RESET</system:String>
+    <system:String x:Key="Btn_Move">▶ Move</system:String>
+
+    <!-- Buttons — Motor Teaching -->
+    <system:String x:Key="Btn_SaveToRecipe">SAVE TO RECIPE</system:String>
+
+    <!-- Buttons — Vision (Glass / DropWatcher) -->
+    <system:String x:Key="Btn_Capture">CAPTURE</system:String>
+    <system:String x:Key="Btn_InspectAll">INSPECT ALL</system:String>
+    <system:String x:Key="Btn_ClearResults">CLEAR RESULTS</system:String>
+    <system:String x:Key="Btn_TrendSpc">📈 TREND (SPC)</system:String>
+    <system:String x:Key="Btn_Refresh">🔄 REFRESH</system:String>
+
+    <!-- Buttons — Recipe View -->
+    <system:String x:Key="Btn_Add">ADD</system:String>
+    <system:String x:Key="Btn_Copy">COPY</system:String>
+    <system:String x:Key="Btn_Edit">EDIT</system:String>
+    <system:String x:Key="Btn_Delete">DEL</system:String>
+    <system:String x:Key="Btn_MoveUp">▲  UP</system:String>
+    <system:String x:Key="Btn_MoveDown">▼  DOWN</system:String>
+    <system:String x:Key="Btn_CancelEdit">CANCEL EDIT</system:String>
+    <system:String x:Key="Btn_DiffModels">DIFF MODELS</system:String>
+    <system:String x:Key="Btn_SaveModel">SAVE MODEL</system:String>
+    <system:String x:Key="Btn_ApplyToMachine">APPLY TO MACHINE</system:String>
+
+    <!-- Buttons — Alarm -->
+    <system:String x:Key="Btn_Search">SEARCH</system:String>
+    <system:String x:Key="Btn_Ack">ACK</system:String>
+    <system:String x:Key="Btn_ExportCsv">EXPORT CSV</system:String>
+    <system:String x:Key="Btn_AlarmReset">ALARM RESET</system:String>
+    <system:String x:Key="Btn_AlarmClear">ALARM CLEAR</system:String>
+
+    <!-- Section headers — P&amp;ID operation panel -->
+    <system:String x:Key="Section_ContinuousOp">CONTINUOUS OPERATION</system:String>
+    <system:String x:Key="Section_AutoSequence">AUTO SEQUENCE</system:String>
+    <system:String x:Key="Section_ManualOps">MANUAL OPERATIONS</system:String>
+
+    <!-- Buttons — P&amp;ID Auto Sequence -->
+    <system:String x:Key="Btn_AutoPurge">AUTO PURGE</system:String>
+    <system:String x:Key="Btn_AutoBlotting">AUTO BLOTTING</system:String>
+    <system:String x:Key="Btn_PnidStop">STOP</system:String>
+
+    <!-- Buttons — P&amp;ID Manual Ops -->
+    <system:String x:Key="Btn_Refill">REFILL</system:String>
+    <system:String x:Key="Btn_Purge">PURGE</system:String>
+    <system:String x:Key="Btn_PurgeStop">PURGE STOP</system:String>
+    <system:String x:Key="Btn_Spitting">SPITTING</system:String>
+    <system:String x:Key="Btn_SpittingStop">SPITTING STOP</system:String>
+    <system:String x:Key="Btn_Drain">DRAIN</system:String>
+    <system:String x:Key="Btn_PosPressureOn">P+ ENABLE</system:String>
+    <system:String x:Key="Btn_PosPressureOff">P+ DISABLE</system:String>
+    <system:String x:Key="Btn_NegPressureOn">P- ENABLE</system:String>
+    <system:String x:Key="Btn_NegPressureOff">P- DISABLE</system:String>
+    <system:String x:Key="Btn_AllOpen">OPEN ALL</system:String>
+    <system:String x:Key="Btn_AllClose">CLOSE ALL</system:String>
+
     <!-- 메인 메뉴 -->
     <system:String x:Key="Menu_Main">MAIN</system:String>
     <system:String x:Key="Menu_Print">PRINT</system:String>

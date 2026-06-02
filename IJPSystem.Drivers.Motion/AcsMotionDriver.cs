@@ -35,7 +35,7 @@ namespace IJPSystem.Drivers.Motion
 
         public void Disconnect()
         {
-            // TODO: _api.CloseComm()
+            // TODO: 큐/이벤트 핸들러 해제, _api.CloseComm()
             IsConnected = false;
         }
 
@@ -54,12 +54,6 @@ namespace IJPSystem.Drivers.Motion
                 };
             }
             // TODO: 축 매핑 (AxisNo → ACS axis index) 테이블 구축
-        }
-
-        public void Terminate()
-        {
-            // TODO: 큐/이벤트 핸들러 해제, _api.CloseComm()
-            IsConnected = false;
         }
 
         public AxisStatus GetStatus(string axisNo)

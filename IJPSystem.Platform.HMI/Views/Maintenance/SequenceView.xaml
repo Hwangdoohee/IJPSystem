@@ -323,7 +323,7 @@
                         Style="{StaticResource MutedActionButtonStyle}" Background="#166534">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="▶" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="START" FontSize="18" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Btn_SeqStart}" FontSize="18" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
 
@@ -337,7 +337,7 @@
                         Style="{StaticResource MutedActionButtonStyle}" Background="#7F1D1D">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="⏹" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                        <TextBlock Text="ABORT" FontSize="18" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Btn_Abort}" FontSize="18" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </Grid>

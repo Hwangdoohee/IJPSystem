@@ -40,7 +40,7 @@ namespace IJPSystem.Platform.HMI.Views
             }
             else
             {
-                MessageBox.Show("비밀번호가 일치하지 않습니다.", "인증 실패", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, "비밀번호가 일치하지 않습니다.", "인증 실패", MessageBoxButton.OK, MessageBoxImage.Error);
                 PasswordInput.Clear();
             }
         }

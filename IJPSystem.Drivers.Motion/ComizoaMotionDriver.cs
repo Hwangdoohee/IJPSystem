@@ -36,7 +36,7 @@ namespace IJPSystem.Drivers.Motion
 
         public void Disconnect()
         {
-            // TODO: czm_exit()
+            // TODO: czm_exit() — DLL 자원 해제
             IsConnected = false;
         }
 
@@ -60,12 +60,6 @@ namespace IJPSystem.Drivers.Motion
                 _axisIndex[cfg.AxisNo] = idx++;
             }
             // TODO: czm_set_pulse_out_mode / czm_set_enc_input_mode 등 펄스/엔코더 모드 셋업
-        }
-
-        public void Terminate()
-        {
-            // TODO: czm_exit() — DLL 자원 해제
-            IsConnected = false;
         }
 
         public AxisStatus GetStatus(string axisNo)

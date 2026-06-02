@@ -6,6 +6,7 @@ using IJPSystem.Platform.Common.Constants;
 using IJPSystem.Platform.Common.Utilities;
 using IJPSystem.Platform.Domain.Interfaces;
 using IJPSystem.Platform.Domain.Models.Motion;
+using IJPSystem.Platform.HMI.Common;
 using IJPSystem.Platform.HMI.ViewModels;
 using IJPSystem.Platform.HMI.Views;
 using IJPSystem.Platform.Infrastructure.Config;
@@ -27,7 +28,7 @@ namespace IJPSystem.Platform.HMI
             DispatcherUnhandledException += (s, ev) =>
             {
                 LoggerService.WriteToFile("FATAL", $"[UI thread] {ev.Exception}");
-                MessageBox.Show($"미처리 예외:\n\n{ev.Exception.Message}\n\n자세한 내용은 C:\\Logs 의 .txt 로그를 확인하세요.",
+                Dialogs.Show($"미처리 예외:\n\n{ev.Exception.Message}\n\n자세한 내용은 C:\\Logs 의 .txt 로그를 확인하세요.",
                                 "Application Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 ev.Handled = true; // 앱이 즉시 죽지 않게 막음 — 사용자가 메시지 확인 후 종료
             };
@@ -99,7 +100,7 @@ namespace IJPSystem.Platform.HMI
             catch (Exception ex)
             {
                 LoggerService.WriteToFile("FATAL", $"Startup failed: {ex}");
-                MessageBox.Show($"Startup failed: {ex.Message}");
+                Dialogs.Show($"Startup failed: {ex.Message}");
                 Shutdown();
             }
             finally

@@ -7,12 +7,11 @@ namespace IJPSystem.Platform.Domain.Interfaces
 {
     public interface IVisionDriver
     {
-        // ── 1. 연결 / 초기화 ──
+        // ── 1. 연결 / 초기화 — Disconnect 가 통신 종료 + 자원 해제 모두 수행 ──
         bool Connect();
         void Disconnect();
         bool IsConnected { get; }
         void Initialize(List<CameraDeviceInfo> configs);
-        void Terminate();
 
         // ── 2. 상태 조회 ──
         CameraStatus GetStatus(string cameraId);

@@ -252,14 +252,14 @@ namespace IJPSystem.Platform.HMI.ViewModels
             string recipeName = _mainVM.RecipeVM.ActiveRecipeName;
             if (string.IsNullOrEmpty(recipeName))
             {
-                MessageBox.Show("적용 중인 레시피가 없습니다.\n레시피를 먼저 적용해 주세요.",
+                Dialogs.Show("적용 중인 레시피가 없습니다.\n레시피를 먼저 적용해 주세요.",
                     "저장 실패", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             string fullBasePath = Path.Combine(_loadedDir, _loadedBase);
             _mainVM.RecipeVM.SetWaveformPath(recipeName, fullBasePath);
-            MessageBox.Show($"[{recipeName}] 레시피에 웨이브폼이 저장되었습니다.", "저장 완료",
+            Dialogs.Show($"[{recipeName}] 레시피에 웨이브폼이 저장되었습니다.", "저장 완료",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -267,7 +267,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private void ExecuteApplySpit()
         {
             _mainVM.AddLog($"[WAVEFORM] Spit 파라미터 적용 (Offset={VoltageOffset}%)", LogLevel.Info);
-            MessageBox.Show("Spit Parameter 적용되었습니다.");
+            Dialogs.Show("Spit Parameter 적용되었습니다.");
         }
 
         // ── Start / Abort Spit ────────────────────────────────────────────

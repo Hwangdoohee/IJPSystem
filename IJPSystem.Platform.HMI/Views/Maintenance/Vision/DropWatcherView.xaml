@@ -270,7 +270,7 @@
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#1D4ED8">
                                 <StackPanel>
                                     <TextBlock Text="📷" FontSize="18" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="CAPTURE" Foreground="White"
+                                    <TextBlock Text="{DynamicResource Btn_Capture}" Foreground="White"
                                                FontSize="11" FontWeight="Bold"
                                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                                 </StackPanel>
@@ -279,7 +279,7 @@
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#166534">
                                 <StackPanel>
                                     <TextBlock Text="🔍" FontSize="18" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="INSPECT ALL" Foreground="White"
+                                    <TextBlock Text="{DynamicResource Btn_InspectAll}" Foreground="White"
                                                FontSize="11" FontWeight="Bold"
                                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                                 </StackPanel>
@@ -293,12 +293,12 @@
                             </Grid.ColumnDefinitions>
                             <Button Grid.Column="0" Height="36" Command="{Binding ClearResultCommand}"
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#374151">
-                                <TextBlock Text="CLEAR RESULTS" Foreground="#94A3B8"
+                                <TextBlock Text="{DynamicResource Btn_ClearResults}" Foreground="#94A3B8"
                                            FontSize="11" FontWeight="Bold"/>
                             </Button>
                             <Button Grid.Column="2" Height="36" Command="{Binding OpenTrendCommand}"
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#1E3A8A">
-                                <TextBlock Text="📈 TREND (SPC)" Foreground="White"
+                                <TextBlock Text="{DynamicResource Btn_TrendSpc}" Foreground="White"
                                            FontSize="11" FontWeight="Bold"/>
                             </Button>
                         </Grid>

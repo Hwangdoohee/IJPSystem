@@ -90,7 +90,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (FilterStartDate.HasValue && FilterEndDate.HasValue &&
                 FilterEndDate.Value.Date < FilterStartDate.Value.Date)
             {
-                MessageBox.Show("종료 날짜가 시작 날짜보다 이전입니다.\n날짜 범위를 다시 확인하세요.",
+                Dialogs.Show("종료 날짜가 시작 날짜보다 이전입니다.\n날짜 범위를 다시 확인하세요.",
                                 "날짜 오류", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
@@ -273,7 +273,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             if (AlarmHistory.Count == 0)
             {
-                MessageBox.Show(T("Msg_AlarmNoData"));
+                Dialogs.Show(T("Msg_AlarmNoData"));
                 return;
             }
             try
@@ -296,7 +296,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 }
                 File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
 
-                MessageBox.Show(T("Msg_AlarmExportSuccess", filePath), T("Msg_AlarmExportTitle"));
+                Dialogs.Show(T("Msg_AlarmExportSuccess", filePath), T("Msg_AlarmExportTitle"));
             }
             catch (UnauthorizedAccessException)
             {
@@ -344,7 +344,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
 
         public void ClearAlarmAndSetStandby()
         {
-            var result = MessageBox.Show(T("Msg_AlarmResetAllConfirm"), T("Msg_AlarmResetAllTitle"),
+            var result = Dialogs.Show(T("Msg_AlarmResetAllConfirm"), T("Msg_AlarmResetAllTitle"),
                                          MessageBoxButton.YesNo,
                                          MessageBoxImage.Question);
 
@@ -396,7 +396,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private void ExecuteDeleteHistory()
         {
             // 1. 사용자에게 정말 삭제할지 확인 (실수 방지)
-            var result = MessageBox.Show(T("Msg_AlarmDeleteConfirm"), T("Msg_AlarmDeleteTitle"),
+            var result = Dialogs.Show(T("Msg_AlarmDeleteConfirm"), T("Msg_AlarmDeleteTitle"),
                                          MessageBoxButton.YesNo,
                                          MessageBoxImage.Warning);
 
@@ -411,11 +411,11 @@ namespace IJPSystem.Platform.HMI.ViewModels
                         AlarmHistory.Clear();
                     });
 
-                    MessageBox.Show(T("Msg_AlarmDeleteSuccess"));
+                    Dialogs.Show(T("Msg_AlarmDeleteSuccess"));
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(T("Msg_AlarmDeleteError", ex.Message));
+                    Dialogs.Show(T("Msg_AlarmDeleteError", ex.Message));
                 }
             }
         }

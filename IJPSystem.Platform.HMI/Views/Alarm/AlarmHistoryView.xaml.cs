@@ -40,7 +40,7 @@ namespace IJPSystem.Platform.HMI.Views
 
             if (selected.IsCleared) return;
 
-            var result = MessageBox.Show(
+            var result = Dialogs.Show(
                 T("Msg_AlarmResetRowConfirm", selected.AlarmCode, selected.AlarmName),
                 T("Msg_AlarmResetRowTitle"),
                 MessageBoxButton.YesNo,

@@ -2,6 +2,7 @@ using IJPSystem.Platform.Application.Sequences;
 using IJPSystem.Platform.Domain.Common;
 using IJPSystem.Platform.Domain.Enums;
 using IJPSystem.Platform.Domain.Interfaces;
+using IJPSystem.Platform.HMI.Common;
 using IJPSystem.Platform.HMI.Services;
 using System;
 using System.Collections.ObjectModel;
@@ -152,7 +153,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             if (_mainVM.HasActiveAlarm)
             {
                 _mainVM.AddLog("[SEQ] Initialize — 중단 (미해제 알람 존재)", LogLevel.Warning);
-                System.Windows.MessageBox.Show(
+                Dialogs.Show(
                     "미해제 알람이 있습니다.\n알람 화면에서 알람을 모두 해제(Clear)한 뒤 다시 시도하세요.",
                     "Initialize 시작 불가",
                     System.Windows.MessageBoxButton.OK,

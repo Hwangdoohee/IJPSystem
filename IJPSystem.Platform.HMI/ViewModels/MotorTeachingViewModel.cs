@@ -289,7 +289,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         private void SaveToDatabase()
         {
             string name = _mainVM.RecipeVM.SelectedRecipeName;
-            var result = MessageBox.Show(
+            var result = Dialogs.Show(
                 Loc.T("Msg_TeachSaveConfirm", name),
                 Loc.T("Msg_TeachSaveTitle"),
                 MessageBoxButton.OKCancel,
@@ -303,7 +303,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 int recipeId = db.QueryFirstOrDefault<int>("SELECT Id FROM Recipes WHERE Name = @name", new { name });
                 if (recipeId == 0)
                 {
-                    MessageBox.Show("레시피를 찾을 수 없습니다.");
+                    Dialogs.Show("레시피를 찾을 수 없습니다.");
                     return;
                 }
 
@@ -322,7 +322,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 trans.Commit();
 
                 _mainVM.AddLog($"[MOTION] Teach [{name}] 저장 완료", LogLevel.Success);
-                //MessageBox.Show("저장 완료");
+                //Dialogs.Show("저장 완료");
             }
             catch (Exception ex)
             {

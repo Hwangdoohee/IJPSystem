@@ -735,12 +735,8 @@
                     <!-- Continuous Operation Header -->
                     <Border Grid.Row="0" Background="#1E293B" BorderBrush="#334155" BorderThickness="0,0,0,1"
                             Padding="14,10">
-                        <StackPanel>
-                            <TextBlock Text="연 속 동 작" Foreground="#E2E8F0"
-                                       FontSize="13" FontWeight="Bold" FontFamily="Consolas"/>
-                            <TextBlock Text="CONTINUOUS OPERATION" Foreground="#64748B"
-                                       FontSize="9" FontFamily="Consolas" Margin="0,2,0,0"/>
-                        </StackPanel>
+                        <TextBlock Text="{DynamicResource Section_ContinuousOp}" Foreground="#E2E8F0"
+                                   FontSize="13" FontWeight="Bold" FontFamily="Consolas"/>
                     </Border>
 
                     <!-- Action Buttons -->
@@ -748,7 +744,7 @@
                         <StackPanel>
 
                             <!-- 자동 시퀀스 (Auto 퍼지 / Auto Blotting) -->
-                            <TextBlock Text="AUTO SEQUENCE" Foreground="#3B82F6"
+                            <TextBlock Text="{DynamicResource Section_AutoSequence}" Foreground="#3B82F6"
                                        FontSize="10" FontWeight="Bold" Margin="0,0,0,8"/>
                             <Button Height="58" Margin="0,0,0,6"
                                     Style="{StaticResource MutedActionButtonStyle}" Background="#166534"
@@ -756,10 +752,7 @@
                                     ToolTip="자동 퍼지 시퀀스 시작">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="▶" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="자동 퍼지"  FontSize="14" FontWeight="Black" Foreground="White"/>
-                                        <TextBlock Text="AUTO PURGE" FontSize="9"  Foreground="#86EFAC"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_AutoPurge}" FontSize="14" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
                             <Button Height="58" Margin="0,0,0,6"
@@ -768,10 +761,7 @@
                                     ToolTip="자동 블로팅 시퀀스 시작">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="☆" FontSize="18" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="자동 블로팅"   FontSize="14" FontWeight="Black" Foreground="White"/>
-                                        <TextBlock Text="AUTO BLOTTING"   FontSize="9"  Foreground="#67E8F9"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_AutoBlotting}" FontSize="14" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
 
@@ -782,17 +772,14 @@
                                     ToolTip="진행 중인 자동 시퀀스 즉시 중단">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="■" FontSize="16" Foreground="White" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="중지"   FontSize="13" FontWeight="Black" Foreground="White"/>
-                                        <TextBlock Text="STOP"   FontSize="9"  Foreground="#FCA5A5"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_PnidStop}" FontSize="13" FontWeight="Black" Foreground="White" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Button>
 
                             <Rectangle Height="1" Fill="#1E293B" Margin="0,4,0,8"/>
 
                             <!-- 단위 동작 (2x4 그리드) -->
-                            <TextBlock Text="MANUAL OPERATIONS" Foreground="#FBBF24"
+                            <TextBlock Text="{DynamicResource Section_ManualOps}" Foreground="#FBBF24"
                                        FontSize="10" FontWeight="Bold" Margin="0,0,0,8"/>
                             <Grid Margin="0,0,0,4">
                                 <Grid.ColumnDefinitions>
@@ -813,10 +800,7 @@
                                 <!-- Row 1: REFILL / PURGE -->
                                 <Button Grid.Row="0" Grid.Column="0"
                                         Style="{StaticResource MutedActionButtonStyle}" Background="#1E40AF">
-                                    <StackPanel>
-                                        <TextBlock Text="잉크 충전" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="REFILL"   FontSize="9"  Foreground="#93C5FD" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_Refill}" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Button>
                                 <Button Grid.Row="0" Grid.Column="2"
                                         Command="{Binding TogglePurgeCommand}"
@@ -831,32 +815,18 @@
                                             </Style.Triggers>
                                         </Style>
                                     </Button.Style>
-                                    <StackPanel>
-                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="퍼지"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsPurging}" Value="True">
-                                                            <Setter Property="Text" Value="퍼지 중지"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                        <TextBlock FontSize="9" Foreground="#FDE68A" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="PURGE"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsPurging}" Value="True">
-                                                            <Setter Property="Text" Value="PURGE STOP"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </StackPanel>
+                                    <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="{DynamicResource Btn_Purge}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsPurging}" Value="True">
+                                                        <Setter Property="Text" Value="{DynamicResource Btn_PurgeStop}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Button>
 
                                 <!-- Row 2: SPITTING / DRAIN -->
@@ -873,39 +843,22 @@
                                             </Style.Triggers>
                                         </Style>
                                     </Button.Style>
-                                    <StackPanel>
-                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="스피팅"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsSpitting}" Value="True">
-                                                            <Setter Property="Text" Value="스피팅 중지"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                        <TextBlock FontSize="9" Foreground="#93C5FD" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="SPITTING"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsSpitting}" Value="True">
-                                                            <Setter Property="Text" Value="SPITTING STOP"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </StackPanel>
+                                    <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="{DynamicResource Btn_Spitting}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSpitting}" Value="True">
+                                                        <Setter Property="Text" Value="{DynamicResource Btn_SpittingStop}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Button>
                                 <Button Grid.Row="2" Grid.Column="2"
                                         Style="{StaticResource MutedActionButtonStyle}" Background="#A16207">
-                                    <StackPanel>
-                                        <TextBlock Text="드레인"   FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="DRAIN"    FontSize="9"  Foreground="#FDE68A" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_Drain}" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Button>
 
                                 <!-- Row 3: P+ ON / P- ON (활성화 시 PMC 양압/음압 배관 flow 애니메이션) -->
@@ -922,21 +875,18 @@
                                             </Style.Triggers>
                                         </Style>
                                     </Button.Style>
-                                    <StackPanel>
-                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="양압 ON"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsPositivePressureEnabled}" Value="True">
-                                                            <Setter Property="Text" Value="양압 OFF"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                        <TextBlock Text="P+ ENABLE" FontSize="9"  Foreground="#FDBA74" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="{DynamicResource Btn_PosPressureOn}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsPositivePressureEnabled}" Value="True">
+                                                        <Setter Property="Text" Value="{DynamicResource Btn_PosPressureOff}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Button>
                                 <Button Grid.Row="4" Grid.Column="2"
                                         Command="{Binding ToggleVacuumCommand}"
@@ -951,21 +901,18 @@
                                             </Style.Triggers>
                                         </Style>
                                     </Button.Style>
-                                    <StackPanel>
-                                        <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Text" Value="음압 ON"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding IsVacuumEnabled}" Value="True">
-                                                            <Setter Property="Text" Value="음압 OFF"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                        <TextBlock Text="P- ENABLE" FontSize="9"  Foreground="#D8B4FE" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="{DynamicResource Btn_NegPressureOn}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsVacuumEnabled}" Value="True">
+                                                        <Setter Property="Text" Value="{DynamicResource Btn_NegPressureOff}"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </Button>
 
                                 <!-- Row 4: VALVE OPEN ALL / CLOSE ALL — H1-1~H8-2 (Y700~Y715) 일괄 -->
@@ -973,19 +920,13 @@
                                         Style="{StaticResource MutedActionButtonStyle}" Background="#15803D"
                                         Command="{Binding OpenAllHeadValvesCommand}"
                                         ToolTip="H1-1 ~ H8-2 (Y700~Y715) 16개 밸브 일괄 OPEN">
-                                    <StackPanel>
-                                        <TextBlock Text="전체 OPEN"  FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="ALL VALVES" FontSize="9"  Foreground="#86EFAC" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_AllOpen}" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Button>
                                 <Button Grid.Row="6" Grid.Column="2"
                                         Style="{StaticResource MutedActionButtonStyle}" Background="#475569"
                                         Command="{Binding CloseAllHeadValvesCommand}"
                                         ToolTip="H1-1 ~ H8-2 (Y700~Y715) 16개 밸브 일괄 CLOSE">
-                                    <StackPanel>
-                                        <TextBlock Text="전체 CLOSE" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="ALL VALVES" FontSize="9"  Foreground="#94A3B8" HorizontalAlignment="Center"/>
-                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource Btn_AllClose}" FontSize="11" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Button>
                             </Grid>
 

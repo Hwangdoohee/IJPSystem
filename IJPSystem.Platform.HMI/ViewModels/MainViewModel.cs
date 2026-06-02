@@ -467,7 +467,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             bool nextState = !vm.HardwareSignal;
             string onOff = nextState ? T("Msg_ForceOutputOn") : T("Msg_ForceOutputOff");
             string desc  = vm.Description ?? string.Empty;
-            if (MessageBox.Show(
+            if (Dialogs.Show(
                 T("Msg_ForceOutputConfirm", desc, onOff),
                 T("Msg_ForceOutputTitle"), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
@@ -495,7 +495,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 SelectedMenu    = "MAIN";
                 SelectedSubMenu = "AUTO_PRINT";
                 CollapseAllSubMenus();
-                MessageBox.Show(
+                Dialogs.Show(
                     "AUTO PRINT 실행 중에는 다른 화면으로 전환할 수 없습니다.\nPAUSE 또는 STOP 후 다시 시도하세요.",
                     "화면 전환 차단",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -510,7 +510,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 // 사용자가 원래 있던 화면으로 라디오 버튼 시각 복원
                 SelectedMenu    = _confirmedMenu;
                 SelectedSubMenu = _confirmedSubMenu;
-                MessageBox.Show(
+                Dialogs.Show(
                     "시퀀스 실행 중에는 다른 화면으로 전환할 수 없습니다.\n일시정지 또는 정지 후 다시 시도하세요.",
                     "화면 전환 차단",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -861,7 +861,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
 
             // Engineer/Admin 상태이면 로그아웃 동작 — Operator 로 전환
-            var result = MessageBox.Show(T("Msg_LogoutConfirm"), T("Msg_LogoutTitle"),
+            var result = Dialogs.Show(T("Msg_LogoutConfirm"), T("Msg_LogoutTitle"),
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
@@ -917,7 +917,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             // Admin 권한 전용 — 모든 진입 경로(메뉴/버튼)에서 차단
             if (CurrentUserRole != UserRole.Admin)
             {
-                MessageBox.Show(
+                Dialogs.Show(
                     "로그 화면은 관리자(Admin) 권한으로만 접근할 수 있습니다.",
                     "권한 부족",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -959,7 +959,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"로그 창을 여는 중 오류가 발생했습니다: {ex.Message}");
+                Dialogs.Show($"로그 창을 여는 중 오류가 발생했습니다: {ex.Message}");
                 return false;
             }
         }

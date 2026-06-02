@@ -84,10 +84,10 @@
                 <Grid Margin="25,0">
                     <!--<TextBlock Text="Contact Support: +82-10-XXXX-XXXX" Foreground="#475569" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Left"/>-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Button Content="ACK" Click="ACK_Click" Width="130" Height="50" Margin="0,0,15,0"
+                        <Button Content="{DynamicResource Btn_Ack}" Click="ACK_Click" Width="130" Height="50" Margin="0,0,15,0"
                                 FontSize="16" FontWeight="Bold" Foreground="White"
                                 Style="{StaticResource ModernActionButton}" Background="#334155" BorderBrush="#475569"/>
-                        <Button Content="RESET" Click="Reset_Click" Width="130" Height="50"
+                        <Button Content="{DynamicResource Btn_Reset}" Click="Reset_Click" Width="130" Height="50"
                                 FontSize="16" FontWeight="Bold" Foreground="White"
                                 Style="{StaticResource ModernActionButton}" Background="#991B1B" BorderBrush="#B91C1C"/>
                     </StackPanel>

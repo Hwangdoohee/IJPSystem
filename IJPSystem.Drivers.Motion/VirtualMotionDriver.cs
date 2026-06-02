@@ -24,7 +24,9 @@ namespace IJPSystem.Drivers.Motion
         public void Disconnect()
         {
             IsConnected = false;
-            Terminate();
+            _statusTimer?.Stop();
+            _statusTimer?.Dispose();
+            _statusTimer = null;
         }
 
         public void Initialize(List<AxisDeviceInfo> axisConfigs)
@@ -211,13 +213,6 @@ namespace IJPSystem.Drivers.Motion
 
             state.IsHomeDone = true;
             return true;
-        }
-
-        public void Terminate()
-        {
-            _statusTimer?.Stop();
-            _statusTimer?.Dispose();
-            _statusTimer = null;
         }
 
         public Task<bool> ResetAlarm(string axisNo) => Task.FromResult(true);

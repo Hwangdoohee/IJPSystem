@@ -8,11 +8,10 @@ namespace IJPSystem.Platform.Domain.Interfaces
     {
         bool IsConnected { get; }
 
-        // 1. 초기화 및 해제
+        // 1. 초기화 및 해제 — Disconnect 가 통신 종료 + 자원 해제 모두 수행
         bool Connect();
         void Disconnect();
         void Initialize(List<AxisDeviceInfo> axisConfigs);
-        void Terminate();
 
         // 2. 상태 조회 (Status)
         AxisStatus GetStatus(string axisNo);

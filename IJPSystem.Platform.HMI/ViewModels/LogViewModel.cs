@@ -1,6 +1,7 @@
 using IJPSystem.Platform.Common.Constants;
 using IJPSystem.Platform.Common.Utilities;
 using IJPSystem.Platform.Domain.Common;
+using IJPSystem.Platform.HMI.Common;
 using IJPSystem.Platform.Infrastructure.Repositories;
 using System;
 using System.Collections.ObjectModel;
@@ -176,7 +177,7 @@ namespace IJPSystem.Platform.HMI.ViewModels
         {
             if (Logs.Count == 0)
             {
-                MessageBox.Show("내보낼 로그가 없습니다.", "Export",
+                Dialogs.Show("내보낼 로그가 없습니다.", "Export",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
@@ -198,19 +199,19 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 }
                 File.WriteAllText(path, sb.ToString(), Encoding.UTF8);
 
-                MessageBox.Show($"내보냈습니다:\n{path}", "Export",
+                Dialogs.Show($"내보냈습니다:\n{path}", "Export",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"내보내기 실패:\n{ex.Message}", "Export",
+                Dialogs.Show($"내보내기 실패:\n{ex.Message}", "Export",
                                 MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void ClearAll()
         {
-            var result = MessageBox.Show(
+            var result = Dialogs.Show(
                 "DB 의 모든 시스템 로그를 삭제합니다.\n계속하시겠습니까?\n\n(.txt 일별 파일은 삭제되지 않습니다)",
                 "Clear System Log",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);

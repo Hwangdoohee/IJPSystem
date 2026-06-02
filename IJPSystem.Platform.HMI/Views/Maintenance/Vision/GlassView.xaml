@@ -354,7 +354,7 @@
                                     Background="#1D4ED8">
                                 <StackPanel>
                                     <TextBlock Text="📷" FontSize="18" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="CAPTURE" Foreground="White"
+                                    <TextBlock Text="{DynamicResource Btn_Capture}" Foreground="White"
                                                FontSize="11" FontWeight="Bold"
                                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                                 </StackPanel>

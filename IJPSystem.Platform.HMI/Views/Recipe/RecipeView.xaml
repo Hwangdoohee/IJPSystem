@@ -99,37 +99,37 @@
                 </ListBox>
                 
                 <UniformGrid Grid.Row="2" Rows="3" Columns="2" Margin="0,15,0,0">
-                    <Button Content="ADD"
+                    <Button Content="{DynamicResource Btn_Add}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding CreateRecipeCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
                             Height="38" Margin="0,0,2,2" Background="#059669"/>
 
-                    <Button Content="COPY"
+                    <Button Content="{DynamicResource Btn_Copy}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding CopyRecipeCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
                             Height="38" Margin="2,0,0,2" Background="#334155"/>
 
-                    <Button Content="EDIT"
+                    <Button Content="{DynamicResource Btn_Edit}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding RenameRecipeCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
                             Height="38" Margin="0,2,2,2" Background="#334155"/>
 
-                    <Button Content="DEL"
+                    <Button Content="{DynamicResource Btn_Delete}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding DeleteRecipeCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
                             Height="38" Margin="2,2,0,2" Background="#DC2626"/>
 
-                    <Button Content="▲  UP"
+                    <Button Content="{DynamicResource Btn_MoveUp}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding MoveRecipeUpCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
                             Height="38" Margin="0,2,2,0" Background="#334155"/>
 
-                    <Button Content="▼  DOWN"
+                    <Button Content="{DynamicResource Btn_MoveDown}"
                             FontSize="12" Padding="0" Width="110"
                             Command="{Binding MoveRecipeDownCommand}"
                             Style="{StaticResource MainDashboardButtonStyle}"
@@ -505,7 +505,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="✕" FontSize="14" Margin="0,0,6,0"
                                            VerticalAlignment="Center"/>
-                                <TextBlock Text="CANCEL EDIT" FontWeight="Bold"
+                                <TextBlock Text="{DynamicResource Btn_CancelEdit}" FontWeight="Bold"
                                            VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
@@ -517,7 +517,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="⇄" FontSize="14" Margin="0,0,6,0"
                                             VerticalAlignment="Center"/>
-                                <TextBlock Text="DIFF MODELS" FontWeight="Bold"
+                                <TextBlock Text="{DynamicResource Btn_DiffModels}" FontWeight="Bold"
                                             VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
@@ -528,7 +528,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="💾" FontSize="14" Margin="0,0,6,0"
                                             VerticalAlignment="Center"/>
-                                    <TextBlock Text="SAVE MODEL" FontWeight="Bold"
+                                    <TextBlock Text="{DynamicResource Btn_SaveModel}" FontWeight="Bold"
                                             VerticalAlignment="Center"/>
                                 </StackPanel>
                         </Button>
@@ -539,7 +539,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="🚀" FontSize="14" Margin="0,0,6,0"
                                             VerticalAlignment="Center"/>
-                                <TextBlock Text="APPLY TO MACHINE" FontWeight="Bold"
+                                <TextBlock Text="{DynamicResource Btn_ApplyToMachine}" FontWeight="Bold"
                                             VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
