@@ -27,13 +27,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
         public ICommand AllServoOffCommand { get; }
         public ICommand AllStopCommand     { get; }
 
-        private bool _useSelectedAxisForJog;
-        public bool UseSelectedAxisForJog
-        {
-            get => _useSelectedAxisForJog;
-            set => SetProperty(ref _useSelectedAxisForJog, value);
-        }
-
         private double _jogSpeedScale = 1.0;
         public double JogSpeedScale
         {

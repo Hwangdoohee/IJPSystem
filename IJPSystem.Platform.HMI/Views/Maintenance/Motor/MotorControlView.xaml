@@ -318,58 +318,13 @@
                                 <RadioButton Content="10µm"   IsChecked="{Binding SelectedAxis.IsUnit10um,       Mode=TwoWay}" GroupName="JogMode" Style="{StaticResource ModernModeButtonStyle}" Margin="4,0"/>
                                 <RadioButton Content="100µm"  IsChecked="{Binding SelectedAxis.IsUnit100um,      Mode=TwoWay}" GroupName="JogMode" Style="{StaticResource ModernModeButtonStyle}"/>
                             </StackPanel>
-                            <!-- 속도 배율 + SEL AXIS 모드 -->
-                            <Grid DockPanel.Dock="Top" Margin="0,0,0,8">
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <TextBlock Text="SPEED" Foreground="#64748B" FontSize="9" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,6,0"/>
-                                    <RadioButton Content="×0.25" IsChecked="{Binding IsJogSpeedSlow,   Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}"/>
-                                    <RadioButton Content="×1.0"  IsChecked="{Binding IsJogSpeedNormal, Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}" Margin="4,0"/>
-                                    <RadioButton Content="×2.0"  IsChecked="{Binding IsJogSpeedFast,   Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}"/>
-                                </StackPanel>
-                                <ToggleButton HorizontalAlignment="Right"
-                                          IsChecked="{Binding UseSelectedAxisForJog, Mode=TwoWay}"
-                                          Height="28" Padding="10,0" FontSize="10" FontWeight="SemiBold"
-                                          ToolTip="ON: 조그 패드의 모든 방향이 선택 축에 명령합니다">
-                                    <ToggleButton.Style>
-                                        <Style TargetType="ToggleButton">
-                                            <Setter Property="Content"         Value="PAD → SEL  ○"/>
-                                            <Setter Property="Foreground"      Value="#94A3B8"/>
-                                            <Setter Property="Background"      Value="#1F2937"/>
-                                            <Setter Property="BorderBrush"     Value="#334155"/>
-                                            <Setter Property="BorderThickness" Value="1"/>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="ToggleButton">
-                                                        <Border x:Name="bd"
-                                                            Background="{TemplateBinding Background}"
-                                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                                            CornerRadius="4" Padding="{TemplateBinding Padding}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                        </Border>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="bd" Property="Background" Value="#374151"/>
-                                                            </Trigger>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter TargetName="bd" Property="Background"      Value="#052E16"/>
-                                                                <Setter TargetName="bd" Property="BorderBrush"     Value="#22C55E"/>
-                                                                <Setter TargetName="bd" Property="BorderThickness" Value="1.5"/>
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsChecked" Value="True">
-                                                    <Setter Property="Content"    Value="PAD → SEL  ●"/>
-                                                    <Setter Property="Foreground" Value="#22C55E"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                </ToggleButton>
-                            </Grid>
+                            <!-- 속도 배율 -->
+                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,8">
+                                <TextBlock Text="SPEED" Foreground="#64748B" FontSize="9" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                <RadioButton Content="×0.25" IsChecked="{Binding IsJogSpeedSlow,   Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}"/>
+                                <RadioButton Content="×1.0"  IsChecked="{Binding IsJogSpeedNormal, Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}" Margin="4,0"/>
+                                <RadioButton Content="×2.0"  IsChecked="{Binding IsJogSpeedFast,   Mode=TwoWay}" GroupName="JogSpeed" Style="{StaticResource ModernModeButtonStyle}"/>
+                            </StackPanel>
                             <!-- 조그 패드 : X-Y D-패드 / Z / T  (Viewbox로 패널 너비에 맞게 스케일) -->
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">

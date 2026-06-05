@@ -44,7 +44,9 @@
       "Bash(git commit *)",
       "Bash(gh run *)",
       "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command ' *)",
-      "Bash(taskkill /F /IM IJPSystem.Platform.HMI.exe)"
+      "Bash(taskkill /F /IM IJPSystem.Platform.HMI.exe)",
+      "Bash(git remote *)",
+      "Bash(gh auth *)"
     ],
     "additionalDirectories": [
       "d:\\tmp",

@@ -59,20 +59,24 @@ namespace IJPSystem.Platform.HMI.Views
 
         // ── Jog 이벤트 ──────────────────────────────────────────────────────────
 
-        private void JogBackward_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (DataContext is not MotorTeachingViewModel vm) return;
-            var btn = sender as Button;
-            var axis = vm.AxisList.FirstOrDefault(a => a.Info.AxisNo == btn?.Tag?.ToString()) ?? vm.SelectedAxis;
-            if (axis != null) _ = axis.JogMoveAsync(false);
-        }
+        private void JogBackward_MouseDown(object sender, MouseButtonEventArgs e) => ExecuteJog(sender, false);
 
-        private void JogForward_MouseDown(object sender, MouseButtonEventArgs e)
+        private void JogForward_MouseDown(object sender, MouseButtonEventArgs e) => ExecuteJog(sender, true);
+
+        // 단위 라디오(Conti/10µm/100µm)는 SelectedAxis 의 JogUnit 만 갱신하므로
+        // Tag(X/Y/Z/T)로 다른 축을 지목한 경우 그 축의 JogUnit 은 기본값(=0, Conti)에 머무름.
+        // → 모드 라디오 의도가 반영되도록 SelectedAxis.JogUnit 을 대상 축에 복사한 뒤 실행.
+        private void ExecuteJog(object sender, bool isForward)
         {
             if (DataContext is not MotorTeachingViewModel vm) return;
             var btn = sender as Button;
             var axis = vm.AxisList.FirstOrDefault(a => a.Info.AxisNo == btn?.Tag?.ToString()) ?? vm.SelectedAxis;
-            if (axis != null) _ = axis.JogMoveAsync(true);
+            if (axis == null) return;
+
+            if (vm.SelectedAxis != null)
+                axis.JogUnit = vm.SelectedAxis.JogUnit;
+
+            _ = axis.JogMoveAsync(isForward);
         }
 
         private void Jog_MouseUp(object sender, MouseButtonEventArgs e)

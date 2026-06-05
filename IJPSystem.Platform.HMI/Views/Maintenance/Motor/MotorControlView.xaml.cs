@@ -15,16 +15,12 @@ namespace IJPSystem.Platform.HMI.Views
 
         /// <summary>
         /// Tag 기반으로 대상 축을 찾습니다.
-        /// UseSelectedAxisForJog=true → 항상 SelectedAxis
         /// Tag="SEL" 또는 Tag 없음  → SelectedAxis
         /// Tag="X"/"Y"/"Z"/"T"      → AxisList에서 이름에 해당 문자가 포함된 축
         /// </summary>
         private AxisViewModel? ResolveAxis(object sender)
         {
             if (DataContext is not MotorControlViewModel vm) return null;
-
-            // SEL AXIS 모드: 모든 패드 버튼이 선택 축으로 라우팅
-            if (vm.UseSelectedAxisForJog) return vm.SelectedAxis;
 
             string? tag = (sender as Button)?.Tag?.ToString();
 
