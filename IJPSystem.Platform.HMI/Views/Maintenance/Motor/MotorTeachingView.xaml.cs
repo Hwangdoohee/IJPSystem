@@ -33,28 +33,15 @@ namespace IJPSystem.Platform.HMI.Views
             this.Unloaded += MotorTeachingView_Unloaded;
 
             // 사용자 액션만 캐치 (프로그래밍 변경/자동 포커스 이동에는 무반응)
-            PointGrid.AddHandler(CheckBox.ClickEvent,      new RoutedEventHandler(OnTeachingClick));
-            PointGrid.AddHandler(TextBox.TextChangedEvent, new TextChangedEventHandler(OnTeachingTextChanged));
+            PointGrid.AddHandler(CheckBox.ClickEvent, new RoutedEventHandler(OnTeachingClick));
         }
 
         private void OnTeachingClick(object sender, RoutedEventArgs e)
         {
             // CheckBox.Click은 사용자 클릭/Space 키에만 발동 (IsChecked 프로그래밍 변경에는 안 발동)
-            if (e.OriginalSource is CheckBox cb && DataContext is MotorTeachingViewModel vm)
-            {
-                vm.MarkDirty();
-                // Dictionary indexer 바인딩은 자동 통지가 없어 같은 행의 다른 셀이 stale 됨
-                if (cb.DataContext is TeachingPoint tp)
-                    tp.RefreshAxisUsed();
-            }
-        }
-
-        private void OnTeachingTextChanged(object sender, TextChangedEventArgs e)
-        {
-            // 키보드 포커스가 해당 TextBox 안에 있을 때만 = 사용자 직접 입력
-            if (e.OriginalSource is TextBox tb && tb.IsKeyboardFocusWithin &&
-                DataContext is MotorTeachingViewModel vm)
-                vm.MarkDirty();
+            // Dictionary indexer 바인딩은 자동 통지가 없어 같은 행의 다른 셀이 stale 됨
+            if (e.OriginalSource is CheckBox cb && cb.DataContext is TeachingPoint tp)
+                tp.RefreshAxisUsed();
         }
 
         // ── Jog 이벤트 ──────────────────────────────────────────────────────────

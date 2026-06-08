@@ -321,6 +321,10 @@ namespace IJPSystem.Platform.HMI.ViewModels
                 }
                 trans.Commit();
 
+                // 레시피 화면도 같은 RecipeDetails_Position을 별도 메모리 컬렉션으로 들고 있으므로
+                // 저장 직후 DB 최신값으로 다시 로드해 두 화면의 티칭 값을 일치시킴
+                _mainVM.RecipeVM.ReloadTeachingPoints();
+
                 _mainVM.AddLog($"[MOTION] Teach [{name}] 저장 완료", LogLevel.Success);
                 //Dialogs.Show("저장 완료");
             }
@@ -353,9 +357,6 @@ namespace IJPSystem.Platform.HMI.ViewModels
             _selectedAxis.TargetPosition = targetPos;
             await _selectedAxis.MoveAsync();
         }
-
-        /// <summary>티칭 데이터 변경을 RecipeVM의 IsDirty로 마킹 — Save 안내 표시용</summary>
-        public void MarkDirty() => _mainVM.RecipeVM.IsDirty = true;
 
         /// <summary>View가 Unloaded될 때 호출 — 이벤트 구독 전체 해제</summary>
         public void Cleanup()

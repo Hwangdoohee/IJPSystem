@@ -522,6 +522,9 @@ namespace IJPSystem.Platform.HMI.ViewModels
             }
         }
 
+        /// <summary>위치 티칭 화면에서 포인트를 저장한 직후 호출 — 레시피 화면의 티칭 그리드를 DB 최신값으로 동기화</summary>
+        public void ReloadTeachingPoints() => LoadTeachingPoints(SelectedRecipeName);
+
         private void LoadTeachingPoints(string recipeName)
         {
             if (string.IsNullOrEmpty(recipeName))
