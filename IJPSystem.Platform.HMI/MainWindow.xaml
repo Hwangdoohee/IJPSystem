@@ -160,9 +160,6 @@
                 <Button Content="{DynamicResource SubMenu_Initialize}"
                         Style="{StaticResource MainSubButtonStyle}"
                         Command="{Binding MoveWindowCommand}" CommandParameter="INITIALIZE"/>
-                <!-- 시스템 종료 — 위 버튼(Initialize) 아래에 간극을 두고 배치, MAIN 메뉴에서만 표시 -->
-                <!-- 좌우 마진 8 은 다른 서브버튼과 동일(크기 유지), 위쪽 16 으로 간극만 부여 -->
-                <!-- 권한(Operator) 또는 운전중이면 ExitCommand.CanExecute=false → 자동 비활성 -->
                 <Button Style="{StaticResource MainSubButtonStyle}"
                         Background="#C0392B" Margin="8,16,8,4"
                         Command="{Binding ExitCommand}"
