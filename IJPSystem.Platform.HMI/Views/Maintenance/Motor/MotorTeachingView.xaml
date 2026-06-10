@@ -341,7 +341,27 @@
             </Border>
 
             <Border Grid.Row="3" Background="#161E2E" CornerRadius="12" Padding="15" BorderBrush="#2D3748" BorderThickness="1">
-                <Grid>
+                <StackPanel>
+
+                    <!-- GET/MOVE 대상 티칭 위치 (미선택 시 '미선택' 표시) -->
+                    <StackPanel Orientation="Horizontal" Margin="2,0,0,12" VerticalAlignment="Center">
+                        <TextBlock Text="TARGET POINT : " Foreground="#64748B" FontSize="11" FontWeight="Bold" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="18" FontWeight="ExtraBold" VerticalAlignment="Center"
+                                   Text="{Binding SelectedTeachingPoint.PointName, FallbackValue=미선택, TargetNullValue=미선택}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="#FCD34D"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedTeachingPoint}" Value="{x:Null}">
+                                            <Setter Property="Foreground" Value="#64748B"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="1.2*"/>
@@ -369,7 +389,8 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                </Grid>
+                    </Grid>
+                </StackPanel>
             </Border>
         </Grid>
         </ScrollViewer>
